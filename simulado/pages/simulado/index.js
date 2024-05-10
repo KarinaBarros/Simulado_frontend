@@ -54,8 +54,8 @@ export default function Simulado() {
             <p> {pergunta.numero}- {pergunta.pergunta}</p>
             <div className="options">
               {pergunta.opcoes.map((opcao, opcaoIndex) => (
-                <label key={opcaoIndex}>
-                  <input type="radio" value={opcao} name={pergunta.numero} required/> {opcao}
+                <label key={opcaoIndex} className="option-label">
+                  <input type="radio"  className="option-radio" value={opcao} name={pergunta.numero} required/> {opcao}
                 </label>
               ))}
             </div>
