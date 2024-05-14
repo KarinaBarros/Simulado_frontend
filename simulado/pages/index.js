@@ -16,7 +16,7 @@ export default function Home() {
       
       // Armazena os dados no localStorage após a resposta da API ser recebida
       localStorage.setItem('tema', tema);
-      localStorage.setItem('data', JSON.stringify(response.data));
+      
 
       router.push({
         pathname: '/simulado',
@@ -24,7 +24,7 @@ export default function Home() {
     } catch (error) {
       console.error('Erro ao enviar os dados:', error);
       localStorage.removeItem('tema');
-      localStorage.removeItem('data');
+      
       
       // Incrementa a contagem de erros
       setErrorCount(prevCount => prevCount + 1);

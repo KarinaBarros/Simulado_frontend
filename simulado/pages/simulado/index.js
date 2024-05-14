@@ -1,60 +1,63 @@
 import { useEffect, useState } from "react";
 import { useRouter } from 'next/router';
+import axios from "axios";
 import '../../app/globals.css';
 import './simulado.css';
 
-class Pergunta {
-  constructor(pergunta, opcoes, numero) {
-    this.pergunta = pergunta;
-    this.opcoes = opcoes;
-    this.numero = numero;
-  }
-}
-
 export default function Simulado() {
   const router = useRouter();
-  const [tema, setTema] = useState('');
-  const [perguntas, setPerguntas] = useState([]);
+  const tema= localStorage.getItem('tema');
+  const [simulado, setSimulado] = useState([]);
 
-  useEffect(() => {
-    // Recuperando os dados do localStorage
-    const temaFromStorage = localStorage.getItem('tema');
-    const dataFromStorage = localStorage.getItem('data');
+    useEffect(() => {
+        async function fetchSimulado() {
+            try {
+                const response = await axios.get('http://localhost:3000/simulado');
+                console.log('Simulado:', response.data);
+                setSimulado(response.data);
+            } catch (error) {
+                console.error('Erro ao buscar o gabarito:', error);
+                // Trate os erros conforme necessário
+            }
+        }
+        fetchSimulado();
+    }, []);
 
-    console.log("Tema from localStorage:", temaFromStorage);
-    console.log("Data from localStorage:", dataFromStorage);
-
-    if (temaFromStorage && dataFromStorage) {
-      setTema(temaFromStorage);
-      const parsedData = JSON.parse(dataFromStorage);
-      console.log("Parsed data:", parsedData);
-      const perguntasArray = parsedData.map(item => {
-        return new Pergunta(item.pergunta, item.opcoes,  item.numero);
-      });
-      console.log("Perguntas array:", perguntasArray);
-      setPerguntas(perguntasArray);
-    }
-  }, []);
-
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Implemente o envio das respostas aqui
+    try {
+      const formData = simulado.map(pergunta => {
+        const respostaSelecionada = document.querySelector(`input[name="${pergunta.numero}"]:checked`);
+        return respostaSelecionada ? respostaSelecionada.value : null;
+      }).filter(resposta => resposta !== null);
+      const response = await axios.post('http://localhost:3000/respostas', formData);
+      
+      
+      
+      router.push({
+        pathname: '/gabarito',
+      });
+    } catch (error) {
+      console.error('Erro ao enviar os dados:', error);
       localStorage.removeItem('tema');
-      localStorage.removeItem('data');
+      
+    }
   };
+  
+  
 
   return (
     <div>
       <h2>Simulado</h2>
-      <p>Tema: {tema}</p>
+      <p>{tema}</p>
       <form onSubmit={handleSubmit}>
         <br/><br/>
-        {perguntas.map((pergunta, index) => (
+        {simulado.map((pergunta, index) => (
           <div key={index} className="questions">
             <p> {pergunta.numero}- {pergunta.pergunta}</p>
             <div className="options">
               {pergunta.opcoes.map((opcao, opcaoIndex) => (
-                <label key={opcaoIndex} className="option-label">
+                <label key={opcaoIndex} className='option-label' >
                   <input type="radio"  className="option-radio" value={opcao} name={pergunta.numero} required/> {opcao}
                 </label>
               ))}
