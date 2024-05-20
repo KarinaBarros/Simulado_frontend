@@ -4,6 +4,7 @@ import '../../app/globals.css'
 import './gabarito.css';
 
 export default function Gabarito() {
+    const [nota, setNota] = useState();
     const [gabarito, setGabarito] = useState([]);
     const tema = localStorage.getItem('tema');
 
@@ -11,20 +12,25 @@ export default function Gabarito() {
         async function fetchGabarito() {
             try {
                 const response = await axios.get('http://localhost:3000/gabarito');
-                console.log('Gabarito:', response.data);
-                setGabarito(response.data);
+                console.log('Gabarito:', response.data.respostas);
+                console.log('Nota:', response.data.nota);
+                setNota(response.data.nota);
+                setGabarito(response.data.respostas);
             } catch (error) {
                 console.error('Erro ao buscar o gabarito:', error);
                 // Trate os erros conforme necessário
+                localStorage.removeItem('tema');
             }
         }
         fetchGabarito();
+        localStorage.removeItem('tema');
     }, []);
 
     return (
         <div>
             <h2>Gabarito</h2>
-            <p>{tema}</p>
+            <p>Tema: {tema}</p>
+            <p>Nota: {nota} de 10</p>
             <br/>
             
                 {gabarito.map((pergunta, index) => (
