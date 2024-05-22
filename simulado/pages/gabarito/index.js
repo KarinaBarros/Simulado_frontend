@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import '../../app/globals.css'
+import '../../app/globals.css';
 import './gabarito.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes, faCheck } from '@fortawesome/free-solid-svg-icons';
+
 
 export default function Gabarito() {
     const [nota, setNota] = useState();
     const [gabarito, setGabarito] = useState([]);
     const tema = localStorage.getItem('tema');
+
 
     useEffect(() => {
         async function fetchGabarito() {
@@ -23,20 +27,25 @@ export default function Gabarito() {
             }
         }
         fetchGabarito();
-        localStorage.removeItem('tema');
+        
     }, []);
 
     return (
-        <div>
-            <h2>Gabarito</h2>
-            <p>Tema: {tema}</p>
-            <p>Nota: {nota} de 10</p>
-            <br/>
+        <div >
+            <div className='gabarito'>
+                <h2>Gabarito</h2>
+                <p> {tema}</p>
+                <p className={nota < 7 ? 'wrong-answer' : 'correct-answer'}>Nota: {nota} de 10</p>
+            </div>
             
                 {gabarito.map((pergunta, index) => (
-                    <div key={index}>
+                    <div key={index} className='questoes'>
                         <strong>{pergunta.numero}.</strong> {pergunta.pergunta}
-                        <p>{pergunta.correcao}</p>
+                        {pergunta.correcao === 'certo' ? (
+                        <FontAwesomeIcon icon={faCheck} className='certo'/>
+                        ) : (
+                        <FontAwesomeIcon icon={faTimes} className='errado'/>
+                        )}
                         {pergunta.opcoes.map((opcao, opcaoIndex) => (
                             <p key={opcaoIndex} className={pergunta.resposta === String.fromCharCode(97 + opcaoIndex) ? 'correct-answer' : (pergunta.usuario === String.fromCharCode(97 + opcaoIndex) ? 'wrong-answer' : '')}>{opcao}</p>
                         ))}

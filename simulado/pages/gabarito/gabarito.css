@@ -1,3 +1,19 @@
+.gabarito{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.gabarito p, h2{
+    font-size: 40px;
+}
+
+.questoes{
+    padding: 10px 20px;
+}
+
 .wrong-answer{
     color: red;
 }
@@ -7,3 +23,16 @@
 
 }
 
+.errado{
+    color: red;
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: -5px;
+}
+
+.certo{
+    color: rgb(1, 253, 1);
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: -5px;
+}

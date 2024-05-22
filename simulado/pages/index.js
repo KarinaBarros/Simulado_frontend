@@ -12,6 +12,7 @@ export default function Home() {
   const router = useRouter();
 
   const handleSubmit = async (event) => {
+    localStorage.removeItem('tema');
     event.preventDefault();
     setIsLoading(true); // Define isLoading como true para mostrar a animação de carregamento
     
