@@ -32,10 +32,13 @@ export default function Gabarito() {
 
     return (
         <div >
-            <div className='gabarito'>
-                <h2>Gabarito</h2>
-                <p> {tema}</p>
-                <p className={nota < 7 ? 'wrong-answer' : 'correct-answer'}>Nota: {nota} de 10</p>
+            <div className='header'>
+                <img className='img-ia' src={nota<6 ? 'negativo.png' : 'positivo.png'} alt='imagem de inteligência artificial'/>
+                <div className='text-header'>
+                    <h2>Gabarito</h2>
+                    <p> {tema}</p>
+                    <p className={nota < 6 ? 'wrong-answer' : 'correct-answer'}>Nota: {nota} de 10</p>
+                </div>
             </div>
             
                 {gabarito.map((pergunta, index) => (
@@ -46,9 +49,11 @@ export default function Gabarito() {
                         ) : (
                         <FontAwesomeIcon icon={faTimes} className='errado'/>
                         )}
+                         <br/><br/>
                         {pergunta.opcoes.map((opcao, opcaoIndex) => (
                             <p key={opcaoIndex} className={pergunta.resposta === String.fromCharCode(97 + opcaoIndex) ? 'correct-answer' : (pergunta.usuario === String.fromCharCode(97 + opcaoIndex) ? 'wrong-answer' : '')}>{opcao}</p>
                         ))}
+                        <br/><br/>
                         <p>Explicação: {pergunta.explicacao}</p>
                         <br/>
                     </div>

@@ -48,13 +48,19 @@ export default function Simulado() {
 
   return (
     <div>
-      <h2>Simulado</h2>
-      <p>{tema}</p>
+      <div className="header">
+        <img src="IA.png" className="img-IA" alt="robozinho de inteligência artificial"/>
+        <div className="text-header">
+          <h2>Simulado</h2>
+          <p>{tema}</p>
+        </div>
+      </div>
       <form onSubmit={handleSubmit}>
         <br/><br/>
         {simulado.map((pergunta, index) => (
           <div key={index} className="questions">
             <p> {pergunta.numero}- {pergunta.pergunta}</p>
+            <br/>
             <div className="options">
               {pergunta.opcoes.map((opcao, opcaoIndex) => (
                 <label key={opcaoIndex} className='option-label' >
@@ -65,7 +71,9 @@ export default function Simulado() {
             <br/>
           </div>
         ))}
-        <button type="submit">Enviar Respostas</button>
+        <div className="button">
+          <button type="submit" className="enviar">Enviar Respostas</button>
+        </div>
       </form>
     </div>
   );
