@@ -1,55 +1,48 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
-import './principal.css'
+import './principal.css';
 
 export default function Home() {
-
   const [tema, setTema] = useState('');
   const [nivel, setNivel] = useState('');
-  const [isLoading, setIsLoading] = useState(false); // Estado para controlar o carregamento
-  const [errorCount, setErrorCount] = useState(0); // Estado para contar o número de erros
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorCount, setErrorCount] = useState(0);
+  const [formVisible, setFormVisible] = useState(true); // Controla a visibilidade do formulário
   const router = useRouter();
 
   const handleSubmit = async (event) => {
     localStorage.removeItem('tema');
     event.preventDefault();
-    setIsLoading(true); // Define isLoading como true para mostrar a animação de carregamento
-    
+    setIsLoading(true);
+
     try {
       const response = await axios.post('http://localhost:3000/api', { tema, nivel });
       
-      // Armazena os dados no localStorage após a resposta da API ser recebida
       localStorage.setItem('tema', tema);
-      
-
-      router.push({
-        pathname: '/simulado',
-      });
     } catch (error) {
       console.error('Erro ao enviar os dados:', error);
       localStorage.removeItem('tema');
       
-      
-      // Incrementa a contagem de erros
       setErrorCount(prevCount => prevCount + 1);
       
-      // Exibe uma mensagem de erro ao usuário usando alert() se a contagem de erros for menor que 3
       if (errorCount < 3) {
         alert('Ocorreu um erro ao enviar os dados. Por favor reformule seu tema ou tente novamente.');
       } else {
-        // Se a contagem de erros for igual a 3, exibe um alerta adicional
         alert('Erro no servidor, reformule sua pergunta ou tente novamente mais tarde!');
       }
     } finally {
-      setIsLoading(false); // Define isLoading como false após o envio ou erro
+      setIsLoading(false);
+      setFormVisible(false); // Esconde o formulário após o envio
+      router.push({
+        pathname: '/simulado',
+      });
     }
   };
 
   return (
     <div>
-      {/* Renderiza o formulário apenas se isLoading for falso */}
-      {!isLoading && (
+      {formVisible && !isLoading && ( // Mostra o formulário se formVisible for verdadeiro e não estiver carregando
         <form onSubmit={handleSubmit}>
           <label>
             Tema:
@@ -69,10 +62,10 @@ export default function Home() {
         </form>
       )}
 
-      {/* Renderiza a animação de carregamento apenas se isLoading for verdadeiro */}
       {isLoading && <div className="loading"></div>}
     </div>
   );
 }
+
 
 
