@@ -6,7 +6,6 @@ import '../../app/globals.css';
 import './gabarito.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faCheck } from '@fortawesome/free-solid-svg-icons';
-import html2pdf from 'html2pdf.js';
 import useAuthentication from "@/components/useAuthentication";
 import Logout from '@/components/logout/logout';
 import getConfig from 'next/config';
@@ -54,7 +53,7 @@ export default function Gabarito() {
 
     function Salvar(){
         const element = document.getElementById('gabarito'); // Obtém o elemento a ser convertido para PDF
-        html2pdf().from(element).save(); // Converte o elemento para PDF e o salva
+         // Converte o elemento para PDF e o salva
     }
 
     return (
