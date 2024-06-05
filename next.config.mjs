@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     publicRuntimeConfig: {
-        serverUrl: 'http://localhost:3000'
+        serverUrl: process.env.API_URL
       }
 };
 
