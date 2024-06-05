@@ -14,7 +14,13 @@ export default function Gabarito() {
     useAuthentication();
     const [nota, setNota] = useState();
     const [gabarito, setGabarito] = useState([]);
-    const tema = localStorage.getItem('tema');
+    const [tema, setTema] = useState(null);
+
+    useEffect(() => {
+        const tema = localStorage.getItem('tema');
+        setTema(tema ? tema : '');
+    }, []);
+
     const router = useRouter();
     const { publicRuntimeConfig } = getConfig();
 

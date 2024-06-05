@@ -10,9 +10,14 @@ import getConfig from "next/config";
 export default function Simulado() {
   useAuthentication();
   const router = useRouter();
-  const tema= localStorage.getItem('tema');
   const [simulado, setSimulado] = useState([]);
+  const [tema, setTema] = useState(null);
   const { publicRuntimeConfig } = getConfig();
+
+  useEffect(() => {
+      const tema = localStorage.getItem('tema');
+      setTema(tema ? tema : '');
+  }, []);
 
     useEffect(() => {
         async function fetchSimulado() {
