@@ -18,6 +18,7 @@ export default function Simulado() {
       const tema = localStorage.getItem('tema');
       setTema(tema ? tema : '');
   }, []);
+  //
 
     useEffect(() => {
         async function fetchSimulado() {
