@@ -72,3 +72,9 @@
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2), 0px -5px 10px rgba(0, 0, 0, 0.2);
     margin: 10px 10px 30px 0;
 }
+
+pre{
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow: hidden;
+}
