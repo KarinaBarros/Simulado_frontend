@@ -88,7 +88,7 @@ export default function Gabarito() {
                             <p key={opcaoIndex} className={pergunta.resposta === String.fromCharCode(97 + opcaoIndex) ? 'correct-answer' : (pergunta.usuario === String.fromCharCode(97 + opcaoIndex) ? 'wrong-answer' : '')}>{opcao}</p>
                         ))}
                         <br/><br/>
-                        <p>Explicação: {pergunta.explicacao}</p>
+                        <pre>Explicação: {pergunta.explicacao}</pre>
                         <br/>
                     </div>
                 ))}
