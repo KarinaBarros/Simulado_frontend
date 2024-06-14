@@ -9,6 +9,8 @@ import { faTimes, faCheck } from '@fortawesome/free-solid-svg-icons';
 import useAuthentication from "@/components/useAuthentication";
 import Logout from '@/components/logout/logout';
 import getConfig from 'next/config';
+import jsPDF from 'jspdf'; 
+import 'jspdf-autotable';
 
 export default function Gabarito() {
     useAuthentication();
@@ -57,26 +59,49 @@ export default function Gabarito() {
         router.push('/');
     }
 
-    function Salvar(){
-        const element = document.getElementById('gabarito'); // Obtém o elemento a ser convertido para PDF
-         // Converte o elemento para PDF e o salva
-    }
+    async function Salvar() {
+        const notaElement = document.getElementById('nota');
+        const gabaritoElement = document.getElementById('gabarito');
 
+        // Criar uma div temporária para combinar os conteúdos
+        const tempElement = document.createElement('div');
+        tempElement.appendChild(notaElement.cloneNode(true));
+        tempElement.appendChild(gabaritoElement.cloneNode(true));
+
+        const doc = new jsPDF('p', 'pt', 'a4');
+
+        await doc.html(tempElement, {
+            callback: function (doc) {
+                doc.save('gabarito.pdf');
+            },
+            margin: [10, 10, 10, 10], // Reduzir as margens
+            x: 10,
+            y: 10,
+            width: 550, // Ajustar a largura
+            windowWidth: 700, // Ajustar a largura da janela
+            html2canvas: {
+                scale: 0.5, // Diminuir a escala
+                useCORS: true, // para evitar problemas de carregamento de imagens
+            },
+            pagebreak: { avoid: '.questoes' }, // Evitar quebra de página dentro das perguntas
+        });
+    }
     return (
         <div>
             <Logout/>
-            <div id='gabarito'>
+            <div>
                 <div className='header'>
                     <img className='img-ia' src={nota < 6 ? 'negativo.png' : 'positivo.png'} alt='imagem de inteligência artificial'/>
-                    <div className='text-header'>
+                    <div className='text-header' id='nota'>
                         <h2>Gabarito</h2>
                         <p> {tema}</p>
                         <p className={nota < 6 ? 'wrong-answer' : 'correct-answer'}>Nota: {nota} de 10</p>
                     </div>
                 </div>
                 
+                <div id='gabarito'>
                 {gabarito.map((pergunta, index) => (
-                    <div key={index} className='questoes'>
+                    <div key={index} className='questoes' >
                         <strong>{pergunta.numero}.</strong> {pergunta.pergunta}
                         {pergunta.correcao === 'certo' ? (
                             <FontAwesomeIcon icon={faCheck} className='certo'/>
@@ -92,6 +117,7 @@ export default function Gabarito() {
                         <br/>
                     </div>
                 ))}
+                </div>
             </div>
             
             <div className='botoes'>

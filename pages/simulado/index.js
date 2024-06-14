@@ -8,6 +8,7 @@ import Logout from "@/components/logout/logout";
 import getConfig from "next/config";
 
 export default function Simulado() {
+  const [loading, setLoading] = useState(false);
   useAuthentication();
   const router = useRouter();
   const [simulado, setSimulado] = useState([]);
@@ -18,10 +19,11 @@ export default function Simulado() {
       const tema = localStorage.getItem('tema');
       setTema(tema ? tema : '');
   }, []);
-  //
+  //https://simulado-frontend.vercel.app/
 
     useEffect(() => {
         async function fetchSimulado() {
+          setLoading(true);
             try {
                 const response = await axios.get(`${publicRuntimeConfig.serverUrl}/simulado`);
                 console.log('Simulado:', response.data);
@@ -42,16 +44,14 @@ export default function Simulado() {
         return respostaSelecionada ? respostaSelecionada.value : null;
       }).filter(resposta => resposta !== null);
       const response = await axios.post(`${publicRuntimeConfig.serverUrl}/respostas`, formData);
-      
-      
-      
       router.push({
         pathname: '/gabarito',
       });
     } catch (error) {
       console.error('Erro ao enviar os dados:', error);
-      localStorage.removeItem('tema');
-      
+      localStorage.removeItem('tema');   
+    } finally {
+      setLoading(false);
     }
   };
   
@@ -84,7 +84,7 @@ export default function Simulado() {
           </div>
         ))}
         <div className="button">
-          <button type="submit" className="enviar">Enviar Respostas</button>
+          <button type="submit" className="enviar">{loading ? 'Enviar respostas' : ' '}</button>
         </div>
       </form>
     </div>

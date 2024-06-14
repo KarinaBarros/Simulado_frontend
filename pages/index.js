@@ -58,6 +58,7 @@ export default function Home() {
           <label>
             Nível:
             <select value={nivel} onChange={(e) => setNivel(e.target.value)} required>
+              <option></option>
               <option value="opcao1">Ensino fundamental</option>
               <option value="opcao2">Ensino médio</option>
               <option value="opcao3">Ensino técnico</option>
