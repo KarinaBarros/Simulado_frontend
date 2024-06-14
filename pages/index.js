@@ -26,6 +26,10 @@ export default function Home() {
       const response = await axios.post(`${publicRuntimeConfig.serverUrl}/api`, { tema, nivel });
       
       localStorage.setItem('tema', tema);
+      router.push({
+        pathname: '/simulado',
+      });
+      setFormVisible(false);
     } catch (error) {
       console.error('Erro ao enviar os dados:', error);
       localStorage.removeItem('tema');
@@ -38,11 +42,7 @@ export default function Home() {
         alert('Erro no servidor, reformule sua pergunta ou tente novamente mais tarde!');
       }
     } finally {
-      setIsLoading(false);
-      setFormVisible(false); // Esconde o formulário após o envio
-      router.push({
-        pathname: '/simulado',
-      });
+      setIsLoading(false); // Esconde o formulário após o envio
     }
   };
 
@@ -53,7 +53,7 @@ export default function Home() {
         <form onSubmit={handleSubmit}>
           <label>
             Tema:
-            <input type="text" value={tema} onChange={(e) => setTema(e.target.value)} required />
+            <input type="text" value={tema} onChange={(e) => setTema(e.target.value)} maxLength={50} required />
           </label>
           <label>
             Nível:

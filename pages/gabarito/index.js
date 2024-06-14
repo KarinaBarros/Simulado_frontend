@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
@@ -102,7 +101,7 @@ export default function Gabarito() {
                 <div id='gabarito'>
                 {gabarito.map((pergunta, index) => (
                     <div key={index} className='questoes' >
-                        <strong>{pergunta.numero}.</strong> {pergunta.pergunta}
+                        {pergunta.numero}- {pergunta.pergunta}
                         {pergunta.correcao === 'certo' ? (
                             <FontAwesomeIcon icon={faCheck} className='certo'/>
                         ) : (
