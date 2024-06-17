@@ -6,8 +6,7 @@ import './principal.css';
 import Logout from "@/components/logout/logout";
 import useAuthentication from "@/components/useAuthentication";
 import getConfig from 'next/config';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagic, faMagicWandSparkles, faSprayCanSparkles, faStar, faStarHalfStroke, faWandMagicSparkles} from '@fortawesome/free-solid-svg-icons';
+import Image from 'next/image';
 
 export default function Home() {
   useAuthentication();
@@ -62,10 +61,10 @@ export default function Home() {
           {formVisible && (
             <form onSubmit={handleSubmit} className='form_home'> 
               <div className='container_logo'>
-                <img className='logo' src='/logo.png' alt='logotipo'></img>
+                <img className='logo' src='/logo.png' alt='logotipo'/>
                 <p>IA Simulado</p>
               </div>
-              <p className='descricao'> Utilize nossos campos de entrada para selecionar um tema específico, alinhado ao conteúdo que você está estudando, ao invés de escolher uma matéria ampla. Essa abordagem permite a geração de simulados mais direcionados e relevantes, facilitando o aprofundamento nos tópicos exatos que você precisa dominar. Além disso, escolha o nível de escolaridade correspondente ao seu estágio de aprendizado para garantir que os exercícios sejam apropriados ao seu conhecimento atual. Ao clicar em "Gerar", você será redirecionado para uma página com um simulado gerado automaticamente, proporcionando uma prática focada e eficaz.</p>
+              <p className='descricao'> Utilize nossos campos de entrada para selecionar um tema específico, alinhado ao conteúdo que você está estudando, ao invés de escolher uma matéria ampla. Essa abordagem permite a geração de simulados mais direcionados e relevantes, facilitando o aprofundamento nos tópicos exatos que você precisa dominar. Além disso, escolha o nível de escolaridade correspondente ao seu estágio de aprendizado para garantir que os exercícios sejam apropriados ao seu conhecimento atual. Ao clicar em &quot;Gerar&quot;, você será redirecionado para uma página com um simulado gerado automaticamente, proporcionando uma prática focada e eficaz.</p>
               <label className='label_home'>
                 Tema:
                 <input className='input_home' type="text" value={tema} onChange={(e) => setTema(e.target.value)} maxLength={50} required />
