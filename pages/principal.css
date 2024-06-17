@@ -153,3 +153,12 @@
   }
 }
 
+@media (max-width:768px){
+  .container_logo{
+    margin-bottom: 0;
+    font-size: 30px;
+  }
+  .descricao{
+    font-size: 18px;
+  }
+}
