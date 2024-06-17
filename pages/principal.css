@@ -1,15 +1,155 @@
-/* Adicione estas classes para estilizar a animação de carregamento */
+.home{
+  width: 100%;
+  background-image: url('/circuito.jpg');
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+}
+
+.container{
+  display: flex;
+  margin: auto;
+  width: 1070px;
+  height: 75%;
+  align-items: center;
+  justify-content: center;
+  padding: 0 30px;
+  border-radius: 30px;
+  border: 1px solid #ccc; 
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2), 0px -5px 10px rgba(0, 0, 0, 0.2); 
+  background-color: white;
+}
+
+.descricao{
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+  text-indent: 30px;
+  color: #4f5050;
+}
+
+.container_imagem{
+  width: 45%;
+  background: radial-gradient(circle, #f0f0f0, #c0c0c0);
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+.ia_principal{
+ width: auto;
+}
+
+.form_home{
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  padding-right: 30px;
+  gap: 20px
+}
+
+.container_logo{
+  display: flex;
+  margin: auto;
+  align-items: center;
+  gap: 10px;
+  font-family: 'segoe ui';
+  font-size: 40px;
+  font-weight: 800;
+}
+
+.logo{
+  width: 80px;
+}
+
+.input_home{
+  width: 100%;
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+  padding: 5px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  border: 2px solid #0500d1;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.input_home::-ms-expand {
+  display: none;
+}
+
+.label_home{
+  font-family: 'segoe ui';
+  font-size: 20px;
+}
+
+.button_home{
+  background-color: #0500d1;
+  border: none;
+  font-family: 'segoe ui';
+  font-size: 20px;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  line-height: 40px;
+  cursor: pointer;
+}
+
+.brilho{
+  width: 40px;
+  margin-bottom: -13px;
+  margin-left: 20px;
+  
+}
+
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
   
-  .loading {
-    border: 16px solid #f3f3f3; /* Cinza claro */
-    border-top: 16px solid #3498db; /* Azul */
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    animation: spin 2s linear infinite; /* Aplica a animação spin */
-  }
+.container_loading{
+  text-align: center;
+  margin: auto;
+}
+
+.container_loading p{
+  margin-bottom: 30px;
+  font-size: 30px;
+}
+
+
+
+.loading {
+  border: 40px solid #f3f3f3; 
+  border-top: 40px solid #3498db; 
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  animation: spin 2s linear infinite;
+  margin: auto; 
+}
   
+
+@media (max-width:1024px){
+  .container_imagem{
+    display: none;
+  }
+  .container{
+    width: 90%;
+    height: 90%;
+    padding: 0;
+  }
+  .form_home{
+    padding-right: 0;
+  }
+  .container_logo{
+    margin-bottom: 50px;
+  }
+}
+

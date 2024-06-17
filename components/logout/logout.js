@@ -1,5 +1,7 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import '../../app/globals.css';
+import './logout.css'
 
 export default function Logout() {
     const [userName, setUserName] = useState(null);
@@ -24,9 +26,9 @@ export default function Logout() {
     }
 
     return (
-        <div>
+        <div className="logout">
+            <button onClick={logout} title="Sair">X</button>
             <p>{userName}</p>
-            <button onClick={logout}>Sair</button>
         </div>
     );
 }

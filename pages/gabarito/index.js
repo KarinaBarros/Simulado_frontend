@@ -87,7 +87,7 @@ export default function Gabarito() {
     }
     return (
         <div>
-            <Logout/>
+            
             <div>
                 <div className='header'>
                     <img className='img-ia' src={nota < 6 ? 'negativo.png' : 'positivo.png'} alt='imagem de inteligência artificial'/>

@@ -59,7 +59,6 @@ export default function Simulado() {
 
   return (
     <div>
-      <Logout/>
       <div className="header">
         <img src="IA.png" className="img-IA" alt="robozinho de inteligência artificial"/>
         <div className="text-header">
