@@ -6,7 +6,6 @@ import './principal.css';
 import Logout from "@/components/logout/logout";
 import useAuthentication from "@/components/useAuthentication";
 import getConfig from 'next/config';
-import Image from 'next/image';
 
 export default function Home() {
   useAuthentication();
@@ -25,7 +24,7 @@ export default function Home() {
     setIsLoading(true);
 
     try {
-      const response = await axios.post(`${publicRuntimeConfig.serverUrl}/api`, { tema, nivel });
+      const response = await axios.post(`${publicRuntimeConfig.serverUrl}/api`, { tema, nivel },{withCredentials: true});
       
       localStorage.setItem('tema', tema);
       router.push({

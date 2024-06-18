@@ -3,6 +3,8 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import getConfig from 'next/config';
+import '../app/globals.css'
+import Cookies from 'js-cookie';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
@@ -16,17 +18,18 @@ const LoginForm = () => {
     e.preventDefault();
     setLoading(true); // Ativar o estado de carregamento
     try {
-      const response = await axios.post(`${publicRuntimeConfig.serverUrl}/login`, { email, senha });
-      const { token, nome } = response.data;
-      
-      // Armazenar o token no localStorage
-      localStorage.setItem('token', token);
-      localStorage.setItem('nome', nome);
+      const response = await axios.post(`${publicRuntimeConfig.serverUrl}/login`, { email, senha }, {withCredentials: true});
+      const { nome } = response.data;
+      if(response.data.message === 'Login efetuado com sucesso'){
+        localStorage.setItem('nome', nome);
+        console.log(response.data.message);
 
       // Redirecionar para a página home
-      router.push({
+        router.push({
         pathname: '/',
       }); 
+      }
+      
     } 
     catch (error) {
       if (error.response && error.response.status === 429) {

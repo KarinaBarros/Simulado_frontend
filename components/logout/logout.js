@@ -2,10 +2,13 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import '../../app/globals.css';
 import './logout.css'
+import axios from "axios";
+import getConfig from 'next/config';
 
 export default function Logout() {
     const [userName, setUserName] = useState(null);
     const router = useRouter();
+    const { publicRuntimeConfig } = getConfig();
 
     useEffect(() => {
         const nome = localStorage.getItem('nome');
@@ -14,8 +17,8 @@ export default function Logout() {
         }
     }, []);
 
-    function logout() {
-        localStorage.removeItem('token');
+    const logout = async () => {
+        await axios.post(`${publicRuntimeConfig.serverUrl}/logout`, {}, {withCredentials:true});
         localStorage.removeItem('nome');
         router.push('/login');
     }
