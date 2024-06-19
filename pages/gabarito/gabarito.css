@@ -86,3 +86,9 @@ pre{
     word-wrap: break-word;
     overflow: hidden;
 }
+
+@media (max-width:1024px){
+    .botao{
+        font-size: 18px;
+    }
+}
