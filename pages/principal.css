@@ -14,7 +14,7 @@
   display: flex;
   margin: auto;
   width: 1070px;
-  height: 75%;
+  height: 75vh;
   align-items: center;
   justify-content: center;
   padding: 0 30px;
@@ -43,7 +43,7 @@
 
 
 .container_imagem .ia_principal{
-  height: 80%;
+  height: 60vh;
 }
 
 
