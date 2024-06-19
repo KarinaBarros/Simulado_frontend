@@ -18,7 +18,7 @@ const LoginForm = () => {
     try {
       const response = await axios.post(`${publicRuntimeConfig.serverUrl}/login`, { email, senha });
       const { token, nome } = response.data;
-      
+      console.log('login efetuado');
       // Armazenar o token no localStorage
       localStorage.setItem('token', token);
       localStorage.setItem('nome', nome);

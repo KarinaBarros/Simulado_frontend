@@ -1,21 +1,40 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
+import getConfig from 'next/config';
+
+const { publicRuntimeConfig } = getConfig();
 
 const useAuthentication = () => {
   const router = useRouter();
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
+    const checkToken = async () => {
+      const token = localStorage.getItem('token');
 
-    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-    if (!token) {
-      router.push('/login'); // Redireciona para a página de login se o token não estiver presente
-    }
-  }, []);
+      if (!token) {
+        router.push('/login');
+        return;
+      }
 
-  return null; // Este hook apenas realiza a verificação e não renderiza nenhum componente
+      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+
+      try {
+        await axios.get(`${publicRuntimeConfig.serverUrl}/protected`);
+        console.log('Autenticação bem-sucedida');
+      } catch (error) {
+        console.error('Erro na autenticação', error);
+        router.push('/login');
+      }
+    };
+
+    checkToken();
+  }, [router]);
+
+  return null; // O hook não renderiza nada
 };
 
 export default useAuthentication;
+
+
 
