@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import getConfig from 'next/config';
+import Link from 'next/link';
 
 const RegisterForm = () => {
   const router = useRouter();
@@ -102,7 +103,7 @@ const RegisterForm = () => {
         value={confirmSenha}
         onChange={handleConfirmSenhaChange}
         maxLength={20}
-      />
+      /><br/><br/>
       <div>
         <span style={{ color: validations.length ? 'green' : 'red' }}>Pelo menos 8 caracteres</span><br />
         <span style={{ color: validations.uppercase ? 'green' : 'red' }}>Pelo menos uma letra maiúscula</span><br />
@@ -110,8 +111,15 @@ const RegisterForm = () => {
         <span style={{ color: validations.specialChar ? 'green' : 'red' }}>Pelo menos um caracter especial</span><br />
         <span style={{ color: validations.number ? 'green' : 'red' }}>Pelo ao menos um número</span><br />
       </div>
+      <br/>
+      <label>
+      <input type='checkbox' required/>
+      <Link href='/politica'>Concordo com a política de uso.</Link>
+      </label>
+      <br/><br/>
       <button type="submit" disabled={!isValid || senha !== confirmSenha} >{loading ? 'Register' : 'Register'}</button>
     </form>
+    
   );
 };
 
