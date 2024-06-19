@@ -148,11 +148,13 @@
     height: 90%;
     padding: 0;
   }
+ 
   .form_home{
     padding-right: 0;
   }
   .container_logo{
     margin-bottom: 50px;
+    font-size: 30px;
   }
   .loading{
     width: 100px;
