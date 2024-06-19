@@ -114,7 +114,7 @@ const RegisterForm = () => {
       <br/>
       <label>
       <input type='checkbox' required/>
-      <Link href='/politica'>Concordo com a política de uso.</Link>
+      Concordo com a <Link href='/politica'>política de uso.</Link>
       </label>
       <br/><br/>
       <button type="submit" disabled={!isValid || senha !== confirmSenha} >{loading ? 'Register' : 'Register'}</button>
