@@ -140,7 +140,7 @@
   
 
 @media (max-width:1024px){
-  .container_imagem{
+  .container .container_imagem{
     display: none;
   }
   .container{
