@@ -90,5 +90,6 @@ pre{
 @media (max-width:1024px){
     .botao{
         font-size: 18px;
+        padding: 0 20px;
     }
 }
