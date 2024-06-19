@@ -30,7 +30,7 @@
   color: #4f5050;
 }
 
-.container .container_imagem{
+.container > .container_imagem{
   width: 45%;
   background: radial-gradient(circle, #f0f0f0, #c0c0c0);
   border-radius: 30px;
