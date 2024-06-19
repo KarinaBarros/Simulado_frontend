@@ -25,7 +25,7 @@ export default function Simulado() {
         async function fetchSimulado() {
           setLoading(true);
             try {
-                const response = await axios.get(`${publicRuntimeConfig.serverUrl}/simulado`, {withCredentials: true});
+                const response = await axios.get(`${publicRuntimeConfig.serverUrl}/simulado`);
                 console.log('Simulado:', response.data);
                 setSimulado(response.data);
             } catch (error) {
@@ -43,7 +43,7 @@ export default function Simulado() {
         const respostaSelecionada = document.querySelector(`input[name="${pergunta.numero}"]:checked`);
         return respostaSelecionada ? respostaSelecionada.value : null;
       }).filter(resposta => resposta !== null);
-      const response = await axios.post(`${publicRuntimeConfig.serverUrl}/respostas`, formData, {withCredentials: true});
+      const response = await axios.post(`${publicRuntimeConfig.serverUrl}/respostas`, formData);
       router.push({
         pathname: '/gabarito',
       });

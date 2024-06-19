@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import getConfig from 'next/config';
-import Link from 'next/link';
 
 const RegisterForm = () => {
   const router = useRouter();
@@ -73,11 +72,6 @@ const RegisterForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>
-      <input type='checkbox' required/>
-      <Link href='/politica'>Concordo com a política de uso.</Link>
-      </label>
-      <br/>
       <input
         placeholder='Nome'
         value={nome}

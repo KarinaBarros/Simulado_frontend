@@ -40,7 +40,7 @@ export default function Gabarito() {
     useEffect(() => {
         async function fetchGabarito() {
             try {
-                const response = await axios.get(`${publicRuntimeConfig.serverUrl}/gabarito`, {withCredentials: true});
+                const response = await axios.get(`${publicRuntimeConfig.serverUrl}/gabarito`);
                 console.log('Gabarito:', response.data.respostas);
                 console.log('Nota:', response.data.nota);
                 setNota(response.data.nota);
