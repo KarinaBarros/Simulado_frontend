@@ -2,6 +2,8 @@
     display: flex;
     flex-direction: row-reverse;
     padding: 20px;
+    position: relative;
+    flex: none;
     
 }
 
