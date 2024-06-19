@@ -30,7 +30,7 @@
   color: #4f5050;
 }
 
-.container_imagem{
+.container .container_imagem{
   width: 45%;
   background: radial-gradient(circle, #f0f0f0, #c0c0c0);
   border-radius: 30px;
@@ -40,9 +40,7 @@
   padding: 30px;
 }
 
-.ia_principal{
- width: auto;
-}
+
 
 .form_home{
   display: flex;
@@ -150,6 +148,10 @@
   }
   .container_logo{
     margin-bottom: 50px;
+  }
+  .loading{
+    width: 100px;
+    height: 100px;
   }
 }
 
