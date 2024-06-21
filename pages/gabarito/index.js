@@ -6,7 +6,6 @@ import './gabarito.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faCheck } from '@fortawesome/free-solid-svg-icons';
 import useAuthentication from "@/components/useAuthentication";
-import Logout from '@/components/logout/logout';
 import getConfig from 'next/config';
 import jsPDF from 'jspdf'; 
 import 'jspdf-autotable';

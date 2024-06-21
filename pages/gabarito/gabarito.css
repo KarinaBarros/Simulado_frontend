@@ -41,6 +41,10 @@
 
 }
 
+.answer{
+    color: yellow;
+}
+
 .errado{
     color: red;
     font-weight: bold;
@@ -50,6 +54,13 @@
 
 .certo{
     color: rgb(1, 253, 1);
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: -5px;
+}
+
+.meio-certo{
+    color: yellow;
     font-weight: bold;
     font-size: 30px;
     margin-bottom: -5px;
