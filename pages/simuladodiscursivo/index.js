@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from 'next/router';
 import axios from "axios";
 import '../../app/globals.css';
-import '../simulado/simulado.css'
+import '../simuladooptativo/simulado.css';
 import useAuthentication from "@/components/useAuthentication";
 import getConfig from "next/config";
 
