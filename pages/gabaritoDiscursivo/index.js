@@ -35,7 +35,7 @@ export default function GabaritoDiscursivo() {
         async function fetchSimulado() {
             try {
                 setIsLoading(true);  // Inicia o carregamento
-                const response = await axios.get(`${publicRuntimeConfig}/gabaritoDiscursivo`);
+                const response = await axios.get(`${publicRuntimeConfig.serverUrl}/gabaritoDiscursivo`);
                 console.log(response.data);
                 setGabarito(response.data);
                 const totalNota = response.data[response.data.length - 1].notaTotal;
