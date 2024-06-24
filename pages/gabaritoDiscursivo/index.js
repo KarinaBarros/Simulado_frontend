@@ -7,7 +7,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faCheck } from '@fortawesome/free-solid-svg-icons';
 import '../../app/globals.css';
 import '../gabarito/gabarito.css';
-import '../principal.css';
 import jsPDF from 'jspdf'; 
 import 'jspdf-autotable';
 
