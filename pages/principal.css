@@ -25,7 +25,7 @@
 }
 
 .descricao{
-  font-size: 18px;
+  font-size: 16px;
   font-family: 'Roboto', sans-serif;
   text-indent: 30px;
   color: #4f5050;
@@ -71,7 +71,7 @@
 
 .input_home{
   width: 100%;
-  font-size: 18px;
+  font-size: 16px;
   font-family: 'Roboto', sans-serif;
   padding: 5px;
   border-radius: 5px;
@@ -89,7 +89,7 @@
 
 .label_home{
   font-family: 'segoe ui';
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .button_home{
