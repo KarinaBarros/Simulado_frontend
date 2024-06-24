@@ -36,7 +36,7 @@ export default function GabaritoDiscursivo() {
         async function fetchSimulado() {
             try {
                 setIsLoading(true);  // Inicia o carregamento
-                const response = await axios.get(`${publicRuntimeConfig.serverUrl}/gabaritoDiscursivo`);
+                const response = await axios.get(`${publicRuntimeConfig}/gabaritoDiscursivo`);
                 console.log(response.data);
                 setGabarito(response.data);
                 const totalNota = response.data[response.data.length - 1].notaTotal;
@@ -53,7 +53,7 @@ export default function GabaritoDiscursivo() {
 
     useEffect(() => {
         const handlePopState = () => {
-            router.push('/');
+            router.push('/simulado');
         };
 
         window.addEventListener('popstate', handlePopState);
@@ -64,7 +64,7 @@ export default function GabaritoDiscursivo() {
     }, [router]);
 
     function Voltar() {
-        router.push('/');
+        router.push('/simulado');
     }
 
     async function Salvar() {

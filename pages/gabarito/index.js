@@ -26,7 +26,7 @@ export default function Gabarito() {
 
     useEffect(() => {
         const handlePopState = () => {
-            router.push('/');
+            router.push('/simulado');
         };
 
         window.addEventListener('popstate', handlePopState);
@@ -54,7 +54,7 @@ export default function Gabarito() {
     }, []);
 
     function Voltar() {
-        router.push('/');
+        router.push('/simulado');
     }
 
     async function Salvar() {
