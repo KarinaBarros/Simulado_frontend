@@ -1,7 +1,7 @@
 import useAuthentication from "@/components/useAuthentication";
 import Link from "next/link";
-import '../app/globals.css';
-import './home.css';
+import '@/app/globals.css';
+import '@/styles/home.css';
 
 export default function Home(){
   useAuthentication();

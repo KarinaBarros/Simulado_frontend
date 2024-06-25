@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useRouter } from 'next/router';
 import axios from "axios";
-import '../../app/globals.css';
-import '../simulado/principal.css';
+import '@/app/globals.css';
+import '@/styles/principal.css';
 import useAuthentication from "@/components/useAuthentication";
 import getConfig from "next/config";
 import Logout from "@/components/logout/logout";

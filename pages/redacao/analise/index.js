@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import useAuthentication from "@/components/useAuthentication";
 import getConfig from "next/config";
 import axios from "axios";
-import '../../../app/globals.css';
-import '../../gabarito/gabarito.css'
+import '@/app/globals.css';
+import '@/styles/gabarito.css'
 
 export default function Analise() {
     useAuthentication();

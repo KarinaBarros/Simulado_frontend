@@ -5,8 +5,8 @@ import useAuthentication from "@/components/useAuthentication";
 import { useRouter } from 'next/router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faCheck } from '@fortawesome/free-solid-svg-icons';
-import '../../app/globals.css';
-import '../gabarito/gabarito.css';
+import '@/app/globals.css';
+import '@/styles/gabarito.css';
 import jsPDF from 'jspdf'; 
 import 'jspdf-autotable';
 

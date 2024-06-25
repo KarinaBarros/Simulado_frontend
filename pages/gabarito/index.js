@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
-import '../../app/globals.css';
-import './gabarito.css';
+import '@/app/globals.css';
+import '@/styles/gabarito.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faCheck } from '@fortawesome/free-solid-svg-icons';
 import useAuthentication from "@/components/useAuthentication";
