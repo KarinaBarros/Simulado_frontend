@@ -30,7 +30,7 @@ export default function Simulado() {
       
       localStorage.setItem('tema', tema);
       router.push({
-        pathname: '/simuladooptativo',
+        pathname: '/simulado/simuladooptativo',
       });
       setFormVisible(false);
     } catch (error) {
@@ -44,7 +44,7 @@ export default function Simulado() {
         
         localStorage.setItem('tema', tema);
         router.push({
-          pathname: '/simuladodiscursivo',
+          pathname: '/simulado/simuladodiscursivo',
         });
         setFormVisible(false);
       } catch (error) {

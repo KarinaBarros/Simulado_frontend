@@ -6,7 +6,7 @@ import '@/styles/simulado.css';
 import useAuthentication from "@/components/useAuthentication";
 import getConfig from "next/config";
 
-export default function SimuladoOptativo() {
+export default function SimuladoDiscursivo() {
   const [loading, setLoading] = useState(false);
   useAuthentication();
   const router = useRouter();
@@ -23,7 +23,7 @@ export default function SimuladoOptativo() {
         async function fetchSimulado() {
           setLoading(true);
             try {
-                const response = await axios.get(`${publicRuntimeConfig.serverUrl}/simulado`);
+                const response = await axios.get(`${publicRuntimeConfig.serverUrl}/simuladoDiscursivo`);
                 console.log('Simulado:', response.data);
                 setSimulado(response.data);
             } catch (error) {
@@ -38,12 +38,15 @@ export default function SimuladoOptativo() {
     event.preventDefault();
     try {
       const formData = simulado.map(pergunta => {
-        const respostaSelecionada = document.querySelector(`input[name="${pergunta.numero}"]:checked`);
-        return respostaSelecionada ? respostaSelecionada.value : null;
-      }).filter(resposta => resposta !== null);
-      const response = await axios.post(`${publicRuntimeConfig.serverUrl}/respostas`, formData);
+        const respostaElement = document.querySelector(`textarea[name="${pergunta.numero}"]`);
+        return {
+          numero: pergunta.numero,
+          resposta: respostaElement ? respostaElement.value : ''
+        }; 
+      });
+      const response = await axios.post(`${publicRuntimeConfig.serverUrl}/respostasDiscursivo`, formData);
       router.push({
-        pathname: '/gabarito',
+        pathname: '/simulado/simuladodiscursivo/gabarito',
       });
     } catch (error) {
       console.error('Erro ao enviar os dados:', error);
@@ -58,7 +61,7 @@ export default function SimuladoOptativo() {
   return (
     <div>
       <div className="header">
-        <img src="IA.png" className="img-IA" alt="robozinho de inteligência artificial"/>
+        <img src="/IA.png" className="img-IA" alt="robozinho de inteligência artificial"/>
         <div className="text-header">
           <h2>Simulado</h2>
           <p>{tema}</p>
@@ -71,11 +74,11 @@ export default function SimuladoOptativo() {
             <p> {pergunta.numero}- {pergunta.pergunta}</p>
             <br/>
             <div className="options">
-              {pergunta.opcoes.map((opcao, opcaoIndex) => (
-                <label key={opcaoIndex} className='option-label' >
-                  <input type="radio"  className="option-radio" value={opcao} name={pergunta.numero} required/> {opcao}
-                </label>
-              ))}
+              
+              <label className='option-label'>
+                <textarea type="text" name={pergunta.numero} className="input-simulado" rows={3} maxLength={500} required/>
+              </label>
+              
             </div>
             <br/>
           </div>
@@ -87,7 +90,3 @@ export default function SimuladoOptativo() {
     </div>
   );
 }
-
-
-
-
