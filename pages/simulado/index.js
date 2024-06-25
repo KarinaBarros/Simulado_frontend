@@ -14,7 +14,7 @@ export default function Simulado() {
   const [nivel, setNivel] = useState('');
   const [tipo, setTipo] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [errorCount, setErrorCount] = useState(0);
+  
   const [formVisible, setFormVisible] = useState(true); // Controla a visibilidade do formulário
   const router = useRouter();
   const { publicRuntimeConfig } = getConfig();
@@ -36,14 +36,6 @@ export default function Simulado() {
     } catch (error) {
       console.error('Erro ao enviar os dados:', error);
       localStorage.removeItem('tema');
-      
-      setErrorCount(prevCount => prevCount + 1);
-      
-      if (errorCount < 3) {
-        alert('Ocorreu um erro ao enviar os dados. Por favor reformule seu tema ou tente novamente.');
-      } else {
-        alert('Erro no servidor, reformule sua pergunta ou tente novamente mais tarde!');
-      }
     } finally {
       setIsLoading(false); // Esconde o formulário após o envio
     }}else{
@@ -73,7 +65,7 @@ export default function Simulado() {
   };
 
   return (
-    <div className='home'>
+    <div className='simulado'>
       <Logout/>
       {isLoading ? (
         <div className='container_loading'>

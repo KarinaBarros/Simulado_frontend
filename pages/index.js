@@ -9,7 +9,9 @@ export default function Home(){
     <div className="home">
       <h1>Home</h1>
       <Link href='/simulado' className="link-home">Simulado</Link><br/>
-      <Link href='/correcaoortografica' className="link-home">Correção Ortográfica</Link>
+      <Link href='/correcaoortografica' className="link-home">Correção Ortográfica</Link><br/>
+      <Link href='/resumo' className="link-home">Resumo</Link><br/>
+      <Link href='/redacao' className="link-home">Redação</Link>
     </div>
   )
 }

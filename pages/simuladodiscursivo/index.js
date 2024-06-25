@@ -84,7 +84,7 @@ export default function SimuladoDiscursivo() {
           </div>
         ))}
         <div className="button">
-          <button type="submit" className="enviar">{loading ? 'Enviar respostas' : ' '}</button>
+          <button type="submit" className="enviar">{loading ? 'Corrigir' : ' '}</button>
         </div>
       </form>
     </div>

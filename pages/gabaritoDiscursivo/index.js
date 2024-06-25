@@ -35,14 +35,13 @@ export default function GabaritoDiscursivo() {
         async function fetchSimulado() {
             try {
                 setIsLoading(true);  // Inicia o carregamento
-                const response = await axios.get(`${publicRuntimeConfig.serverUrl}/gabaritoDiscursivo`);
+                const response = await axios.get(`${publicRuntimeConfig}/gabaritoDiscursivo`);
                 console.log(response.data);
                 setGabarito(response.data);
                 const totalNota = response.data[response.data.length - 1].notaTotal;
                 setNota(totalNota);
             } catch (error) {
                 console.error('Erro ao buscar o gabarito:', error);
-                // Trate os erros conforme necessário
             } finally {
                 setIsLoading(false);  // Termina o carregamento
             }
@@ -101,7 +100,7 @@ export default function GabaritoDiscursivo() {
             ) : (
                 <div>
                     <div className='header'>
-                        <img className='img-ia' src={nota < 6 ? 'negativo.png' : 'positivo.png'} alt='imagem de inteligência artificial' />
+                        <img className='img-ia' src={nota < 6 ? '/negativo.png' : '/positivo.png'} alt='imagem de inteligência artificial' />
                         <div className='text-header' id='nota'>
                             <h2>Gabarito</h2>
                             <p>{tema}</p>

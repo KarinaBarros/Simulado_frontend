@@ -89,7 +89,7 @@ export default function Gabarito() {
             
             <div>
                 <div className='header'>
-                    <img className='img-ia' src={nota < 6 ? 'negativo.png' : 'positivo.png'} alt='imagem de inteligência artificial'/>
+                    <img className='img-ia' src={nota < 6 ? '/negativo.png' : '/positivo.png'} alt='imagem de inteligência artificial'/>
                     <div className='text-header' id='nota'>
                         <h2>Gabarito</h2>
                         <p> {tema}</p>

@@ -7,10 +7,10 @@ import useAuthentication from "@/components/useAuthentication";
 import getConfig from "next/config";
 import Logout from "@/components/logout/logout";
 
-export default function Ortografia(){
+export default function Resumo(){
     useAuthentication();
 
-    const [ortografia, setOrtografia] = useState('');
+    const [resumo, setResumo] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [formVisible, setFormVisible] = useState(true); // Controla a visibilidade do formulário
     const router = useRouter();
@@ -21,10 +21,10 @@ export default function Ortografia(){
       setIsLoading(true);
   
       try {
-        const response = await axios.post(`${publicRuntimeConfig.serverUrl}/ortografia`, { ortografia });
+        const response = await axios.post(`${publicRuntimeConfig.serverUrl}/resumo`, { resumo });
         
         router.push({
-          pathname: '/correcaoortografica/textocorrigido',
+          pathname: '/resumo/textoresumido',
         });
         setFormVisible(false);
       } catch (error) {
@@ -52,8 +52,8 @@ export default function Ortografia(){
                 <p>IA Simulado</p>
               </div>
                 <p>Cole seu texto aqui:</p> 
-                <textarea  rows={20} className='input_home' type="text" value={ortografia} onChange={(e) => setOrtografia(e.target.value)} maxLength={5000} required />
-                <button type="submit" className='button_home'>Corrigir<img src='/brilho.png' className='brilho' alt='ícone brilho'></img></button>
+                <textarea  rows={20} className='input_home' type="text" value={resumo} onChange={(e) => setResumo(e.target.value)} maxLength={10000} required />
+                <button type="submit" className='button_home'>Resumir<img src='/brilho.png' className='brilho' alt='ícone brilho'></img></button>
               </form>
             )}
             <div className='container_imagem'>

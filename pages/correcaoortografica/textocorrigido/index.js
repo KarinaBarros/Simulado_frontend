@@ -46,7 +46,7 @@ export default function TextoCorrigido() {
     return (
         <div>
             <h1>Correção</h1>
-            {texto && processText(texto)}
+            <pre>{texto && processText(texto)}</pre>
         </div>
     );
 }
