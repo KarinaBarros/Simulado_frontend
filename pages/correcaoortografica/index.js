@@ -85,7 +85,7 @@ export default function Ortografia(){
                   <button onClick={paste} className="colar"><FontAwesomeIcon icon={faPaste} /> Colar:</button> 
                   {pasteSuccess && <span className="mensagem">{pasteSuccess}</span>}
                   </div>
-                <textarea  id="targetId" rows={20} className='textarea_home' type="text" value={ortografia} onChange={(e) => setOrtografia(e.target.value)} maxLength={5000} required />
+                <textarea  id="targetId" rows={15} className='textarea_home' type="text" value={ortografia} onChange={(e) => setOrtografia(e.target.value)} maxLength={5000} required />
                 </div>
                 <button type="submit" className='button_home'>Corrigir<img src='/brilho.png' className='brilho' alt='ícone brilho'></img></button>
               </form>
