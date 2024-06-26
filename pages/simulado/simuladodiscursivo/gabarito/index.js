@@ -9,13 +9,7 @@ import '@/app/globals.css';
 import '@/styles/gabarito.css';
 import jsPDF from 'jspdf'; 
 import 'jspdf-autotable';
-
-const Loading = () => (
-    <div className="container_loading">
-        <p>Carregando...</p>
-        <div className="loading"></div>
-    </div>
-);
+import LottieAnimation from "@/components/lottie/lottie";
 
 export default function GabaritoDiscursivo() {
     useAuthentication();
@@ -94,9 +88,12 @@ export default function GabaritoDiscursivo() {
     }
 
     return (
-        <div>
+        <div className={`gabarito ${isLoading ? 'loading' : ''}`}>
             {isLoading ? (
-                <Loading />
+        <div className='container_loading'>
+          <p>Carregando...</p>
+          <LottieAnimation />
+        </div>
             ) : (
                 <div>
                     <div className='header'>

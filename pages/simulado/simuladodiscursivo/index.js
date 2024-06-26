@@ -50,10 +50,9 @@ export default function SimuladoDiscursivo() {
       });
     } catch (error) {
       console.error('Erro ao enviar os dados:', error);
-      localStorage.removeItem('tema');   
-    } finally {
-      setLoading(false);
-    }
+      localStorage.removeItem('tema');  
+      setLoading(false); 
+    } 
   };
   
   

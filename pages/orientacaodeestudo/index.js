@@ -6,6 +6,7 @@ import '@/styles/principal.css';
 import useAuthentication from "@/components/useAuthentication";
 import getConfig from "next/config";
 import Logout from "@/components/logout/logout";
+import LottieAnimation from "@/components/lottie/lottie";
 
 export default function OrientacaoEstudo(){
     useAuthentication();
@@ -13,7 +14,6 @@ export default function OrientacaoEstudo(){
     const [tema, setTema] = useState('');
     const [nivel, setNivel] = useState('');
     const [isLoading, setIsLoading] = useState(false);
-    const [formVisible, setFormVisible] = useState(true); // Controla a visibilidade do formulário
     const router = useRouter();
     const { publicRuntimeConfig } = getConfig();
   
@@ -27,11 +27,8 @@ export default function OrientacaoEstudo(){
         router.push({
           pathname: '/orientacaodeestudo/orientacao',
         });
-        setFormVisible(false);
       } catch (error) {
         console.error('Erro ao enviar os dados:', error);
-        setFormVisible(false);
-      } finally {
         setIsLoading(false);
       }
     };
@@ -39,16 +36,15 @@ export default function OrientacaoEstudo(){
    
 
     return (
-      <div className='simulado'>
+      <div className={`simulado ${isLoading ? 'loading' : ''}`}>
         <Logout/>
         {isLoading ? (
           <div className='container_loading'>
             <p>Carregando...</p>
-            <div className="loading"></div>
+            <LottieAnimation/>
           </div>
         ) : (
           <div className='container'>
-            {formVisible && (
               <form onSubmit={handleSubmit} className='form_home'>
                 <div className='container_logo'>
                 <img className='logo' src='/logo.png' alt='logotipo'/>
@@ -72,7 +68,6 @@ export default function OrientacaoEstudo(){
               </label>
                 <button type="submit" className='button_home'>Gerar<img src='/brilho.png' className='brilho' alt='ícone brilho'></img></button>
               </form>
-            )}
             <div className='container_imagem'>
               <img src='/IAprincipal.png' alt='Robô de inteligência artificial com livros.' className='ia_principal'></img>
             </div>

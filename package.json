@@ -15,10 +15,12 @@
     "bcryptjs": "^2.4.3",
     "jspdf": "^2.5.1",
     "jspdf-autotable": "^3.8.2",
+    "lottie-web": "^5.12.2",
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18",
     "react-linkify": "^1.0.0-alpha",
+    "react-lottie-player": "^2.0.0",
     "zxcvbn": "^4.4.2"
   },
   "devDependencies": {

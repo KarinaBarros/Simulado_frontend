@@ -8,13 +8,13 @@ import getConfig from "next/config";
 import Logout from "@/components/logout/logout";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaste} from '@fortawesome/free-solid-svg-icons';
+import LottieAnimation from "@/components/lottie/lottie";
 
 export default function Redacao(){
     useAuthentication();
 
     const [redacao, setRedacao] = useState('');
     const [isLoading, setIsLoading] = useState(false);
-    const [formVisible, setFormVisible] = useState(true); // Controla a visibilidade do formulário
     const router = useRouter();
     const { publicRuntimeConfig } = getConfig();
     const [pasteSuccess, setPasteSuccess] = useState('');
@@ -29,13 +29,10 @@ export default function Redacao(){
         router.push({
           pathname: '/redacao/analise',
         });
-        setFormVisible(false);
       } catch (error) {
         console.error('Erro ao enviar os dados:', error);
-        setFormVisible(false);
-      } finally {
         setIsLoading(false);
-      }
+      } 
     };
 
     useEffect(() => {
@@ -68,16 +65,15 @@ export default function Redacao(){
     };
 
     return (
-      <div className='simulado'>
+      <div className={`simulado ${isLoading ? 'loading' : ''}`}>
         <Logout/>
         {isLoading ? (
           <div className='container_loading'>
             <p>Carregando...</p>
-            <div className="loading"></div>
+            <LottieAnimation/>
           </div>
         ) : (
           <div className='container'>
-            {formVisible && (
               <form onSubmit={handleSubmit} className='form_home'>
                 <div className='container_logo'>
                 <img className='logo' src='/logo.png' alt='logotipo'/>
@@ -92,7 +88,6 @@ export default function Redacao(){
                 </div>
                 <button type="submit" className='button_home'>Analisar<img src='/brilho.png' className='brilho' alt='ícone brilho'></img></button>
               </form>
-            )}
             <div className='container_imagem'>
               <img src='/IAprincipal.png' alt='Robô de inteligência artificial com livros.' className='ia_principal'></img>
             </div>
