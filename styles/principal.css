@@ -137,6 +137,35 @@
   animation: spin 2s linear infinite;
   margin: auto; 
 }
+
+.container-colar{
+  background-color: #0500d1;
+}
+
+.colar{
+  background-color: #0500d1;
+  border: none;
+  color: white;
+  padding: 5px;
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+.textarea_home{
+  width: 100%;
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  padding: 5px;
+  border-radius: 0 0 5px 5px;
+  box-sizing: border-box;
+  border: 2px solid #0500d1;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
   
 
 @media (max-width:1024px){

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { useRouter } from 'next/router';
 import axios from "axios";
 import '@/app/globals.css';
@@ -6,6 +6,8 @@ import '@/styles/principal.css';
 import useAuthentication from "@/components/useAuthentication";
 import getConfig from "next/config";
 import Logout from "@/components/logout/logout";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPaste} from '@fortawesome/free-solid-svg-icons';
 
 export default function Redacao(){
     useAuthentication();
@@ -15,6 +17,7 @@ export default function Redacao(){
     const [formVisible, setFormVisible] = useState(true); // Controla a visibilidade do formulário
     const router = useRouter();
     const { publicRuntimeConfig } = getConfig();
+    const [pasteSuccess, setPasteSuccess] = useState('');
   
     const handleSubmit = async (event) => {
       event.preventDefault();
@@ -35,6 +38,35 @@ export default function Redacao(){
       }
     };
 
+    useEffect(() => {
+      const handleClick = () => {
+          setPasteSuccess('');
+      };
+
+      document.addEventListener('click', handleClick);
+
+      // Cleanup event listener on component unmount
+      return () => {
+          document.removeEventListener('click', handleClick);
+      };
+  }, []);
+
+  const paste = async () => {
+      try {
+          // Solicita permissão para acessar a área de transferência
+          await navigator.permissions.query({ name: 'clipboard-read' });
+                
+          // Lê o texto da área de transferência
+          const text = await navigator.clipboard.readText();
+          
+          // Cola o texto no textarea
+          document.getElementById('targetId').value += text;
+        
+      } catch (err) {
+        setPasteSuccess('Falha ao colar, verifique as permissôes do navegador!');
+      }
+    };
+
     return (
       <div className='simulado'>
         <Logout/>
@@ -51,8 +83,13 @@ export default function Redacao(){
                 <img className='logo' src='/logo.png' alt='logotipo'/>
                 <p>IA Simulado</p>
               </div>
-                <p>Cole seu texto aqui:</p> 
-                <textarea  rows={20} className='input_home' type="text" value={redacao} onChange={(e) => setRedacao(e.target.value)} maxLength={10000} required />
+              <div>
+                <div className="container-colar">
+                  <button onClick={paste} className="colar"><FontAwesomeIcon icon={faPaste} /> Colar:</button> 
+                  {pasteSuccess && <span className="mensagem">{pasteSuccess}</span>}
+                </div>
+                <textarea id="targetId" rows={20} className='textarea_home' type="text" value={redacao} onChange={(e) => setRedacao(e.target.value)} maxLength={10000} required />
+                </div>
                 <button type="submit" className='button_home'>Analisar<img src='/brilho.png' className='brilho' alt='ícone brilho'></img></button>
               </form>
             )}

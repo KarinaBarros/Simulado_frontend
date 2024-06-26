@@ -11,7 +11,8 @@ export default function Home(){
       <Link href='/simulado' className="link-home">Simulado</Link><br/>
       <Link href='/correcaoortografica' className="link-home">Correção Ortográfica</Link><br/>
       <Link href='/resumo' className="link-home">Resumo</Link><br/>
-      <Link href='/redacao' className="link-home">Redação</Link>
+      <Link href='/redacao' className="link-home">Redação</Link><br/>
+      <Link href='/orientacaodeestudo' className="link-home">Orientação de estudo</Link>
     </div>
   )
 }
