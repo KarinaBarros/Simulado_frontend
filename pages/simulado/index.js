@@ -63,11 +63,12 @@ export default function Simulado() {
         </div>
       ) : (
         <div className='container'>
-          <form onSubmit={handleSubmit} className='form_home'>
-            <div className='container_logo'>
+          <div className='container_ form'>
+          <div className='container_logo'>
               <img className='logo' src='/logo.png' alt='logotipo' />
               <p>IA Simulado</p>
-            </div>
+          </div>
+          <form onSubmit={handleSubmit} className='form_home'>
             <p className='descricao'>
               Utilize nossos campos de entrada para selecionar um tema específico, alinhado ao conteúdo que você está estudando, ao invés de escolher uma matéria ampla. Essa abordagem permite a geração de simulados mais direcionados e relevantes, facilitando o aprofundamento nos tópicos exatos que você precisa dominar. Além disso, escolha o nível de escolaridade correspondente ao seu estágio de aprendizado para garantir que os exercícios sejam apropriados ao seu conhecimento atual. Ao clicar em &quot;Gerar&quot;, você será redirecionado para uma página com um simulado gerado automaticamente, proporcionando uma prática focada e eficaz.
             </p>
@@ -96,6 +97,7 @@ export default function Simulado() {
             </label>
             <button type="submit" className='button_home'>Gerar<img src='/brilho.png' className='brilho' alt='ícone brilho'></img></button>
           </form>
+          </div>
 
           <div className='container_imagem'>
             <img src='/IAprincipal.png' alt='Robô de inteligência artificial com livros.' className='ia_principal'></img>

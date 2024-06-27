@@ -123,7 +123,7 @@ export default function GabaritoDiscursivo() {
                                 ) : (
                                     'answer'
                                 )}>Resposta: {item.respostaCliente}</p>
-                                <p><strong>Resposta Correta:</strong> {item.respostaCerta}</p>
+                                <pre>Resposta Correta: {item.respostaCerta.replace(/\*/g, '')}</pre>
                             </div>
                         ))}
                     </div>

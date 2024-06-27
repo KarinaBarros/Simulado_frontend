@@ -12,16 +12,15 @@
 
 .container{
   display: flex;
-  margin: auto;
-  width: 1070px;
+  margin: 50px 200px;
   height: 80vh;
-  align-items: center;
-  justify-content: center;
+  
   padding: 0 30px;
-  border-radius: 15px;
+  border-radius: 10px;
   border: 1px solid #ccc; 
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2), 0px -5px 10px rgba(0, 0, 0, 0.2); 
-  background-color: white;
+  background-color: rgba(255,255,255,0.7);
+  
 }
 
 .descricao{
@@ -31,10 +30,11 @@
   color: #4f5050;
 }
 
-.container  .container_imagem{
+.container .container_imagem{
   width: 45%;
-  background: radial-gradient(circle, #f0f0f0, #c0c0c0);
-  border-radius: 15px;
+  margin: 30px 0;
+  background: radial-gradient(circle, #f0f0f0, #0500d1);
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -46,23 +46,33 @@
   height: 60vh;
 }
 
+.container .container_ form{
+  display: flex;
+ 
+  margin-bottom: 0;
+  height: 58vh;
+}
+
 
 .form_home{
   display: flex;
   flex-direction: column;
-  width: 80%;
   padding-right: 30px;
-  gap: 10px
+  gap: 10px;
+  margin: 50px;
+  justify-content: center;
 }
 
 .container_logo{
   display: flex;
-  margin: auto;
-  align-items: center;
+  margin: 30px;
   gap: 10px;
   font-family: 'segoe ui';
   font-size: 40px;
   font-weight: 800;
+  align-items: center;
+  justify-content: center;
+
 }
 
 .logo{
@@ -90,6 +100,9 @@
 .label_home{
   font-family: 'segoe ui';
   font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
 }
 
 .button_home{
@@ -102,12 +115,14 @@
   cursor: pointer;
   line-height: 40px;
   cursor: pointer;
+  margin: 0 auto;
+ padding: 0 30px;
 }
 
 .brilho{
   width: 40px;
   margin-bottom: -13px;
-  margin-left: 20px;
+  
   
 }
 
@@ -172,14 +187,13 @@
     display: none;
   }
   .container{
-    width: 90%;
-    height: 90vh;
-    padding: 0;
+   margin: auto 20px;
     
   }
  
   .form_home{
-    padding-right: 0;
+    padding: 0;
+    margin: 0;
   }
   .container_logo{
     font-size: 30px;
@@ -190,3 +204,17 @@
   }
 }
 
+@media (min-width: 1025px) and (max-width: 1440px){
+  .simulado .container{
+    margin: 50px 50px !important;
+  }
+  .form_home{
+    margin: 30px;
+  }
+}
+
+@media (min-width: 1440px) and (max-width: 1600px){
+  .form_home{
+    margin: 30px;
+  }
+}
