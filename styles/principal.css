@@ -10,7 +10,7 @@
   position: relative;
 }
 
-.container{
+.simulado .container{
   display: flex;
   margin: 50px 200px;
   height: 80vh;
@@ -204,7 +204,7 @@
   .container .container_imagem{
     display: none;
   }
-  .container{
+  .simulado .container{
    margin: auto 20px;
     
   }
