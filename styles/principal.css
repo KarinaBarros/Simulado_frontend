@@ -47,7 +47,7 @@
 .container .container_form{
   display: flex;
   flex-direction: column;
-  height: 80vh;
+  height: 70vh;
   justify-content: space-between;
   margin-right: 30px;
 }
