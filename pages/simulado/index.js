@@ -26,7 +26,7 @@ export default function Simulado() {
     if (tipo === "optativa") {
       try {
         const response = await axios.post(`${publicRuntimeConfig.serverUrl}/api`, { tema, nivel });
-        
+
         localStorage.setItem('tema', tema);
         router.push({
           pathname: '/simulado/simuladooptativo',
@@ -39,17 +39,17 @@ export default function Simulado() {
     } else {
       try {
         const response = await axios.post(`${publicRuntimeConfig.serverUrl}/discursiva`, { tema, nivel });
-        
+
         localStorage.setItem('tema', tema);
         router.push({
           pathname: '/simulado/simuladodiscursivo',
         });
-       
+
       } catch (error) {
         console.error('Erro ao enviar os dados:', error);
         localStorage.removeItem('tema');
         setIsLoading(false);
-      } 
+      }
     }
   };
 
@@ -63,40 +63,44 @@ export default function Simulado() {
         </div>
       ) : (
         <div className='container'>
-          <div className='container_ form'>
-          <div className='container_logo'>
+          <div className='container_form'>
+            <div className='container_logo'>
               <img className='logo' src='/logo.png' alt='logotipo' />
               <p>IA Simulado</p>
-          </div>
-          <form onSubmit={handleSubmit} className='form_home'>
-            <p className='descricao'>
-              Utilize nossos campos de entrada para selecionar um tema específico, alinhado ao conteúdo que você está estudando, ao invés de escolher uma matéria ampla. Essa abordagem permite a geração de simulados mais direcionados e relevantes, facilitando o aprofundamento nos tópicos exatos que você precisa dominar. Além disso, escolha o nível de escolaridade correspondente ao seu estágio de aprendizado para garantir que os exercícios sejam apropriados ao seu conhecimento atual. Ao clicar em &quot;Gerar&quot;, você será redirecionado para uma página com um simulado gerado automaticamente, proporcionando uma prática focada e eficaz.
-            </p>
-            <label className='label_home'>
-              Tipo de Avaliação:
-              <select className='input_home' value={tipo} onChange={(e) => setTipo(e.target.value)} required>
-                <option></option>
-                <option value="optativa">Optativa</option>
-                <option value="discursiva">Discursiva</option>
-              </select>
-            </label>
-            <label className='label_home'>
-              Tema:
-              <input className='input_home' type="text" value={tema} onChange={(e) => setTema(e.target.value)} maxLength={50} required />
-            </label>
-            <label className='label_home'>
-              Nível:
-              <select className='input_home' value={nivel} onChange={(e) => setNivel(e.target.value)} required>
-                <option></option>
-                <option value="Ensino fundamental">Ensino fundamental</option>
-                <option value="Ensino médio">Ensino médio</option>
-                <option value="Ensino técnico">Ensino técnico</option>
-                <option value="Pré-vestibular">Pré-vestibular</option>
-                <option value="Ensino superior">Ensino superior</option>
-              </select>
-            </label>
-            <button type="submit" className='button_home'>Gerar<img src='/brilho.png' className='brilho' alt='ícone brilho'></img></button>
-          </form>
+            </div>
+            <form onSubmit={handleSubmit} className='form_simulado'>
+              <p className='descricao'>
+                Utilize nossos campos de entrada para selecionar um tema específico, alinhado ao conteúdo que você está estudando, ao invés de escolher uma matéria ampla. Essa abordagem permite a geração de simulados mais direcionados e relevantes, facilitando o aprofundamento nos tópicos exatos que você precisa dominar. Além disso, escolha o nível de escolaridade correspondente ao seu estágio de aprendizado para garantir que os exercícios sejam apropriados ao seu conhecimento atual. Ao clicar em &quot;Gerar&quot;, você será redirecionado para uma página com um simulado gerado automaticamente, proporcionando uma prática focada e eficaz.
+              </p>
+              <p className='label_simulado'>
+                Tipo de Avaliação:
+                </p>
+                <select className='input_simulado' value={tipo} onChange={(e) => setTipo(e.target.value)} required>
+                  <option></option>
+                  <option value="optativa">Optativa</option>
+                  <option value="discursiva">Discursiva</option>
+                </select>
+
+                <p className='label_simulado'>
+                Nível:
+                </p>
+                <select className='input_simulado' value={nivel} onChange={(e) => setNivel(e.target.value)} required>
+                  <option></option>
+                  <option value="Ensino fundamental">Ensino fundamental</option>
+                  <option value="Ensino médio">Ensino médio</option>
+                  <option value="Ensino técnico">Ensino técnico</option>
+                  <option value="Pré-vestibular">Pré-vestibular</option>
+                  <option value="Ensino superior">Ensino superior</option>
+                </select>
+              
+              
+              <p className='label_simulado'>
+                Tema:
+                </p>
+                <input className='input_simulado' type="text" value={tema} onChange={(e) => setTema(e.target.value)} maxLength={50} required />
+              
+              <button type="submit" className='button_simulado'>Gerar<img src='/brilho.png' className='brilho' alt='ícone brilho'></img></button>
+            </form>
           </div>
 
           <div className='container_imagem'>

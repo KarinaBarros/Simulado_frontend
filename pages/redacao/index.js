@@ -74,20 +74,22 @@ export default function Redacao(){
           </div>
         ) : (
           <div className='container'>
-              <form onSubmit={handleSubmit} className='form_home'>
-                <div className='container_logo'>
+            <div className="container_form">
+            <div className='container_logo'>
                 <img className='logo' src='/logo.png' alt='logotipo'/>
                 <p>IA Simulado</p>
               </div>
-              <div>
-                <div className="container-colar">
-                  <button onClick={paste} className="colar"><FontAwesomeIcon icon={faPaste} /> Colar:</button> 
+              <form onSubmit={handleSubmit} className='form_simulado'>               
+                <p className="descricao">Escreva ou cole sua redação aqui. A inteligência artificial vai avaliar sua redação e dar dicas de como melhora-la.</p>
+                <p className="label_simulado">Redação:</p>
+                <div className="container-textarea">
+                <textarea id="targetId" rows={15} className='textarea_simulado' type="text" value={redacao} onChange={(e) => setRedacao(e.target.value)} maxLength={10000} required />
+                </div>
+                <button onClick={paste} className="colar"><FontAwesomeIcon icon={faPaste} /> Colar:</button> 
                   {pasteSuccess && <span className="mensagem">{pasteSuccess}</span>}
-                </div>
-                <textarea id="targetId" rows={15} className='textarea_home' type="text" value={redacao} onChange={(e) => setRedacao(e.target.value)} maxLength={10000} required />
-                </div>
-                <button type="submit" className='button_home'>Analisar<img src='/brilho.png' className='brilho' alt='ícone brilho'></img></button>
+                <button type="submit" className='button_simulado'>Analisar<img src='/brilho.png' className='brilho' alt='ícone brilho'></img></button>
               </form>
+              </div>
             <div className='container_imagem'>
               <img src='/IAprincipal.png' alt='Robô de inteligência artificial com livros.' className='ia_principal'></img>
             </div>

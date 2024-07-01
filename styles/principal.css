@@ -14,13 +14,11 @@
   display: flex;
   margin: 50px 200px;
   height: 80vh;
-  
   padding: 0 30px;
-  border-radius: 10px;
+  border-radius: 5px;
   border: 1px solid #ccc; 
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2), 0px -5px 10px rgba(0, 0, 0, 0.2); 
   background-color: rgba(255,255,255,0.7);
-  
 }
 
 .descricao{
@@ -46,32 +44,33 @@
   height: 60vh;
 }
 
-.container .container_ form{
+.container .container_form{
   display: flex;
- 
-  margin-bottom: 0;
-  height: 58vh;
+  flex-direction: column;
+  height: 80vh;
+  justify-content: space-between;
+  margin-right: 30px;
 }
 
 
-.form_home{
+.container_form .form_simulado{
   display: flex;
   flex-direction: column;
-  padding-right: 30px;
-  gap: 10px;
-  margin: 50px;
+  
+  margin-bottom: 0;
   justify-content: center;
+  margin: 50px ;
 }
 
 .container_logo{
   display: flex;
-  margin: 30px;
   gap: 10px;
   font-family: 'segoe ui';
   font-size: 40px;
   font-weight: 800;
   align-items: center;
   justify-content: center;
+  margin-top: 50px;
 
 }
 
@@ -79,51 +78,62 @@
   width: 80px;
 }
 
-.input_home{
+.input_simulado{
   width: 100%;
   font-size: 16px;
   font-family: 'Roboto', sans-serif;
-  padding: 5px;
-  border-radius: 5px;
+  padding: 15px 12px 12px 12px;
+  margin-top: -7px;
+  border-radius: 20px;
   box-sizing: border-box;
   border: 2px solid #0500d1;
   outline: none;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  position: relative;
+  z-index: 10;
+  resize: none;
 }
 
-.input_home::-ms-expand {
+.input_simulado::-ms-expand {
   display: none;
 }
 
-.label_home{
+.label_simulado{
+  width: max-content;
   font-family: 'segoe ui';
-  font-size: 16px;
-  display: flex;
+  font-size: 18px;
   flex-direction: column;
-  gap: 3px;
+  background: linear-gradient(to bottom, transparent 60%, white 40%);
+  margin-left: 20px;
+  margin-top: 20px;
+  position: relative;
+  z-index: 20;
+  padding: 0 5px;
 }
 
-.button_home{
+.button_simulado{
   background-color: #0500d1;
   border: none;
   font-family: 'segoe ui';
   font-size: 20px;
-  border-radius: 5px;
+  border-radius: 15px;
   color: white;
   cursor: pointer;
   line-height: 40px;
   cursor: pointer;
-  margin: 0 auto;
- padding: 0 30px;
+  width: max-content;
+  padding: 0 30px;
+  margin: -43.5px auto 0 ;
+  position: relative;
+  z-index: 20;
+  margin-right: 5px;
 }
 
 .brilho{
   width: 40px;
   margin-bottom: -13px;
-  
-  
 }
 
   
@@ -142,40 +152,48 @@
 
 
 
-.container-colar{
-  background-color: #0500d1;
+.container-textarea{
+  background-color: white;
+  position: relative;
+  padding: 15px 12px 12px 12px;
+  margin-top: -7px;
+  border-radius: 20px;
+  box-sizing: border-box;
+  border: 2px solid #0500d1;
+  padding-bottom: 50px;
+ 
 }
 
 .colar{
-  background-color: #0500d1;
+ width: max-content;
+ background-color: white;
+ margin: -40px 30px ;
   border: none;
-  color: white;
-  padding: 5px;
+  position: relative;
+  z-index: 20;
+  padding-bottom: 15px;
   font-size: 16px;
   font-family: 'Roboto', sans-serif;
   margin-bottom: 0;
   cursor: pointer;
 }
 
-.textarea_home{
+
+
+.textarea_simulado{
   width: 100%;
   font-size: 16px;
   font-family: 'Roboto', sans-serif;
-  padding: 5px;
-  border-radius: 0 0 5px 5px;
-  box-sizing: border-box;
-  border: 2px solid #0500d1;
   outline: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+  border: none;
+  resize: none;
 }
 
 .hidden {
   display: none;
 }
 
-.simulado.loading {
+.simulado .loading {
   background-image: none;
   background-color: #0500d1;
 }
@@ -190,8 +208,15 @@
    margin: auto 20px;
     
   }
+  .container .container_form{
+    margin-right: 0;
+  }
+
+  .container_form .form_simulado{
+    margin: 0 0 20px 0;
+  }
  
-  .form_home{
+  .form_simulado{
     padding: 0;
     margin: 0;
   }
@@ -206,15 +231,18 @@
 
 @media (min-width: 1025px) and (max-width: 1440px){
   .simulado .container{
-    margin: 50px 50px !important;
+    margin: 50px 50px;
   }
   .form_home{
     margin: 30px;
   }
+  .container_form .form_simulado{
+    margin: 0 0 20px 0;
+  }
 }
 
 @media (min-width: 1440px) and (max-width: 1600px){
-  .form_home{
+  .form_simulado{
     margin: 30px;
   }
 }

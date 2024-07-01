@@ -122,8 +122,8 @@ export default function GabaritoDiscursivo() {
                                     'wrong-answer'
                                 ) : (
                                     'answer'
-                                )}>Resposta: {item.respostaCliente}</p>
-                                <pre>Resposta Correta: {item.respostaCerta.replace(/\*/g, '')}</pre>
+                                )}>Resposta: {item.respostaCliente}</p><br/>
+                                <pre>Resposta Correta: {item.respostaCerta.replace(/\*/g, '')}</pre><br/>
                             </div>
                         ))}
                     </div>

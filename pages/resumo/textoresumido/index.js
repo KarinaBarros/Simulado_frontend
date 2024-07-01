@@ -57,7 +57,7 @@ export default function TextoResumido() {
         <div >
             <div className='header'>
             <div className='text-header' id='nota'>
-                    <h2>Correção:</h2>
+                    <h2>Texto resumido:</h2>
                 </div>
                 <img className='img-ia' src='/IAgabarito.png' alt='imagem de inteligência artificial'/>
                 

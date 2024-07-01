@@ -29,6 +29,7 @@ export default function SimuladoDiscursivo() {
             } catch (error) {
                 console.error('Erro ao buscar o gabarito:', error);
                 // Trate os erros conforme necessário
+                setLoading(false);
             }
         }
         fetchSimulado();
@@ -36,6 +37,7 @@ export default function SimuladoDiscursivo() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setLoading(true);
     try {
       const formData = simulado.map(pergunta => {
         const respostaElement = document.querySelector(`textarea[name="${pergunta.numero}"]`);

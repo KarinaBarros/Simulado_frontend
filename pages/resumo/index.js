@@ -67,20 +67,23 @@ export default function Resumo() {
                 </div>
             ) : (
                 <div className='container'>
-                    <form onSubmit={handleSubmit} className='form_home'>
-                        <div className='container_logo'>
+                    <div className="container_form">
+                    <div className='container_logo'>
                             <img className='logo' src='/logo.png' alt='logotipo' />
                             <p>IA Simulado</p>
                         </div>
-                        <div>
-                            <div className="container-colar">
-                                <button onClick={paste} className="colar"><FontAwesomeIcon icon={faPaste} /> Colar:</button>
-                                {pasteSuccess && <span className="mensagem">{pasteSuccess}</span>}
+                    <form onSubmit={handleSubmit} className='form_simulado'>
+                    <p className="descricao">Escreva ou cole seu texto aqui. A inteligência artificial vai resumir o texto.</p>
+                            <p className="label_simulado">Texto:</p>
+                            <div className="container-textarea">
+                            <textarea id="targetId" rows={15} className='textarea_simulado' type="text" value={resumo} onChange={(e) => setResumo(e.target.value)} maxLength={10000} required />
                             </div>
-                            <textarea id="targetId" rows={15} className='textarea_home' type="text" value={resumo} onChange={(e) => setResumo(e.target.value)} maxLength={10000} required />
-                        </div>
-                        <button type="submit" className='button_home'>Resumir<img src='/brilho.png' className='brilho' alt='ícone brilho'></img></button>
+                            <button onClick={paste} className="colar"><FontAwesomeIcon icon={faPaste} /> Colar:</button>
+                            {pasteSuccess && <span className="mensagem">{pasteSuccess}</span>}
+                        <button type="submit" className='button_simulado'>Resumir<img src='/brilho.png' className='brilho' alt='ícone brilho'></img></button>
+                        
                     </form>
+                    </div>
                     <div className='container_imagem'>
                         <img src='/IAprincipal.png' alt='Robô de inteligência artificial com livros.' className='ia_principal'></img>
                     </div>
