@@ -229,20 +229,3 @@
   }
 }
 
-@media (min-width: 1025px) and (max-width: 1440px){
-  .simulado .container{
-    margin: 50px 50px;
-  }
-  .form_home{
-    margin: 30px;
-  }
-  .container_form .form_simulado{
-    margin: 0 0 20px 0;
-  }
-}
-
-@media (min-width: 1440px) and (max-width: 1600px){
-  .form_simulado{
-    margin: 30px;
-  }
-}
