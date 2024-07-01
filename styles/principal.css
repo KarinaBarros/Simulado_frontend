@@ -69,7 +69,7 @@
   font-weight: 800;
   align-items: center;
   justify-content: center;
-  margin-top: 50px;
+  margin-top: 25px;
 
 }
 
@@ -81,7 +81,7 @@
   width: 100%;
   font-size: 14px;
   font-family: 'Roboto', sans-serif;
-  padding: 15px 12px 12px 12px;
+  padding: 10px 10px 10px 10px;
   margin-top: -7px;
   border-radius: 20px;
   box-sizing: border-box;
@@ -104,7 +104,7 @@
   font-family: 'segoe ui';
   font-size: 16px;
   flex-direction: column;
-  background: linear-gradient(to bottom, transparent 60%, white 40%);
+  background: linear-gradient(to bottom, transparent 50%, white 50%);
   margin-left: 20px;
   margin-top: 20px;
   position: relative;
@@ -116,22 +116,22 @@
   background-color: #0500d1;
   border: none;
   font-family: 'segoe ui';
-  font-size: 18px;
+  font-size: 16px;
   border-radius: 15px;
   color: white;
   cursor: pointer;
-  line-height: 40px;
+  
   cursor: pointer;
   width: max-content;
-  padding: 0 30px;
-  margin: -43.5px auto 0 ;
+  padding: 0 30px 5px;
+  margin: -35px auto 0 ;
   position: relative;
   z-index: 20;
   margin-right: 5px;
 }
 
 .brilho{
-  width: 40px;
+  width: 35px;
   margin-bottom: -13px;
 }
 
