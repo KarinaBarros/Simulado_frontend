@@ -26,7 +26,6 @@
   font-family: 'Roboto', sans-serif;
   text-indent: 30px;
   color: #4f5050;
-  background-color: red;
 }
 
 .container .container_imagem{
@@ -48,7 +47,7 @@
 .container .container_form{
   display: flex;
   flex-direction: column;
-  height: 75vh;
+  height: 74vh;
   justify-content: space-between;
   margin-right: 30px;
   width: 50%;
@@ -59,7 +58,8 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 0;
-  margin: 50px ;
+  margin: 0 50px ;
+ 
 }
 
 .container_form .container_logo{
@@ -68,10 +68,10 @@
   font-family: 'segoe ui';
   font-size: 38px;
   font-weight: 800;
-  
   justify-content: center;
+  align-items: center;
   margin-top: 25px;
-  background-color: yellow;
+  
 }
 
 .logo{
