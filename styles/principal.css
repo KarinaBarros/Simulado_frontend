@@ -8,12 +8,13 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  
 }
 
 .simulado .container{
   display: flex;
-  margin: 10px 10px 10px 270px;
-  height: 97vh;
+  margin: 10px 10px 10px 260px;
+  height: 99vh;
   padding: 0 30px;
   border-radius: 5px;
   border: 1px solid #ccc; 
