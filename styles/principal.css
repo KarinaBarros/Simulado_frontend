@@ -50,7 +50,7 @@
   height: 75vh;
   justify-content: space-between;
   margin-right: 30px;
-  
+  width: 50%;
 }
 
 
@@ -86,7 +86,7 @@
   margin-top: -7px;
   border-radius: 20px;
   box-sizing: border-box;
-  border: 2px solid #0500d1;
+  border: 3px solid #0500d1;
   outline: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -111,21 +111,21 @@
   position: relative;
   z-index: 20;
   padding: 0 5px;
+  
 }
 
 .button_simulado{
-  background-color: #0500d1;
+  background: linear-gradient(to right, #800080, #0500d1 );
   border: none;
   font-family: 'segoe ui';
   font-size: 16px;
   border-radius: 15px;
   color: white;
   cursor: pointer;
-  
   cursor: pointer;
   width: max-content;
   padding: 0 30px 5px;
-  margin: -35px auto 0 ;
+  margin: -36px auto 0 ;
   position: relative;
   z-index: 20;
   margin-right: 5px;
@@ -160,18 +160,18 @@
   border-radius: 20px;
   box-sizing: border-box;
   border: 2px solid #0500d1;
-  padding-bottom: 50px;
+  padding-bottom: 40px;
  
 }
 
 .colar{
  width: max-content;
- background-color: white;
- margin: -40px 30px ;
+background-color: transparent;
+ margin: -28px 30px ;
   border: none;
   position: relative;
   z-index: 20;
-  padding-bottom: 15px;
+  padding-bottom: 10px;
   font-size: 14px;
   font-family: 'Roboto', sans-serif;
   margin-bottom: 0;
