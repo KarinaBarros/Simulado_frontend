@@ -26,6 +26,7 @@
   font-family: 'Roboto', sans-serif;
   text-indent: 30px;
   color: #4f5050;
+  background-color: red;
 }
 
 .container .container_imagem{
@@ -58,7 +59,6 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 0;
-  justify-content: center;
   margin: 50px ;
 }
 
@@ -68,10 +68,10 @@
   font-family: 'segoe ui';
   font-size: 38px;
   font-weight: 800;
-  align-items: center;
+  
   justify-content: center;
   margin-top: 25px;
-
+  background-color: yellow;
 }
 
 .logo{
@@ -161,7 +161,6 @@
   box-sizing: border-box;
   border: 2px solid #0500d1;
   padding-bottom: 40px;
- 
 }
 
 .colar{
