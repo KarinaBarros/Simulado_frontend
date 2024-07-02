@@ -3,10 +3,10 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 import '@/app/globals.css';
 import '@/styles/principal.css';
-import Logout from "@/components/logout/logout";
 import useAuthentication from "@/components/useAuthentication";
 import getConfig from 'next/config';
 import LottieAnimation from '@/components/lottie/lottie';
+import Nav from '@/components/nav/nav';
 
 export default function Simulado() {
   useAuthentication();
@@ -63,6 +63,7 @@ export default function Simulado() {
         </div>
       ) : (
         <div className='container'>
+          <Nav/>
           <div className='container_form'>
             <div className='container_logo'>
               <img className='logo' src='/logo.png' alt='logotipo' />

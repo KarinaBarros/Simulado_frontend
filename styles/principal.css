@@ -12,8 +12,8 @@
 
 .simulado .container{
   display: flex;
-  margin: 50px 100px;
-  height: 80vh;
+  margin: 10px 10px 10px 270px;
+  height: 97vh;
   padding: 0 30px;
   border-radius: 5px;
   border: 1px solid #ccc; 

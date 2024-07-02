@@ -1,16 +1,11 @@
-.home {
-    padding: 100px;
-    width: 100%;
+.home {  
+  width: 100%;
   background-image: url('/background.jpeg');
-  height: 100vh;
+  height: 400vh;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   position: relative;
-}
-
-.home .link-home{
-    font-size: 30px;
 }

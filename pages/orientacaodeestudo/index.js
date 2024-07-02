@@ -5,7 +5,7 @@ import '@/app/globals.css';
 import '@/styles/principal.css';
 import useAuthentication from "@/components/useAuthentication";
 import getConfig from "next/config";
-import Logout from "@/components/logout/logout";
+import Nav from "@/components/nav/nav";
 import LottieAnimation from "@/components/lottie/lottie";
 
 export default function OrientacaoEstudo(){
@@ -37,7 +37,6 @@ export default function OrientacaoEstudo(){
 
     return (
       <div className={`simulado ${isLoading ? 'loading' : ''}`}>
-        <Logout/>
         {isLoading ? (
           <div className='container_loading'>
             <p>Carregando...</p>
@@ -45,6 +44,7 @@ export default function OrientacaoEstudo(){
           </div>
         ) : (
           <div className='container'>
+            <Nav/>
             <div className='container_form'>
             <div className='container_logo'>
                 <img className='logo' src='/logo.png' alt='logotipo'/>

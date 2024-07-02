@@ -5,7 +5,7 @@ import '@/app/globals.css';
 import '@/styles/principal.css';
 import useAuthentication from "@/components/useAuthentication";
 import getConfig from "next/config";
-import Logout from "@/components/logout/logout";
+import Nav from "@/components/nav/nav";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaste } from '@fortawesome/free-solid-svg-icons';
 import LottieAnimation from "@/components/lottie/lottie";
@@ -59,7 +59,6 @@ export default function Resumo() {
 
     return (
         <div className={`simulado ${isLoading ? 'loading' : ''}`}>
-            <Logout />
             {isLoading ? (
                 <div className='container_loading'>
                     <p>Carregando...</p>
@@ -67,6 +66,7 @@ export default function Resumo() {
                 </div>
             ) : (
                 <div className='container'>
+                    <Nav/>
                     <div className="container_form">
                     <div className='container_logo'>
                             <img className='logo' src='/logo.png' alt='logotipo' />
