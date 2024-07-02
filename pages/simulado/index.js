@@ -55,7 +55,7 @@ export default function Simulado() {
 
   return (
     <div className={`simulado ${isLoading ? 'loading' : ''}`}>
-      <Logout />
+     
       {isLoading ? (
         <div className='container_loading'>
           <p>Carregando...</p>
