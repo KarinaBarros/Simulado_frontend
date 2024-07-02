@@ -146,7 +146,7 @@ pre{
   
   .loading {
     background-image: none;
-    background-color: #0500d1;
+    background: linear-gradient(to right, #8d028d, #0500d1);
   }
 
 

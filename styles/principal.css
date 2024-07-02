@@ -115,7 +115,8 @@
 }
 
 .button_simulado{
-  background: linear-gradient(to right, #800080, #0500d1 );
+  background: linear-gradient(to right, #8d028d 55%, #0500d1);
+
   border: none;
   font-family: 'segoe ui';
   font-size: 16px;
@@ -194,7 +195,7 @@ background-color: transparent;
 
 .loading {
   background-image: none;
-  background-color: #0500d1;
+  background: linear-gradient(to right, #8d028d, #0500d1);
 }
 
   

@@ -8,7 +8,7 @@ const LottieAnimation = () => {
       loop
       animationData={animationData}
       play
-      style={{ width: 300, height: 300, backgroundColor: '#0500d1' }}
+      style={{ width: 300, height: 300 }}
     />
   );
 };
