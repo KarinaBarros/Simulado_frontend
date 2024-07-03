@@ -1,7 +1,12 @@
+import Nav from "@/components/nav/nav";
+import './politica.css';
+
 export default function Politica() {
     return (
-      <div className="container">
-        <h1>Política de Uso - IA Simulado</h1>
+      <div>
+        <Nav/>
+      <div className="container-politica">
+        <h1>Política de Uso - IA Simulado</h1><br/>
         <p>
           Este documento estabelece a Política de Uso do Aplicativo Simulados IA
           Gemini, que rege o uso do aplicativo por parte dos usuários. Ao utilizar
@@ -9,22 +14,12 @@ export default function Politica() {
         </p>
   
         <h2>Definições</h2>
-        <p>
-          <strong>Aplicativo:</strong> O aplicativo IA Simulado, acessível através
-          de um navegador web.
-        </p>
-        <p>
-          <strong>Usuário:</strong> Qualquer pessoa física ou jurídica que utiliza
-          o aplicativo.
-        </p>
-        <p>
-          <strong>Conteúdo:</strong> Qualquer informação, texto, imagem, áudio,
-          vídeo ou outro material acessível através do aplicativo.
-        </p>
-        <p>
-          <strong>Gemini:</strong> O modelo de inteligência artificial utilizado
-          para gerar os simulados.
-        </p>
+        <ul>
+          <li>Aplicativo: O aplicativo IA Simulado, acessível através de um navegador web.</li>
+          <li>Usuário: Qualquer pessoa física ou jurídica que utiliza o aplicativo.</li>
+          <li>Conteúdo: Qualquer informação, texto, imagem, áudio, vídeo ou outro material acessível através do aplicativo.</li>
+          <li>Gemini: O modelo de inteligência artificial utilizado para gerar os simulados.</li>
+        </ul>
   
         <h2>Uso Permitido</h2>
         <p>O aplicativo é destinado ao uso pessoal e educacional. Você pode usar o aplicativo para:</p>
@@ -62,13 +57,14 @@ export default function Politica() {
         <p>Esta política pode ser atualizada periodicamente. Recomendamos que você revise esta página regularmente para se manter informado sobre quaisquer alterações. Ao continuar a utilizar o aplicativo após as alterações nesta política, você estará concordando com as mesmas.</p>
   
         <div className="footer">
-          <h3>Contato</h3>
+          <h2>Contato</h2>
           <ul>
             <li>Endereço de e-mail de suporte: [seu endereço de e-mail]</li>
             <li>Número de telefone de suporte: [seu número de telefone]</li>
             <li>Endereço físico, se aplicável: [seu endereço físico]</li>
           </ul>
         </div>
+      </div>
       </div>
     );
   }

@@ -1,0 +1,24 @@
+.container-politica{
+    margin: 20px 20px 20px 300px;
+}
+
+.container-politica h1{
+    font-family: 'segoe ui';
+    font-size: 30px;
+    text-align: center;
+}
+
+.container-politica h2{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    margin: 20px 0 10px 20px;
+}
+
+.container-politica p{
+    text-indent: 20px;
+}
+
+.container-politica li{
+    list-style-type: disc;
+    margin-left: 20px;
+}

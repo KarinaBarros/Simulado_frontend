@@ -84,11 +84,11 @@
   width: 100%;
   font-size: 14px;
   font-family: 'Roboto', sans-serif;
-  padding: 10px 10px 10px 10px;
+  padding: 10px 140px 10px 10px;
   margin-top: -7px;
   border-radius: 20px;
   box-sizing: border-box;
-  border: 3px solid #0500d1;
+  border: 2px solid #0500d1;
   outline: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -128,7 +128,7 @@
   cursor: pointer;
   width: max-content;
   padding: 0 30px 5px;
-  margin: -36px auto 0 ;
+  margin: -35px auto 0 ;
   position: relative;
   z-index: 20;
   margin-right: 5px;

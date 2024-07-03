@@ -4,44 +4,76 @@
     position: fixed;
     top: 10px;
     left: 10px;
-    flex: none;
     padding: 10px;
-    gap: 10px;
+    gap: 5px;
     background-color: rgba(255,255,255,0.7);
     border-radius: 5px;
     height: 93.5vh;
 }
 
 .nav p{
-    
     width: 200px;
     font-family: 'segoe ui';
     font-size: 20px;
-    margin: 0;
+    margin: 20px 0 ;
     display: inline-flex;
     padding: 10px ;
-    border-radius: 5px;
+    
 }
 
 .nav button{
     font-family: 'segoe ui';
-    font-size: 20px;
+    font-size: 17.5px;
     background-color: white;
-    border: none;
     padding: 7px 10px;
     cursor: pointer;
     border-radius: 5px;
     text-align: left;
+    position: relative;
+    border: 2px solid #0500d1;
 }
+
+.nav button:hover, .nav .link-nav:hover{
+    background-color: #0500d1;
+    color: white;
+}
+
+.nav button:active, .nav .link-nav:active{
+    background-color: #0500d1 !important;
+    color: white !important;
+}
+
 
 .nav .link-nav{
     background-color: white;
     font-family: 'segoe ui';
-    font-size: 20px;
+    font-size: 17.5px;
     margin: 0;
     display: inline-flex;
     padding: 10px ;
     border-radius: 5px;
     color: black;
     text-decoration: none;
+    border: 2px solid #0500d1;
+    width: 200px;
+}
+
+
+.logo-nav{
+    width: 80px;
+    margin: 10px auto 0;
+}
+
+.nav .link-politica{
+    margin: 50px 10px;
+    
+}
+
+.icon-nav{
+    margin-right: 10px;
+}
+
+.active{
+    background-color: #0500d1 !important;
+    color: white !important;
 }

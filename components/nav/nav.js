@@ -1,12 +1,15 @@
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import '../../app/globals.css';
 import './nav.css';
 import Link from "next/link";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpellCheck, faFileAlt, faChalkboardTeacher, faBookOpen, faPencilAlt, faHome, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 export default function Nav() {
     const [userName, setUserName] = useState(null);
     const router = useRouter();
+    const { pathname } = router;   
 
     useEffect(() => {
         const nome = localStorage.getItem('nome');
@@ -28,14 +31,16 @@ export default function Nav() {
 
     return (
         <div className="nav">
+            <img src="logo.png" alt="Logotipo" className="logo-nav"></img>
             <p>Bem vindo {userName}</p>
-            <Link href='/' className="link-nav">Home</Link>
-            <Link href='/simulado' className="link-nav">Simulado</Link>
-            <Link href='/correcaoortografica' className="link-nav">Correção Ortográfica</Link>
-            <Link href='/resumo' className="link-nav">Resumo</Link>
-            <Link href='/redacao' className="link-nav">Redação</Link>
-            <Link href='/orientacaodeestudo' className="link-nav">Orientação de estudo</Link>
-            <button onClick={logout} title="Sair">X Sair</button>
+            <Link href='/' className={`link-nav ${pathname === '/' ? 'active' : ''}`}><FontAwesomeIcon className="icon-nav" icon={faHome}/>Home</Link>
+            <Link href='/simulado' className={`link-nav ${pathname === '/simulado' ? 'active' : ''}`}><FontAwesomeIcon className="icon-nav" icon={faFileAlt}/>&nbsp;Simulado</Link>
+            <Link href='/correcaoortografica' className={`link-nav ${pathname === '/correcaoortografica' ? 'active' : ''}`}><FontAwesomeIcon className="icon-nav" icon={faSpellCheck}/>Correção Ortográfica</Link>
+            <Link href='/resumo' className={`link-nav ${pathname === '/resumo' ? 'active' : ''}`}><FontAwesomeIcon className="icon-nav" icon={faBookOpen}/>Resumo</Link>
+            <Link href='/redacao' className={`link-nav ${pathname === '/redacao' ? 'active' : ''}`}><FontAwesomeIcon className="icon-nav" icon={faPencilAlt}/>Redação</Link>
+            <Link href='/orientacaodeestudo' className={`link-nav ${pathname === '/orientacaodeestudo' ? 'active' : ''}`}><FontAwesomeIcon className="icon-nav" icon={faChalkboardTeacher}/>Orientação de estudo</Link>
+            <button onClick={logout} title="Sair">&nbsp;<FontAwesomeIcon className="icon-nav" icon={faTimes}/> Sair</button>
+            <Link className="link-politica" href='/politica'>Política de uso</Link>
         </div>
     );
 }
