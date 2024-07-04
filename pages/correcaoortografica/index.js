@@ -59,6 +59,7 @@ export default function Ortografia(){
           
           // Cola o texto no textarea
           document.getElementById('targetId').value += text;
+          setOrtografia(prevOrtografia => prevOrtografia + text);
         
       } catch (err) {
         setPasteSuccess('Falha ao colar, verifique as permissôes do navegador!');

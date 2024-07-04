@@ -38,7 +38,7 @@ export default function Nav() {
     return (
         <>
         
-        <button className={`hamburguer ${navVisible ? 'active' : 'hamburguer'}`} onClick={toggleNav}><FontAwesomeIcon className="icon-hamburguer" icon={faBars}/></button>
+        <button className={`hamburguer ${navVisible ? 'active' : ''}`} onClick={toggleNav}><FontAwesomeIcon className="icon-hamburguer" icon={faBars}/></button>
         
         <div id="nav" style={{ display: navVisible ? 'block' : 'none' }}>
             <div className="background"></div>
