@@ -42,7 +42,7 @@
 
 
 .container_imagem .ia_principal{
-  height: 60vh;
+  height: 70vh;
 }
 
 .container .container_form{
@@ -180,7 +180,9 @@ background-color: transparent;
   cursor: pointer;
 }
 
-
+.icon-colar{
+  height: 14px;
+}
 
 .textarea_simulado{
   width: 100%;
@@ -200,34 +202,41 @@ background-color: transparent;
   background: linear-gradient(to right, #8d028d, #0500d1);
 }
 
-  
+@media (max-width:768px){
+  .container_form .form_simulado{
+    margin: 0;
+  }
+} 
 
-@media (max-width:1024px){
+@media (max-width:900px){
   .container .container_imagem{
     display: none;
   }
+  
   .simulado .container{
-   margin: auto 20px;
-    
-  }
-  .container .container_form{
-    margin-right: 0;
+    margin: 20px;
   }
 
-  .container_form .form_simulado{
-    margin: 0 0 20px 0;
-  }
- 
-  .form_simulado{
-    padding: 0;
+  .container .container_form{
+    width: 100%;
     margin: 0;
   }
-  .container_logo{
-    font-size: 25px;
-  }
+
   .simulado .loading{
     width: 100px;
     height: 100px;
+  }
+}
+
+@media (min-width:900px) and (max-width: 1200px){
+  .container .container_imagem{
+    display: none;
+  }
+  
+
+  .container .container_form{
+    width: 100%;
+    margin: 0;
   }
 }
 

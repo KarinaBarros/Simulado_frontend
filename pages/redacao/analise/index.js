@@ -6,6 +6,7 @@ import '@/app/globals.css';
 import '@/styles/gabarito.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCopy } from '@fortawesome/free-solid-svg-icons';
+import Title from "@/components/title";
 
 export default function Analise() {
     useAuthentication();
@@ -56,6 +57,7 @@ export default function Analise() {
 
     return (
         <div>
+            <Title/>
             <div className='header'>
                     <img className='img-ia' src={nota < 6 ? '/negativo.png' : '/positivo.png'} alt='imagem de inteligência artificial'/>
                     <div className='text-header' id='nota'>
@@ -65,7 +67,7 @@ export default function Analise() {
                 </div>
             <div className="questoes">
             <div className="container-copiar">
-                    <button onClick={copyToClipboard} className="copiar"><FontAwesomeIcon icon={faCopy} /> Copiar</button>
+                    <button onClick={copyToClipboard} className="copiar"><FontAwesomeIcon className="icon-copiar" icon={faCopy} /> Copiar</button>
                     {copySuccess && <span className="mensagem">{copySuccess}</span>}
                 </div>
                 <pre id="targetId">{texto}</pre>

@@ -7,6 +7,7 @@ import useAuthentication from "@/components/useAuthentication";
 import getConfig from 'next/config';
 import LottieAnimation from '@/components/lottie/lottie';
 import Nav from '@/components/nav/nav';
+import Title from '@/components/title';
 
 export default function Simulado() {
   useAuthentication();
@@ -54,6 +55,8 @@ export default function Simulado() {
   };
 
   return (
+    <>
+    <Title/>
     <div className={`simulado ${isLoading ? 'loading' : ''}`}>
      
       {isLoading ? (
@@ -110,6 +113,7 @@ export default function Simulado() {
         </div>
       )}
     </div>
+    </>
   );
 }
 

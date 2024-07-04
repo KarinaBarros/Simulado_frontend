@@ -24,6 +24,7 @@
 .nav button{
     font-family: 'segoe ui';
     font-size: 17.5px;
+    width: 224px;
     background-color: white;
     padding: 7px 10px;
     cursor: pointer;
@@ -71,9 +72,72 @@
 
 .icon-nav{
     margin-right: 10px;
+    height: 17.5px;
 }
 
 .active{
     background-color: #0500d1 !important;
     color: white !important;
 }
+
+.hamburguer{
+    height: 30px;
+    font-size: 20px;
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    z-index: 50;
+    background-color: white;
+    border: 2px solid #0500d1;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    display: none;
+}
+
+.hamburguer:hover{
+    background-color: #0500d1;
+    color: white;
+}
+
+
+
+
+@media (max-width:900px){
+    #nav{
+        display: none;
+    }
+    .background{
+        width: 100%;
+        background-image: url('/circuito.jpg');
+        height: 100vh;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 30;
+    }
+    .hamburguer{
+        display: block;
+    }
+    #nav{
+        display: none;
+    }
+    .nav{
+        right: 20px;
+        top: 20px;
+        left: 20px;
+        z-index: 40;
+    }
+}
+
+@media (min-width:900px){
+    #nav{
+        display: block !important;
+    }
+}
+

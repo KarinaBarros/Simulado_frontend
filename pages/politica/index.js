@@ -1,10 +1,11 @@
 import Nav from "@/components/nav/nav";
 import './politica.css';
+import Title from "@/components/title";
 
 export default function Politica() {
     return (
       <div>
-        <Nav/>
+        <Title/>
       <div className="container-politica">
         <h1>Política de Uso - IA Simulado</h1><br/>
         <p>

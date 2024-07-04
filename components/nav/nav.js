@@ -1,13 +1,14 @@
 import { useRouter } from "next/router";
-import { useEffect, useState, useRef } from "react";
-import '../../app/globals.css';
+import { useEffect, useState } from "react";
+import '@/app/globals.css';
 import './nav.css';
 import Link from "next/link";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSpellCheck, faFileAlt, faChalkboardTeacher, faBookOpen, faPencilAlt, faHome, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faSpellCheck, faFileAlt, faChalkboardTeacher, faBookOpen, faPencilAlt, faHome, faTimes, faBars } from '@fortawesome/free-solid-svg-icons';
 
 export default function Nav() {
     const [userName, setUserName] = useState(null);
+    const [navVisible, setNavVisible] = useState(false);
     const router = useRouter();
     const { pathname } = router;   
 
@@ -29,7 +30,18 @@ export default function Nav() {
         return null;
     }
 
+    function toggleNav() {
+       setNavVisible(!navVisible);
+    }
+    
+
     return (
+        <>
+        
+        <button className={`hamburguer ${navVisible ? 'active' : ''}`} onClick={toggleNav}><FontAwesomeIcon icon={faBars}/></button>
+        
+        <div id="nav" style={{ display: navVisible ? 'block' : 'none' }}>
+            <div className="background"></div>
         <div className="nav">
             <img src="logo.png" alt="Logotipo" className="logo-nav"></img>
             <p>Bem vindo {userName}</p>
@@ -42,5 +54,8 @@ export default function Nav() {
             <button onClick={logout} title="Sair">&nbsp;<FontAwesomeIcon className="icon-nav" icon={faTimes}/> Sair</button>
             <Link className="link-politica" href='/politica'>Política de uso</Link>
         </div>
+        </div>
+        
+        </>
     );
 }

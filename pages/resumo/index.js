@@ -9,6 +9,7 @@ import Nav from "@/components/nav/nav";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaste } from '@fortawesome/free-solid-svg-icons';
 import LottieAnimation from "@/components/lottie/lottie";
+import Title from "@/components/title";
 
 export default function Resumo() {
     useAuthentication();
@@ -52,12 +53,15 @@ export default function Resumo() {
             await navigator.permissions.query({ name: 'clipboard-read' });
             const text = await navigator.clipboard.readText();
             document.getElementById('targetId').value += text;
+            setResumo(prevResumo => prevResumo + text);
         } catch (err) {
             setPasteSuccess('Falha ao colar, verifique as permissôes do navegador!');
         }
     };
 
     return (
+        <>
+        <Title/>
         <div className={`simulado ${isLoading ? 'loading' : ''}`}>
             {isLoading ? (
                 <div className='container_loading'>
@@ -78,7 +82,7 @@ export default function Resumo() {
                             <div className="container-textarea">
                             <textarea id="targetId" rows={15} className='textarea_simulado' type="text" value={resumo} onChange={(e) => setResumo(e.target.value)} maxLength={10000} required />
                             </div>
-                            <button onClick={paste} className="colar"><FontAwesomeIcon icon={faPaste} /> Colar:</button>
+                            <button onClick={paste} className="colar"><FontAwesomeIcon className="icon-colar" icon={faPaste} /> Colar:</button>
                             {pasteSuccess && <span className="mensagem">{pasteSuccess}</span>}
                         <button type="submit" className='button_simulado'>Resumir<img src='/brilho.png' className='brilho' alt='ícone brilho'></img></button>
                         
@@ -90,5 +94,6 @@ export default function Resumo() {
                 </div>
             )}
         </div>
+        </>
     );
 }

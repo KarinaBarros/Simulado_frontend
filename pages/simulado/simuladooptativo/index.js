@@ -5,6 +5,7 @@ import '@/app/globals.css';
 import '@/styles/simulado.css';
 import useAuthentication from "@/components/useAuthentication";
 import getConfig from "next/config";
+import Title from "@/components/title";
 
 export default function SimuladoOptativo() {
   const [loading, setLoading] = useState(false);
@@ -57,6 +58,7 @@ export default function SimuladoOptativo() {
 
   return (
     <div>
+      <Title/>
       <div className="header">
         <img src="/IA.png" className="img-IA" alt="robozinho de inteligência artificial"/>
         <div className="text-header">

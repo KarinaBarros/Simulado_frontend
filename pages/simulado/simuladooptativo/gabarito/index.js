@@ -9,6 +9,7 @@ import useAuthentication from "@/components/useAuthentication";
 import getConfig from 'next/config';
 import jsPDF from 'jspdf'; 
 import 'jspdf-autotable';
+import Title from '@/components/title';
 
 export default function Gabarito() {
     useAuthentication();
@@ -86,7 +87,7 @@ export default function Gabarito() {
     }
     return (
         <div>
-            
+            <Title/>
             <div>
                 <div className='header'>
                     <img className='img-ia' src={nota < 6 ? '/negativo.png' : '/positivo.png'} alt='imagem de inteligência artificial'/>

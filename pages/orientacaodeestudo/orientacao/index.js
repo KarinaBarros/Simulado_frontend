@@ -7,6 +7,7 @@ import { faCopy } from '@fortawesome/free-solid-svg-icons';
 import '@/app/globals.css';
 import '@/styles/gabarito.css';
 import Linkify from 'react-linkify';
+import Title from "@/components/title";
 
 export default function Orientacao() {
     useAuthentication();
@@ -64,6 +65,7 @@ export default function Orientacao() {
 
     return (
         <div>
+            <Title/>
             <div className='header'>
                 <div className='text-header' id='nota'>
                     <h2>Orientação de estudo:</h2>

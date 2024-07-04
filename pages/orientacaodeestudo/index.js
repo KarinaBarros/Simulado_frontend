@@ -7,6 +7,7 @@ import useAuthentication from "@/components/useAuthentication";
 import getConfig from "next/config";
 import Nav from "@/components/nav/nav";
 import LottieAnimation from "@/components/lottie/lottie";
+import Title from "@/components/title";
 
 export default function OrientacaoEstudo(){
     useAuthentication();
@@ -36,6 +37,8 @@ export default function OrientacaoEstudo(){
    
 
     return (
+      <>
+      <Title/>
       <div className={`simulado ${isLoading ? 'loading' : ''}`}>
         {isLoading ? (
           <div className='container_loading'>
@@ -78,5 +81,6 @@ export default function OrientacaoEstudo(){
           </div>
         )}
       </div>
+      </>
     );
 }

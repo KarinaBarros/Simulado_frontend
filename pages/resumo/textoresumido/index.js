@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCopy } from '@fortawesome/free-solid-svg-icons';
 import '@/app/globals.css';
 import '@/styles/gabarito.css';
+import Title from "@/components/title";
 
 
 export default function TextoResumido() {
@@ -55,6 +56,7 @@ export default function TextoResumido() {
 
     return (
         <div >
+            <Title/>
             <div className='header'>
             <div className='text-header' id='nota'>
                     <h2>Texto resumido:</h2>
@@ -64,7 +66,7 @@ export default function TextoResumido() {
             </div>
             <div className="questoes">
                 <div className="container-copiar">
-                    <button onClick={copyToClipboard} className="copiar"><FontAwesomeIcon icon={faCopy} /> Copiar</button>
+                    <button onClick={copyToClipboard} className="copiar"><FontAwesomeIcon className="icon-copiar" icon={faCopy} /> Copiar</button>
                     {copySuccess && <span className="mensagem">{copySuccess}</span>}
                 </div>
                 <pre id="targetId">{texto}</pre>

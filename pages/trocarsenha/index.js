@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import getConfig from 'next/config';
+import Title from '@/components/title';
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState('');
@@ -23,6 +24,7 @@ export default function ForgotPassword() {
 
   return (
     <div>
+      <Title/>
       <h1>Esqueci minha senha</h1>
       <form onSubmit={handleSubmit}>
         <input type="email" placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} required />

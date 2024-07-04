@@ -9,6 +9,7 @@ import Nav from "@/components/nav/nav";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaste} from '@fortawesome/free-solid-svg-icons';
 import LottieAnimation from "@/components/lottie/lottie";
+import Title from "@/components/title";
 
 export default function Ortografia(){
     useAuthentication();
@@ -65,6 +66,8 @@ export default function Ortografia(){
     };
 
     return (
+      <>
+      <Title/>
       <div className={`simulado ${isLoading ? 'loading' : ''}`}>
         {isLoading ? (
           <div className='container_loading'>
@@ -88,7 +91,7 @@ export default function Ortografia(){
                 <div className="container-textarea">
                 <textarea  id="targetId" rows={15} className='textarea_simulado' type="text" value={ortografia} onChange={(e) => setOrtografia(e.target.value)} maxLength={5000} required />
                 </div>
-                <button onClick={paste} className="colar"><FontAwesomeIcon icon={faPaste} /> Colar:</button> 
+                <button onClick={paste} className="colar"><FontAwesomeIcon className="icon-colar" icon={faPaste} /> Colar:</button> 
                 {pasteSuccess && <span className="mensagem">{pasteSuccess}</span>}
                 <button type="submit" className='button_simulado'>Corrigir<img src='/brilho.png' className='brilho' alt='ícone brilho'></img></button>
                 
@@ -102,5 +105,6 @@ export default function Ortografia(){
           </div>
         )}
       </div>
+      </>
     );
 }

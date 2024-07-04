@@ -9,6 +9,7 @@ import Nav from "@/components/nav/nav";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaste} from '@fortawesome/free-solid-svg-icons';
 import LottieAnimation from "@/components/lottie/lottie";
+import Title from "@/components/title";
 
 export default function Redacao(){
     useAuthentication();
@@ -58,6 +59,8 @@ export default function Redacao(){
           
           // Cola o texto no textarea
           document.getElementById('targetId').value += text;
+
+          setRedacao(prevRedacao => prevRedacao + text);
         
       } catch (err) {
         setPasteSuccess('Falha ao colar, verifique as permissôes do navegador!');
@@ -65,6 +68,8 @@ export default function Redacao(){
     };
 
     return (
+      <>
+      <Title/>
       <div className={`simulado ${isLoading ? 'loading' : ''}`}>
         {isLoading ? (
           <div className='container_loading'>
@@ -85,7 +90,7 @@ export default function Redacao(){
                 <div className="container-textarea">
                 <textarea id="targetId" rows={15} className='textarea_simulado' type="text" value={redacao} onChange={(e) => setRedacao(e.target.value)} maxLength={10000} required />
                 </div>
-                <button onClick={paste} className="colar"><FontAwesomeIcon icon={faPaste} /> Colar:</button> 
+                <button onClick={paste} className="colar"><FontAwesomeIcon className="icon-colar" icon={faPaste} /> Colar:</button> 
                   {pasteSuccess && <span className="mensagem">{pasteSuccess}</span>}
                 <button type="submit" className='button_simulado'>Analisar<img src='/brilho.png' className='brilho' alt='ícone brilho'></img></button>
               </form>
@@ -96,5 +101,6 @@ export default function Redacao(){
           </div>
         )}
       </div>
+      </>
     );
 }

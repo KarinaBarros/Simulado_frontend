@@ -10,6 +10,7 @@ import '@/styles/gabarito.css';
 import jsPDF from 'jspdf'; 
 import 'jspdf-autotable';
 import LottieAnimation from "@/components/lottie/lottie";
+import Title from "@/components/title";
 
 export default function GabaritoDiscursivo() {
     useAuthentication();
@@ -88,6 +89,8 @@ export default function GabaritoDiscursivo() {
     }
 
     return (
+        <>
+        <Title/>
         <div className={`gabarito ${isLoading ? 'loading' : ''}`}>
             {isLoading ? (
         <div className='container_loading'>
@@ -136,5 +139,6 @@ export default function GabaritoDiscursivo() {
                 </div>
             )}
         </div>
+        </>
     );
 }
