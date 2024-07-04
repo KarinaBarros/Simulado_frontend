@@ -82,7 +82,7 @@
 
 .hamburguer{
     height: 30px;
-    font-size: 20px;
+   
     position: fixed;
     top: 30px;
     left: 30px;
@@ -91,9 +91,12 @@
     border: 2px solid #0500d1;
     cursor: pointer;
     border-radius: 5px;
-    display: flex;
-    align-items: center;
+    padding-top: 3px;
     display: none;
+}
+
+.icon-hamburguer{
+    height: 20px;
 }
 
 .hamburguer:hover{
