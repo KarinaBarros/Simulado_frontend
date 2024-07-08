@@ -75,7 +75,7 @@ export default function Orientacao() {
             <div className="questoes">
                 <div className="container-copiar">
                     <button onClick={copyToClipboard} className="copiar">
-                        <FontAwesomeIcon icon={faCopy} /> Copiar
+                        <FontAwesomeIcon className="icon-copiar" icon={faCopy} /> Copiar
                     </button>
                     {copySuccess && <span className="mensagem">{copySuccess}</span>}
                 </div>
