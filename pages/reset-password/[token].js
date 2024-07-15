@@ -55,6 +55,11 @@ export default function ResetPassword() {
     try {
       setLoading(true);
       await axios.post(`${publicRuntimeConfig.serverUrl}/reset-password`, { token, newPassword });
+        localStorage.removeItem('token');
+        localStorage.removeItem('nome');
+        localStorage.removeItem('nivel');
+        localStorage.removeItem('curso');
+        localStorage.removeItem('temas');
       alert('Senha redefinida com sucesso');
       router.push('/login');
     } catch (error) {

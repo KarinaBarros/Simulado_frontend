@@ -17,12 +17,13 @@ const LoginForm = () => {
     setLoading(true); // Ativar o estado de carregamento
     try {
       const response = await axios.post(`${publicRuntimeConfig.serverUrl}/login`, { email, senha });
-      const { token, nome } = response.data;
+      const { token, nome, nivel, curso} = response.data;
       console.log('login efetuado');
       // Armazenar o token no localStorage
       localStorage.setItem('token', token);
       localStorage.setItem('nome', nome);
-
+      localStorage.setItem('nivel', nivel);
+      localStorage.setItem('curso', curso);
       // Redirecionar para a página home
       router.push({
         pathname: '/',

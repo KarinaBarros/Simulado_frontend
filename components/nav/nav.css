@@ -2,18 +2,19 @@
     display: flex;
     flex-direction: column;
     position: fixed;
-    top: 10px;
-    left: 10px;
+    top: 20px;
+    left: 20px;
+    bottom: 20px;
     padding: 10px;
     gap: 5px;
-    background-color: rgba(255,255,255,0.7);
+    background-color: var(--container);
     border-radius: 5px;
-    height: 93.5vh;
+    
 }
 
 .nav p{
     width: 200px;
-    font-family: 'segoe ui';
+    font-family: var(--destaque);
     font-size: 20px;
     margin: 20px 0 ;
     display: inline-flex;
@@ -21,33 +22,33 @@
     
 }
 
-.nav button{
-    font-family: 'segoe ui';
+.nav .button-nav{
+    font-family: var(--destaque);
     font-size: 17.5px;
     width: 224px;
-    background-color: white;
     padding: 7px 10px;
     cursor: pointer;
     border-radius: 5px;
     text-align: left;
     position: relative;
-    border: 2px solid #0500d1;
+    background-color: transparent;
+    border: none;
 }
 
-.nav button:hover, .nav .link-nav:hover{
-    background-color: #0500d1;
-    color: white;
+.button-expand{
+    font-family: var(--destaque);
+    font-size: 17.5px;
+    padding: 7px 50px 0 7px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: left;
+    position: relative;
+    background-color: transparent;
+    border: none;
 }
 
-.nav button:active, .nav .link-nav:active{
-    background-color: #0500d1 !important;
-    color: white !important;
-}
-
-
-.nav .link-nav{
-    background-color: white;
-    font-family: 'segoe ui';
+.link-expand{
+    font-family: var(--destaque);
     font-size: 17.5px;
     margin: 0;
     display: inline-flex;
@@ -55,17 +56,58 @@
     border-radius: 5px;
     color: black;
     text-decoration: none;
-    border: 2px solid #0500d1;
+}
+
+.nav button:hover, .nav .link-nav:hover, .link-expand:hover, .button-expand:hover {
+    background-color: var(--azul);
+    color: white;
+}
+
+.nav button:focus, .nav .link-nav:focus, .link-expand:focus, .button-expand:focus{
+    background-color: var(--azul);
+    color: white;
+}
+
+.nav button:active, .nav .link-nav:active{
+    background-color: var(--azul) !important;
+    color: white;
+}
+
+
+.nav .link-nav{
+    font-family: var(--destaque);
+    font-size: 17.5px;
+    margin: 0;
+    display: inline-flex;
+    padding: 10px ;
+    border-radius: 5px;
+    color: black;
+    text-decoration: none;
     width: 200px;
 }
 
+.expand{
+    flex-direction: column;
+    margin-left: 50px;
+    background-color: white;
+    
+}
+.container-logo{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--destaque);
+    padding: 10px 0 50px 0;
+}
 
 .logo-nav{
-    width: 80px;
-    margin: 10px auto 0;
+    width: 35px;
+   
 }
 
 .nav .link-politica{
+    position: absolute;
+    bottom: 20px;
     margin: 50px 10px;
     
 }
@@ -76,19 +118,18 @@
 }
 
 .active{
-    background-color: #0500d1 !important;
+    background-color: var(--azul) !important;
     color: white !important;
 }
 
 .hamburguer{
     height: 30px;
-   
+    background-color: var(--platina);
     position: fixed;
-    top: 30px;
-    left: 30px;
+    top: 25px;
+    right: 30px;
     z-index: 50;
-    background-color: white;
-    border: 2px solid #0500d1;
+    border: none;
     cursor: pointer;
     border-radius: 5px;
     padding-top: 3px;
@@ -97,10 +138,11 @@
 
 .icon-hamburguer{
     height: 20px;
+   
 }
 
 .hamburguer:hover{
-    background-color: #0500d1;
+    background-color: var(--azul);
     color: white;
 }
 
@@ -113,7 +155,7 @@
     }
     .background{
         width: 100%;
-        background-image: url('/circuito.jpg');
+        background-color: var(--platina);
         height: 100vh;
         background-size: cover;
         background-position: center;

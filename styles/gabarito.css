@@ -14,7 +14,8 @@
 }
 
 .img-ia{
-    width: 20%;
+    height: 20vh;
+    margin-right: 20px;
 }
 
 .text-header{
@@ -84,7 +85,7 @@
 }
 
 .botao{
-    background-color: #0500d1;
+    background-color: #7C5BFE;
     border: none;
     font-family: 'segoe ui';
     font-size: 20px;
@@ -102,7 +103,7 @@ pre{
     white-space: pre-wrap;
     word-wrap: break-word;
     overflow: hidden;
-    
+    padding-bottom: 5px;
 }
 
 .container-copiar{
@@ -147,7 +148,7 @@ pre{
   
   .loading {
     background-image: none;
-    background: linear-gradient(to right, #8d028d, #0500d1);
+    background: #7C5BFE;
   }
 
 

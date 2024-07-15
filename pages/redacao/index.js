@@ -79,25 +79,24 @@ export default function Redacao(){
         ) : (
           <div className='container'>
             <Nav/>
-            <div className="container_form">
-            <div className='container_logo'>
-                <img className='logo' src='/logo.png' alt='logotipo'/>
-                <p>IA Simulado</p>
-              </div>
-              <form onSubmit={handleSubmit} className='form_simulado'>               
+            <div className="container-interger">
+            <div className='interger-top'>
+              <div>
+                <h1 className="cores">Redação</h1>
+                </div>
                 <p className="descricao">Escreva ou cole sua redação aqui. A inteligência artificial vai avaliar sua redação e dar dicas de como melhora-la.</p>
+              </div>
+              <form onSubmit={handleSubmit} className='interger-bottom'>               
                 <p className="label_simulado">Redação:</p>
                 <div className="container-textarea">
                 <textarea id="targetId" rows={15} className='textarea_simulado' type="text" value={redacao} onChange={(e) => setRedacao(e.target.value)} maxLength={10000} required />
                 </div>
-                <button onClick={paste} className="colar"><FontAwesomeIcon className="icon-colar" icon={faPaste} /> Colar:</button> 
+                <button type="button" onClick={paste} className="colar"><FontAwesomeIcon className="icon-colar" icon={faPaste} /> Colar:</button> 
                   {pasteSuccess && <span className="mensagem">{pasteSuccess}</span>}
                 <button type="submit" className='button_simulado'>Analisar<img src='/brilho.png' className='brilho' alt='ícone brilho'></img></button>
               </form>
               </div>
-            <div className='container_imagem'>
-              <img src='/IAprincipal.png' alt='Robô de inteligência artificial com livros.' className='ia_principal'></img>
-            </div>
+            
           </div>
         )}
       </div>

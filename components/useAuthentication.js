@@ -24,6 +24,11 @@ const useAuthentication = () => {
         console.log('Autenticação bem-sucedida');
       } catch (error) {
         console.error('Erro na autenticação', error);
+        localStorage.removeItem('token');
+        localStorage.removeItem('nome');
+        localStorage.removeItem('nivel');
+        localStorage.removeItem('curso');
+        localStorage.removeItem('temas');
         router.push('/login');
       }
     };

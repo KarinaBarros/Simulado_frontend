@@ -47,3 +47,14 @@ table {
 	border-spacing: 0;
 }
 
+:root{
+	--rosa: #FF858D;
+	--azul: #6FBAEC;
+	--verde: #33FFC5;
+	--platina: #E6E6E6;
+	--container: rgba(255,255,255,0.7);
+
+	--fonte: 'Roboto', sans-serif;
+	--destaque: 'segoe ui';
+}
+

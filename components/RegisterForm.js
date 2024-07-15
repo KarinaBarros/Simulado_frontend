@@ -10,6 +10,8 @@ const RegisterForm = () => {
   const [senha, setSenha] = useState('');
   const [confirmSenha, setConfirmSenha] = useState('');
   const [nome, setNome] = useState('');
+  const [nivel, setNivel] = useState('');
+  const [curso, setCurso] = useState('');
   const { publicRuntimeConfig } = getConfig();
   const [loading, setLoading] = useState(false);
   const [validations, setValidations] = useState({
@@ -55,7 +57,7 @@ const RegisterForm = () => {
     }
 
     try {
-      const response = await axios.post(`${publicRuntimeConfig.serverUrl}/register`, { nome, email, senha });
+      const response = await axios.post(`${publicRuntimeConfig.serverUrl}/register`, { nome, email, senha, nivel, curso });
       console.log(response.data);
       alert('Enviamos um email com um link para a confirmação do cadastro!')
       
@@ -88,6 +90,22 @@ const RegisterForm = () => {
         onChange={(e) => setEmail(e.target.value)}
         required
         maxLength={45}
+      />
+      <br/>
+      <input
+        placeholder="Nivel de escolaridade"
+        value={nivel}
+        onChange={(e) => setNivel(e.target.value)}
+        required
+        maxLength={50}
+      />
+      <br/>
+      <input
+        placeholder="Curso"
+        value={curso}
+        onChange={(e) => setCurso(e.target.value)}
+        required
+        maxLength={50}
       />
       <br/>
       <input
