@@ -1,35 +1,50 @@
+.container-simulado{
+    background-color: var(--platina);
+    padding: 20px 0;
+}
+
 .header{
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    margin-top: 30px;
+    margin: 0 30% 0 285px;
+    background-color: var(--container);
+    border-radius: 5px;
+    margin-top: 50px;
 }
 
 .img-IA{
-    width: 15%;
+    width: 150px;
+    margin: -50px 20px 0;
 }
 
 .text-header{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    text-align: center;
+    
 }
 
-.text-header p, h2{
-    font-size: 40px;
-    font-family: 'segoe ui';
+.text-header h2{
+    font-size: 20px;
+    font-family: var(--destaque);
+    color: var(--rosa);
+    margin-bottom: 10px;
+    
+}
+
+.text-header p{
+    font-family: var(--fonte);
+    font-size: 30px;
+    width: 100%;
 }
 
 .questions{
-    margin: 20px 40px;   
+    margin: 20px 20px 20px 285px;   
     padding: 10px 25px;  
-    background-color: #fff; 
-    border: 1px solid #ccc; 
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2), 0px -5px 10px rgba(0, 0, 0, 0.2); 
+    background-color: var(--container);  
     font-size: 20px;
     font-family: 'Roboto', sans-serif;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 
@@ -46,13 +61,13 @@
 
 .button{
     display: flex;
-    margin-bottom: 30px;
+    
 }
 
 .enviar{
-    background-color: #0500d1;
+    background-color: var(--azul);
     border: none;
-    font-family: 'segoe ui';
+    font-family: var(--destaque);
     font-size: 20px;
     border-radius: 10px;
     color: white;
@@ -65,17 +80,61 @@
 
 .input-simulado{
     font-size: 20px;
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--fonte);
     padding: 5px;
     width: 100%;
     border-radius: 5px;
-
+    outline: none;
+  border: 2px solid var(--azul);
+  resize: none;
+}
+.quadrados{
+    position: fixed;
+    right: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 5px;
+    background-color: white;
+    padding: 10px;
+    border: 2px solid var(--azul);
+    border-radius: 7px;
 }
 
-@media (max-width:1024px){
+.quadrado{
+    width: 30px;
+    height: 30px;
+    border: 2px solid var(--azul);
+    background-color: white;
+    border-radius: 5px;
+    
+}
+
+.quadrado-ativo{
+    background-color: var(--azul) !important;
+}
+
+@media (max-width:900px){
     .questions{
         margin: 20px;
-        padding: 10px, 15 px;
+        padding: 10px;
+        font-size: 14px;
+    }
+    .header{
+        margin-left: 20px;
+    }
+    .text-header p{
+        font-size: 20px;
+    }
+    .img-IA{
+        width: 100px;
+        margin: -50px 10px 0;
+    }
+    .quadrados{
+        right: 10px;
+    }
+    .quadrado{
+        width: 15px;
+        height: 15px;
     }
 }
 

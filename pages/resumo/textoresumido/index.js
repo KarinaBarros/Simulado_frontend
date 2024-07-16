@@ -7,6 +7,7 @@ import { faCopy } from '@fortawesome/free-solid-svg-icons';
 import '@/app/globals.css';
 import '@/styles/gabarito.css';
 import Title from "@/components/title";
+import Nav from "@/components/nav/nav";
 
 
 export default function TextoResumido() {
@@ -55,13 +56,14 @@ export default function TextoResumido() {
     
 
     return (
-        <div >
+        <div className="gabarito">
             <Title/>
-            <div className='header'>
-            <div className='text-header' id='nota'>
+            <Nav/>
+            <div className='header-gabarito'>
+            <img className='img-ia' src='/IAgabarito.png' alt='imagem de inteligência artificial'/>
+            <div className='text-gabarito' id='nota'>
                     <h2>Texto resumido:</h2>
                 </div>
-                <img className='img-ia' src='/IAgabarito.png' alt='imagem de inteligência artificial'/>
                 
             </div>
             <div className="questoes">

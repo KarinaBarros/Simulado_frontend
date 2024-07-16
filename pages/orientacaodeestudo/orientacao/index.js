@@ -8,6 +8,7 @@ import '@/app/globals.css';
 import '@/styles/gabarito.css';
 import Linkify from 'react-linkify';
 import Title from "@/components/title";
+import Nav from "@/components/nav/nav";
 
 export default function Orientacao() {
     useAuthentication();
@@ -64,13 +65,14 @@ export default function Orientacao() {
     );
 
     return (
-        <div>
+        <div className="gabarito">
             <Title/>
-            <div className='header'>
-                <div className='text-header' id='nota'>
+            <Nav/>
+            <div className='header-gabarito'>
+            <img className='img-ia' src='/IAgabarito.png' alt='imagem de inteligência artificial'/>
+                <div className='text-gabarito' id='nota'>
                     <h2>Orientação de estudo:</h2>
                 </div>
-                <img className='img-ia' src='/IAgabarito.png' alt='imagem de inteligência artificial'/>
             </div>
             <div className="questoes">
                 <div className="container-copiar">

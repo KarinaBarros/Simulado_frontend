@@ -6,6 +6,7 @@ import '@/styles/simulado.css';
 import useAuthentication from "@/components/useAuthentication";
 import getConfig from "next/config";
 import Title from "@/components/title";
+import Nav from "@/components/nav/nav";
 
 export default function SimuladoOptativo() {
   const [loading, setLoading] = useState(false);
@@ -14,6 +15,7 @@ export default function SimuladoOptativo() {
   const [simulado, setSimulado] = useState([]);
   const [tema, setTema] = useState(null);
   const { publicRuntimeConfig } = getConfig();
+  const [quadradosAtivos, setQuadradosAtivos] = useState(Array(10).fill(false));
 
   useEffect(() => {
       const tema = localStorage.getItem('tema');
@@ -53,21 +55,35 @@ export default function SimuladoOptativo() {
       setLoading(false);
     }
   };
+
+  const quadradoAtivo = (index) => {
+    setQuadradosAtivos(prevState => {
+      const newState = [...prevState];
+      newState[index] = true;
+      return newState;
+    });
+  };
   
   
 
   return (
-    <div>
+    <div className="container-simulado">
       <Title/>
+      <Nav/>
       <div className="header">
         <img src="/IA.png" className="img-IA" alt="robozinho de inteligência artificial"/>
         <div className="text-header">
-          <h2>Simulado</h2>
+          <h2>Simulado:</h2>
           <p>{tema}</p>
+        </div>
+        <div className="quadrados">
+        {simulado.map((_, index) => (
+          <div key={index} className={`quadrado ${quadradosAtivos[index] ? 'quadrado-ativo' : ''}`}></div>
+        ))}
         </div>
       </div>
       <form onSubmit={handleSubmit}>
-        <br/><br/>
+        
         {simulado.map((pergunta, index) => (
           <div key={index} className="questions">
             <p> {pergunta.numero}- {pergunta.pergunta}</p>
@@ -75,7 +91,7 @@ export default function SimuladoOptativo() {
             <div className="options">
               {pergunta.opcoes.map((opcao, opcaoIndex) => (
                 <label key={opcaoIndex} className='option-label' >
-                  <input type="radio"  className="option-radio" value={opcao} name={pergunta.numero} required/> {opcao}
+                  <input type="radio"  className="option-radio" value={opcao} name={pergunta.numero} onChange={() => quadradoAtivo(index)} required/> {opcao}
                 </label>
               ))}
             </div>

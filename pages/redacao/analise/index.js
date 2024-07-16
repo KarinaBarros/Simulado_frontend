@@ -7,6 +7,7 @@ import '@/styles/gabarito.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCopy } from '@fortawesome/free-solid-svg-icons';
 import Title from "@/components/title";
+import Nav from "@/components/nav/nav";
 
 export default function Analise() {
     useAuthentication();
@@ -56,11 +57,12 @@ export default function Analise() {
     
 
     return (
-        <div>
+        <div className="gabarito">
             <Title/>
-            <div className='header'>
+            <Nav/>
+            <div className='header-gabarito'>
                     <img className='img-ia' src={nota < 6 ? '/negativo.png' : '/positivo.png'} alt='imagem de inteligência artificial'/>
-                    <div className='text-header' id='nota'>
+                    <div className='text-gabarito' id='nota'>
                         <h2>Análise da redação:</h2>
                         <p className={nota < 6 ? 'wrong-answer' : 'correct-answer'}>Nota: {nota} de 10</p>
                     </div>

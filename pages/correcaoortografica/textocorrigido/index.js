@@ -7,6 +7,7 @@ import '@/styles/gabarito.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCopy } from '@fortawesome/free-solid-svg-icons';
 import Title from "@/components/title";
+import Nav from "@/components/nav/nav";
 
 export default function TextoCorrigido() {
     useAuthentication();
@@ -73,13 +74,14 @@ export default function TextoCorrigido() {
       };
 
     return (
-        <div >
+        <div className="gabarito">
             <Title/>
-            <div className='header'>
-            <div className='text-header' id='nota'>
+            <Nav/>
+            <div className='header-gabarito'>
+            <img className='img-ia' src='/IAgabarito.png' alt='imagem de inteligência artificial'/>
+            <div className='text-gabarito' id='nota'>
                     <h2>Correção:</h2>
                 </div>
-                <img className='img-ia' src='/IAgabarito.png' alt='imagem de inteligência artificial'/>
                 
             </div>
             <div className="questoes">

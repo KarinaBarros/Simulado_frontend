@@ -50,7 +50,7 @@ export default function Nav() {
                 <div className="background"></div>
                 <div className="nav">
                     <div className="container-logo">
-                        <img src="logo2.png" alt="Logotipo" className="logo-nav"></img>
+                        <img src="/logo2.png" alt="Logotipo" className="logo-nav"></img>
                         <h1>EstudAI</h1>
                     </div>
                     <Link href='/' className={`link-nav ${pathname === '/' ? 'active' : ''}`}><FontAwesomeIcon className="icon-nav" icon={faHome}/>Home</Link>

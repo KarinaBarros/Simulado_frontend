@@ -6,6 +6,7 @@ import '@/styles/simulado.css';
 import useAuthentication from "@/components/useAuthentication";
 import getConfig from "next/config";
 import Title from "@/components/title";
+import Nav from "@/components/nav/nav";
 
 export default function SimuladoDiscursivo() {
   const [loading, setLoading] = useState(false);
@@ -13,75 +14,89 @@ export default function SimuladoDiscursivo() {
   const router = useRouter();
   const [simulado, setSimulado] = useState([]);
   const [tema, setTema] = useState(null);
+  const [respostas, setRespostas] = useState({});
   const { publicRuntimeConfig } = getConfig();
 
   useEffect(() => {
-      const tema = localStorage.getItem('tema');
-      setTema(tema ? tema : '');
+    const tema = localStorage.getItem('tema');
+    setTema(tema ? tema : '');
   }, []);
 
-    useEffect(() => {
-        async function fetchSimulado() {
-          setLoading(true);
-            try {
-                const response = await axios.get(`${publicRuntimeConfig.serverUrl}/simuladoDiscursivo`);
-                console.log('Simulado:', response.data);
-                setSimulado(response.data);
-            } catch (error) {
-                console.error('Erro ao buscar o gabarito:', error);
-                // Trate os erros conforme necessário
-                setLoading(false);
-            }
-        }
-        fetchSimulado();
-    }, []);
+  useEffect(() => {
+    async function fetchSimulado() {
+      setLoading(true);
+      try {
+        const response = await axios.get(`${publicRuntimeConfig.serverUrl}/simuladoDiscursivo`);
+        console.log('Simulado:', response.data);
+        setSimulado(response.data);
+      } catch (error) {
+        console.error('Erro ao buscar o gabarito:', error);
+        setLoading(false);
+      }
+    }
+    fetchSimulado();
+  }, []);
+
+  const handleInputChange = (numero, value) => {
+    setRespostas(prevState => ({
+      ...prevState,
+      [numero]: value
+    }));
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     setLoading(true);
     try {
-      const formData = simulado.map(pergunta => {
-        const respostaElement = document.querySelector(`textarea[name="${pergunta.numero}"]`);
-        return {
-          numero: pergunta.numero,
-          resposta: respostaElement ? respostaElement.value : ''
-        }; 
-      });
+      const formData = simulado.map(pergunta => ({
+        numero: pergunta.numero,
+        resposta: respostas[pergunta.numero] || ''
+      }));
       const response = await axios.post(`${publicRuntimeConfig.serverUrl}/respostasDiscursivo`, formData);
       router.push({
         pathname: '/simulado/simuladodiscursivo/gabarito',
       });
     } catch (error) {
       console.error('Erro ao enviar os dados:', error);
-      localStorage.removeItem('tema');  
-      setLoading(false); 
-    } 
+      localStorage.removeItem('tema');
+      setLoading(false);
+    }
   };
-  
-  
 
   return (
-    <div>
+    <div className="container-simulado">
       <Title/>
+      <Nav/>
       <div className="header">
         <img src="/IA.png" className="img-IA" alt="robozinho de inteligência artificial"/>
         <div className="text-header">
           <h2>Simulado</h2>
           <p>{tema}</p>
         </div>
+        <div className="quadrados">
+        {simulado.map((pergunta, index) => (
+          <div key={index} className={`quadrado ${respostas[pergunta.numero] ? 'quadrado-ativo' : ''}`}></div>
+        ))}
       </div>
+      </div>
+      
       <form onSubmit={handleSubmit}>
-        <br/><br/>
         {simulado.map((pergunta, index) => (
           <div key={index} className="questions">
-            <p> {pergunta.numero}- {pergunta.pergunta}</p>
+            <p>{pergunta.numero} - {pergunta.pergunta}</p>
             <br/>
             <div className="options">
-              
               <label className='option-label'>
-                <textarea type="text" name={pergunta.numero} className="input-simulado" rows={3} maxLength={500} required/>
+                <textarea
+                  type="text"
+                  name={pergunta.numero}
+                  className="input-simulado"
+                  rows={3}
+                  maxLength={500}
+                  required
+                  onChange={(e) => handleInputChange(pergunta.numero, e.target.value)}
+                />
               </label>
-              
             </div>
             <br/>
           </div>

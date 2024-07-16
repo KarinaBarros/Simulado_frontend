@@ -9,12 +9,13 @@ export default function Home(){
   useAuthentication();
   
   return(
-    <>
-    <Title/>
-    <SaveTemas/>
+    
+    
     <div className="home">
+      <Title/>
+      <SaveTemas/>
       <Nav/>
     </div>
-    </>
+    
   )
 }

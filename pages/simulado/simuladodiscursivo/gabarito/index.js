@@ -7,10 +7,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faCheck } from '@fortawesome/free-solid-svg-icons';
 import '@/app/globals.css';
 import '@/styles/gabarito.css';
-import jsPDF from 'jspdf'; 
+import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 import LottieAnimation from "@/components/lottie/lottie";
 import Title from "@/components/title";
+import Nav from "@/components/nav/nav";
 
 export default function GabaritoDiscursivo() {
     useAuthentication();
@@ -63,82 +64,101 @@ export default function GabaritoDiscursivo() {
     async function Salvar() {
         const notaElement = document.getElementById('nota');
         const gabaritoElement = document.getElementById('gabarito');
-
+    
+        // Armazenar o estilo original da nota
+        const notaOriginalStyle = notaElement.style.marginLeft;
+    
+        // Ajustar o estilo para a geração do PDF
+        notaElement.style.marginLeft = '350px'; // Ajuste o valor conforme necessário
+    
         // Criar uma div temporária para combinar os conteúdos
         const tempElement = document.createElement('div');
         tempElement.appendChild(notaElement.cloneNode(true));
         tempElement.appendChild(gabaritoElement.cloneNode(true));
-
+    
         const doc = new jsPDF('p', 'pt', 'a4');
-
+    
         await doc.html(tempElement, {
             callback: function (doc) {
                 doc.save('gabarito.pdf');
             },
-            margin: [10, 10, 10, 10], // Reduzir as margens
+            margin: [10, 10, 10, -120], // Margens padrão para todo o documento
             x: 10,
             y: 10,
-            width: 550, // Ajustar a largura
-            windowWidth: 700, // Ajustar a largura da janela
+            width: 600,
+            windowWidth: 1400,
             html2canvas: {
-                scale: 0.5, // Diminuir a escala
-                useCORS: true, // para evitar problemas de carregamento de imagens
+                scale: 0.5,
+                useCORS: true,
             },
-            pagebreak: { avoid: '.questoes' }, // Evitar quebra de página dentro das perguntas
+            pagebreak: { avoid: '.questoes' },
         });
+    
+        // Restaurar o estilo original da nota após a geração do PDF
+        notaElement.style.marginLeft = notaOriginalStyle;
+    
+        // Opcional: Limpar a margem definida anteriormente para garantir que não haja efeitos colaterais
+        notaElement.style.marginBottom = '';
     }
 
     return (
         <>
-        <Title/>
-        <div className={`gabarito ${isLoading ? 'loading' : ''}`}>
-            {isLoading ? (
-        <div className='container_loading'>
-          <p>Carregando...</p>
-          <LottieAnimation />
-        </div>
-            ) : (
-                <div>
-                    <div className='header'>
-                        <img className='img-ia' src={nota < 6 ? '/negativo.png' : '/positivo.png'} alt='imagem de inteligência artificial' />
-                        <div className='text-header' id='nota'>
-                            <h2>Gabarito</h2>
-                            <p>{tema}</p>
-                            <p className={nota < 6 ? 'wrong-answer' : 'correct-answer'}>Nota: {nota} de 10</p>
-                        </div>
+            <Title />
+            
+            <div className={`loading-gabarito ${isLoading ? 'loading' : ''}`}>
+                {isLoading ? (
+                    <div className='container_loading'>
+                        <p>Carregando...</p>
+                        <LottieAnimation />
                     </div>
-                    <div id='gabarito'>
-                        {gabarito.slice(0, -1).map((item) => (
-                            <div key={item.numero} className="questoes">
-                                {item.numero}- {item.pergunta}
-                                {item.correcao.toLowerCase() === 'certo' ? (
-                                    <FontAwesomeIcon icon={faCheck} className='certo' />
-                                ) : item.correcao.toLowerCase() === 'errado' ? (
-                                    <FontAwesomeIcon icon={faTimes} className='errado' />
-                                ) : (
-                                    <FontAwesomeIcon icon={faCheck} className='meio-certo' />
-                                )}
-                                <br /><br />
-                                <p className={item.correcao.toLowerCase() === 'certo' ? (
-                                    'correct-answer'
-                                ) : item.correcao.toLowerCase() === 'errado' ? (
-                                    'wrong-answer'
-                                ) : (
-                                    'answer'
-                                )}>Resposta: {item.respostaCliente}</p><br/>
-                                <pre>Resposta Correta: {item.respostaCerta.replace(/\*/g, '')}</pre><br/>
+                ) : (
+                    <div className="gabarito">
+                        <Nav/>
+                        <div className='header-gabarito'>
+                            <img className='img-ia' src={nota < 6 ? '/negativo.png' : '/positivo.png'} alt='imagem de inteligência artificial' />
+                            <div className='text-gabarito' id='nota'>
+                                <h2>Gabarito</h2>
+                                <p>{tema}</p>
+                                <p className={nota < 6 ? 'wrong-answer' : 'correct-answer'}>Nota: {nota} de 10</p>
                             </div>
-                        ))}
+                            <div className='quadrados-gabarito'>
+                        {gabarito.slice(0, -1).map((pergunta, index) => (
+                            <div key={index} className={`quadrado-gabarito ${pergunta.correcao.toLowerCase() === 'certo' ? 'quadrado-certo' : pergunta.correcao.toLowerCase() === 'errado' ? 'quadrado-errado' : 'quadrado-meio' }`}></div>
+                        ))}    
                     </div>
-                    <div className='botoes'>
-                        <div className='botoes-centro'>
-                            <button className='botao' onClick={Voltar}>Novo Simulado</button>
-                            <button className='botao' onClick={Salvar}>Salvar em PDF</button>
+                        </div>
+                        <div id='gabarito'>
+                            {gabarito.slice(0, -1).map((item) => (
+                                <div key={item.numero} className="questoes">
+                                    {item.numero}- {item.pergunta}
+                                    {item.correcao.toLowerCase() === 'certo' ? (
+                                        <FontAwesomeIcon icon={faCheck} className='certo' />
+                                    ) : item.correcao.toLowerCase() === 'errado' ? (
+                                        <FontAwesomeIcon icon={faTimes} className='errado' />
+                                    ) : (
+                                        <FontAwesomeIcon icon={faCheck} className='meio-certo' />
+                                    )}
+                                    <br /><br />
+                                    <p className={item.correcao.toLowerCase() === 'certo' ? (
+                                        'correct-answer'
+                                    ) : item.correcao.toLowerCase() === 'errado' ? (
+                                        'wrong-answer'
+                                    ) : (
+                                        'answer'
+                                    )}>Resposta: {item.respostaCliente}</p><br />
+                                    <pre>Resposta Correta: {item.respostaCerta.replace(/\*/g, '')}</pre><br />
+                                </div>
+                            ))}
+                        </div>
+                        <div className='botoes'>
+                            <div className='botoes-centro'>
+                                <button className='botao' onClick={Voltar}>Novo Simulado</button>
+                                <button className='botao' onClick={Salvar}>Salvar em PDF</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            )}
-        </div>
+                )}
+            </div>
         </>
     );
 }
