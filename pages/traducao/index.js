@@ -82,7 +82,7 @@ export default function Traducao() {
 
                                 <p className="label_simulado">Texto:</p>
                                 <div className="container-textarea">
-                                    <textarea id="targetId" rows={15} className='textarea_simulado' type="text" value={traducao} onChange={(e) => setResumo(e.target.value)} maxLength={10000} required />
+                                    <textarea id="targetId" rows={15} className='textarea_simulado' type="text" value={traducao} onChange={(e) => setTraducao(e.target.value)} maxLength={10000} required />
                                 </div>
                                 <button type="button" onClick={paste} className="colar"><FontAwesomeIcon className="icon-colar" icon={faPaste} /> Colar:</button>
                                 {pasteSuccess && <span className="mensagem">{pasteSuccess}</span>}
