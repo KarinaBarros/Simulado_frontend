@@ -307,6 +307,7 @@
   font-size: 16px;
   cursor: pointer;
   padding: 0;
+  background-color: transparent;
 }
 
 .link-rapido:hover, .link-rapido:active{
@@ -350,7 +351,7 @@
 
   .container-interger{
     margin-top: 40px;
-    min-height: 100vh;
+    height: 90vh;
   }
 } 
 
