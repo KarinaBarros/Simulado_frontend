@@ -4,7 +4,7 @@ import '@/app/globals.css';
 import './nav.css';
 import Link from "next/link";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSpellCheck, faFileAlt, faChalkboardTeacher, faBookOpen, faPencilAlt, faHome, faTimes, faBars, faCog, faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
+import { faSpellCheck, faFileAlt, faChalkboardTeacher, faBookOpen, faPencilAlt, faHome, faTimes, faBars, faCog, faChevronDown, faChevronUp, faLanguage } from '@fortawesome/free-solid-svg-icons';
 
 export default function Nav() {
     const [userName, setUserName] = useState(null);
@@ -59,6 +59,7 @@ export default function Nav() {
                     <Link href='/resumo' className={`link-nav ${pathname === '/resumo' ? 'active' : ''}`}><FontAwesomeIcon className="icon-nav" icon={faBookOpen}/>Resumo</Link>
                     <Link href='/redacao' className={`link-nav ${pathname === '/redacao' ? 'active' : ''}`}><FontAwesomeIcon className="icon-nav" icon={faPencilAlt}/>Redação</Link>
                     <Link href='/orientacaodeestudo' className={`link-nav ${pathname === '/orientacaodeestudo' ? 'active' : ''}`}><FontAwesomeIcon className="icon-nav" icon={faChalkboardTeacher}/>Orientação de estudo</Link>
+                    <Link href='/traducao' className={`link-nav ${pathname === '/traducao' ? 'active' : ''}`}><FontAwesomeIcon className="icon-nav" icon={faLanguage}/>Tradução</Link>
                     
                     <button className={`button-nav ${pathname === '/editar' ? 'active' : ''}`} onClick={toggleExpand}>
                         <FontAwesomeIcon className="icon-nav" icon={expandVisible ? faChevronUp : faChevronDown}></FontAwesomeIcon>{userName}
