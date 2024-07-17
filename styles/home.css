@@ -96,14 +96,21 @@
   }
   .container-text-header h1{
     font-size: 40px;
+    position: absolute;
+    left: 30%;
+    margin-top: -20px;
   }
 .container-header h2{
   font-size: 20px;
+  position: absolute;
+  margin-top: 40px;
+  left: 10%;
 }
 
   .container-text-header p{
     width: auto;
     font-size: 14px;
+    margin-top: 90px;
   }
   .img-header{
     height: 40vh;

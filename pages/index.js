@@ -24,12 +24,9 @@ export default function Home(){
       <Title/>
       {Login && <SaveTemas />}
       <header className='header-home'>
-        <div className='nav-home'>
-          
-            {!Login && <Link className='link-nav-home' href='/register'>Cadastre-se</Link>}
-          
-          
-            {!Login ? <Link className='link-nav-home' href='/login'>Login</Link> : <p>Bem vindo {Nome}</p>}
+        <div className='nav-home'>          
+            {!Login && <Link className='link-nav-home' href='/register'>Cadastre-se</Link>}        
+            {!Login ? <Link className='link-nav-home' href='/login'>Login</Link> : <p className='link-nav-home'>Bem vindo {Nome}</p>}
           
         </div>
         <div className='container-header'>
