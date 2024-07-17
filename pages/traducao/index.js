@@ -76,7 +76,7 @@ export default function Traducao() {
                                 <div>
                                     <h1 className="cores">Tradução</h1>
                                 </div>
-                                <p className="descricao">Escreva ou cole seu texto aqui. A inteligência artificial vai traduzir seu texto para português.</p>
+                                <p className="descricao">Escreva ou cole seu texto em qualquer linguagem aqui. A inteligência artificial vai traduzir seu texto para o português.</p>
                             </div>
                             <form onSubmit={handleSubmit} className='interger-bottom'>
 

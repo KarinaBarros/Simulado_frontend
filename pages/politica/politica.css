@@ -3,13 +3,13 @@
 }
 
 .container-politica h1{
-    font-family: 'segoe ui';
+    font-family: var(--destaque);
     font-size: 30px;
     text-align: center;
 }
 
 .container-politica h2{
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--fonte);
     font-weight: 700;
     margin: 20px 0 10px 20px;
 }

@@ -54,11 +54,11 @@ export default function Nav() {
                         <h1>EstudAI</h1>
                     </div>
                     <Link href='/' className={`link-nav ${pathname === '/' ? 'active' : ''}`}><FontAwesomeIcon className="icon-nav" icon={faHome}/>Home</Link>
+                    <Link href='/orientacaodeestudo' className={`link-nav ${pathname === '/orientacaodeestudo' ? 'active' : ''}`}><FontAwesomeIcon className="icon-nav" icon={faChalkboardTeacher}/>Orientação de estudo</Link>
                     <Link href='/simulado' className={`link-nav ${pathname === '/simulado' ? 'active' : ''}`}><FontAwesomeIcon className="icon-nav" icon={faFileAlt}/>&nbsp;Simulado</Link>
                     <Link href='/correcaoortografica' className={`link-nav ${pathname === '/correcaoortografica' ? 'active' : ''}`}><FontAwesomeIcon className="icon-nav" icon={faSpellCheck}/>Correção Ortográfica</Link>
                     <Link href='/resumo' className={`link-nav ${pathname === '/resumo' ? 'active' : ''}`}><FontAwesomeIcon className="icon-nav" icon={faBookOpen}/>Resumo</Link>
                     <Link href='/redacao' className={`link-nav ${pathname === '/redacao' ? 'active' : ''}`}><FontAwesomeIcon className="icon-nav" icon={faPencilAlt}/>Redação</Link>
-                    <Link href='/orientacaodeestudo' className={`link-nav ${pathname === '/orientacaodeestudo' ? 'active' : ''}`}><FontAwesomeIcon className="icon-nav" icon={faChalkboardTeacher}/>Orientação de estudo</Link>
                     <Link href='/traducao' className={`link-nav ${pathname === '/traducao' ? 'active' : ''}`}><FontAwesomeIcon className="icon-nav" icon={faLanguage}/>Tradução</Link>
                     
                     <button className={`button-nav ${pathname === '/editar' ? 'active' : ''}`} onClick={toggleExpand}>
