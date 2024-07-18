@@ -138,6 +138,18 @@
     }
 }
 
+@media (max-width:600px){
+    .quadrados{
+        padding: 5px;
+        gap: 3px;
+        margin-top: 15px;
+    }
+    .quadrado{
+        width: 12px;
+        height: 12px;
+    }
+}
+
 
 
 
