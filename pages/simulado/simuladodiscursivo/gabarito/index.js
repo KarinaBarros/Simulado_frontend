@@ -64,40 +64,50 @@ export default function GabaritoDiscursivo() {
     async function Salvar() {
         const notaElement = document.getElementById('nota');
         const gabaritoElement = document.getElementById('gabarito');
-    
-        // Armazenar o estilo original da nota
         const notaOriginalStyle = notaElement.style.marginLeft;
-    
-        // Ajustar o estilo para a geração do PDF
-        notaElement.style.marginLeft = '350px'; // Ajuste o valor conforme necessário
-    
-        // Criar uma div temporária para combinar os conteúdos
+        notaElement.style.marginLeft = '350px'; 
         const tempElement = document.createElement('div');
         tempElement.appendChild(notaElement.cloneNode(true));
         tempElement.appendChild(gabaritoElement.cloneNode(true));
+
+        const style = document.createElement('style');
+        style.innerText = `
+            .correct-answer { display: block; }
+            .wrong-answer { display: block;  }
+            .answer { display: block; }
+        `;
+        tempElement.appendChild(style);
     
         const doc = new jsPDF('p', 'pt', 'a4');
+
+        let margin;
+        const screenWidth = window.innerWidth;
+        let windowWidth;
+
+        if (screenWidth <= 900){
+            margin = [10, 10 ,10, 10];
+            windowWidth = 1000;
+        } else{
+            margin = [10, 10, 10, -120];
+            windowWidth = 1400;
+        }
     
         await doc.html(tempElement, {
             callback: function (doc) {
                 doc.save('gabarito.pdf');
             },
-            margin: [10, 10, 10, -120], // Margens padrão para todo o documento
+            margin: margin, 
             x: 10,
             y: 10,
             width: 600,
-            windowWidth: 1400,
+            windowWidth: windowWidth,
             html2canvas: {
                 scale: 0.5,
                 useCORS: true,
             },
             pagebreak: { avoid: '.questoes' },
         });
-    
-        // Restaurar o estilo original da nota após a geração do PDF
         notaElement.style.marginLeft = notaOriginalStyle;
-    
-        // Opcional: Limpar a margem definida anteriormente para garantir que não haja efeitos colaterais
         notaElement.style.marginBottom = '';
     }
 

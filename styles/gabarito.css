@@ -99,7 +99,6 @@
 
 .wrong-answer{
     background-color: var(--rosa);
-    color: white;
     display: inline-block;
     padding: 3px 5px;
     border-radius: 5px;
@@ -108,7 +107,6 @@
 
 .correct-answer{
     background-color: var(--verde);
-    color: white;
     display: inline-block;
     padding: 3px 5px;
     border-radius: 5px;
@@ -117,7 +115,6 @@
 
 .answer{
     background-color: rgb(247, 247, 110);
-    color: white;
     display: inline-block;
     padding: 3px 5px;
     border-radius: 5px;
