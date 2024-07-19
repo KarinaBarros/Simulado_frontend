@@ -44,6 +44,43 @@
   justify-content: center;
 }
 
+.editar{
+  display: flex;
+  flex-direction: column;
+  background-color: var(--container);
+  padding: 20px;
+  border-radius: 5px;
+  gap: 5px;
+}
+
+.email-editar{
+  color: var(--rosa);
+  font-family: var(--destaque) !important;
+} 
+
+.editar h2{
+  font-family: var(--destaque);
+}
+
+.editar p, .editar label, .editar input, .editar select {
+  font-family: var(--fonte);
+}
+
+.editar select{
+  padding: 1px;
+}
+
+.editar button{
+  background-color: var(--azul);
+  border: none;
+  padding: 0 20px 3px;
+  border-radius: 5px;
+  font-family: var(--destaque);
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+}
+
 .interger-bottom{
   display: flex;
   flex-direction: column;

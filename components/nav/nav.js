@@ -16,12 +16,14 @@ export default function Nav() {
     useEffect(() => {
         const nome = localStorage.getItem('nome');
         if (nome) {
-            setUserName(nome);
+            const primeiroNome = nome.split(' ')[0];
+            setUserName(primeiroNome);
         }
     }, []);
 
     function logout() {
         localStorage.removeItem('token');
+        localStorage.removeItem('email');
         localStorage.removeItem('nome');
         localStorage.removeItem('nivel');
         localStorage.removeItem('curso');

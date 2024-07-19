@@ -11,9 +11,11 @@ export default function Home(){
 
   useEffect(() => {
     const nome = localStorage.getItem('nome');
+
     if (nome) {
+      const primeiroNome = nome.split(' ')[0];
       setLogin(true);
-      setNome(nome);
+      setNome(primeiroNome);
     }
   }, []);
   
@@ -40,6 +42,14 @@ export default function Home(){
             <img className='img-header' src='/IAprincipal.png' alt='robô de inteligência artificial segurando livros'></img>
         </div>
       </header>
+      <div>
+        <Link href='/orientacaodeestudo'>Orientação de estudo</Link><br/>
+        <Link href='/simulado'>Simulado</Link><br/>
+        <Link href='/correcaoortografica'>Correção ortográfica</Link><br/>
+        <Link href='/resumo'>Resumo</Link><br/>
+        <Link href='/redacao'>Redação</Link><br/>
+        <Link href='/traducao'>Tradução</Link>
+      </div>
     </div>
     
   )

@@ -25,6 +25,7 @@ const useAuthentication = () => {
       } catch (error) {
         console.error('Erro na autenticação', error);
         localStorage.removeItem('token');
+        localStorage.removeItem('email');
         localStorage.removeItem('nome');
         localStorage.removeItem('nivel');
         localStorage.removeItem('curso');

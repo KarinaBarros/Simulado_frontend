@@ -5,7 +5,6 @@ import Title from '@/components/title';
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
   const { publicRuntimeConfig } = getConfig();
   const [loading, setLoading] = useState(false);
 
@@ -14,23 +13,27 @@ export default function ForgotPassword() {
     setLoading(true);
     try {
       await axios.post(`${publicRuntimeConfig.serverUrl}/forgot-password`, { email });
-      setMessage('Um e-mail foi enviado com instruções para redefinir sua senha');
+      alert('Um e-mail foi enviado com instruções para redefinir sua senha, se não encontrar verifique a caixa de span!');
     } catch (error) {
-      setMessage('Ocorreu um erro ao solicitar a troca de senha');
+      alert('Email não encontrado!');
     } finally {
       setLoading(false); // Desativar o estado de carregamento, independentemente do resultado
     }
   };
 
   return (
-    <div>
-      <Title/>
-      <h1>Esqueci minha senha</h1>
-      <form onSubmit={handleSubmit}>
-        <input type="email" placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} required />
-        <button type="submit" disabled={loading}>Enviar</button>
-      </form>
-      <p>{message}</p>
+    <div className='login'>
+      <Title />
+      <div className='container-login'>
+        <div className='login-itens'>
+          <h2>Alterar senha</h2>
+          <form className='form-login' onSubmit={handleSubmit}>
+            <h3>Email:</h3>
+            <input className='input-login' type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+            <button type="submit" disabled={loading}>Enviar</button>
+          </form>
+        </div>
+      </div>
     </div>
   );
 }
