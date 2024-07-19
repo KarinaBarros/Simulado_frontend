@@ -2,6 +2,8 @@ import { useState } from 'react';
 import axios from 'axios';
 import getConfig from 'next/config';
 import Title from '@/components/title';
+import '@/app/globals.css';
+import '@/styles/login.css';
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState('');
