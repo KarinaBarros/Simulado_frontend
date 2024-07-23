@@ -100,6 +100,7 @@
   .container-text-header p{
     position: absolute;
     top: 60vh;
+    margin-left: -10px;
     width: 450px;
   }
   .img-header{
