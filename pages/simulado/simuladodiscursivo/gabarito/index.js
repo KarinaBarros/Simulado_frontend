@@ -72,6 +72,7 @@ export default function GabaritoDiscursivo() {
 
         const style = document.createElement('style');
         style.innerText = `
+            .questoes{ display:block; }
             .correct-answer { display: block; }
             .wrong-answer { display: block;  }
             .answer { display: block; }
