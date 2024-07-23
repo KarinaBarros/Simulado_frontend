@@ -36,7 +36,6 @@
   background: linear-gradient(to right, rgb(25, 41, 68), rgb(25, 41, 68, 0));
   height: 70vh;
   margin-top: -56px;
-  justify-content: center;
   
 }
 
@@ -45,7 +44,7 @@
   display: flex;
   flex-direction: column;
   margin-top: 100px;
-  
+  margin-left: 20%;
   
 }
 
@@ -69,81 +68,71 @@
 .container-text-header p{
   color: white;
   font-family: var(--fonte);
+  font-size: 16px;
   width: 450px;
 }
 
 .img-header{
   height: 60vh;
-  position: relative;
+  position: absolute;
   z-index: 99;
   margin-top: 10vh;
+  right: 15%;
 }
 
 .elipse{
   width: 430px;
   height: 100px;
   position: absolute;
-  top: 57vh;
-  margin-left: 470px;
+  top: 58vh;
+  right: 12%;
   background: radial-gradient(ellipse, rgb(0,0,0,1),rgb(0,0,0,1),rgb(0,0,0,0.2), rgb(0,0,0,0),rgb(0,0,0,0));
   border-radius: 50px;
 }
 
-@media (max-width:568px){
+@media (max-width:720px){
+  
   .container-text-header{
-    margin-right: -30px;
-    margin-left: 10px;
+    margin-left: auto;
+    margin-right: auto;
   }
-  .container-text-header h1{
-    font-size: 40px;
-    position: absolute;
-    left: 30%;
-    margin-top: -20px;
-  }
-.container-header h2{
-  font-size: 20px;
-  position: absolute;
-  margin-top: 40px;
-  left: 10%;
-}
 
   .container-text-header p{
-    width: auto;
-    font-size: 14px;
-    margin-top: 90px;
-    margin-right: 210px;
-  }
-  .img-header{
-    height: 40vh;
-    margin-top: 0;
     position: absolute;
-    right: -40px;
-    top: 27vh;
-  }
-  .elipse{
-    width: 250px;
-    height: 60px;
-    margin-left: 0;
-    right: -25px;
-    margin-top: 0px;
     top: 60vh;
+    width: 400px;
+  }
+  .img-header{
+    height: 30vh;
+    top: 12vh;
+    right: 21%;
+  }
+  .elipse{
+    top: 46vh;
+    right:23%;
+    width: 330px;
   }
 }
 
-@media (min-width:569px) and (max-width:900px){
+@media (min-width:721px) and (max-width:999px){
+  
   .container-text-header{
-    margin-right: -30px;
-    margin-left: 10px;
+    margin-right: 40%;
+    margin-left: auto;
   }
   .container-text-header p{
-    width: auto;
+    width: 350px;
   }
   .img-header{
-    height: 50vh;
-    margin-top: 18vh;
+    right: 5%;
   }
   .elipse{
-    margin-left: 0;
-    right: -65px;
+    right: -1%;
+  }
+}
+
+@media (min-width:1000px) and (max-width:1150px){
+  .container-text-header{
+   margin-left: 10%;
   }
 }
