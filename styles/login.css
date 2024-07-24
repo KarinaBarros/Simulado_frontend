@@ -110,6 +110,9 @@
     .container-login{
         width: 95%;
     }
+    .input-login{
+        width: 300px;
+    }
 }
 
 @media(min-width:721px) and (max-width:900px){
