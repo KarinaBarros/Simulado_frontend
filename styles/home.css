@@ -101,7 +101,7 @@
     position: absolute;
     top: 60vh;
     margin-left: -10px;
-    width: 450px;
+    width: auto;
   }
   .img-header{
     height: 30vh;
