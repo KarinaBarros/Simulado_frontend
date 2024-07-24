@@ -125,6 +125,8 @@ export default function Editar() {
                                         setNovoNivel(e.target.value);
                                         if ((e.target.value === "Ensino técnico") || (e.target.value === "Ensino superior")) {
                                             setShowCurso(true); setRequired(true);
+                                        } else if(e.target.value === ''){
+                                            setRequired(false);
                                         } else { setShowCurso(false); setRequired(false); setNovoCurso(''); }
                                     }}>
                                     <option></option>
@@ -148,7 +150,7 @@ export default function Editar() {
                                 <br /><br />
                             </div>
                             }
-                            <button type="submit" disabled={loading} >Editar</button>
+                            <button type="submit" disabled={loading} >{loading ? 'Editando...' : 'Editar'}</button>
                         </form><br/><br/>
                         <Link href='/trocarsenha'>Alterar Senha</Link>
                         {(temas) &&<div><SaveTemas/> </div>}

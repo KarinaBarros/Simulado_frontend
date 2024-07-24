@@ -87,10 +87,11 @@
 }
 
 .expand{
+    position: absolute;
+    top: 69vh;
     flex-direction: column;
     margin-left: 50px;
     background-color: white;
-    
 }
 .container-logo{
     display: flex;
@@ -102,14 +103,10 @@
 
 .logo-nav{
     width: 35px;
-   
 }
 
 .nav .link-politica{
-    position: absolute;
-    bottom: 20px;
-    margin: 50px 10px;
-    
+    margin: 5px 0 0 10px;
 }
 
 .icon-nav{
@@ -178,9 +175,12 @@
         left: 20px;
         z-index: 40;
     }
+    .expand{
+        top: 71vh;
+    }
 }
 
-@media (min-width:900px){
+@media (min-width:901px){
     #nav{
         display: block !important;
     }

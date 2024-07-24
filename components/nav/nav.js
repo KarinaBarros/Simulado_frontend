@@ -70,6 +70,8 @@ export default function Nav() {
                         <Link href='editar' className="link-expand"><FontAwesomeIcon className="icon-nav" icon={faCog}></FontAwesomeIcon> Editar</Link>
                         <button className='button-expand' onClick={logout} title="Sair">&nbsp;<FontAwesomeIcon className="icon-nav" icon={faTimes}/> Sair</button>
                     </div>
+                    <br/><br/><br/>
+                    <Link className="link-politica" href='/erro'>Reporte um erro</Link>
                     <Link className="link-politica" href='/politica'>Política de uso</Link>
                 </div>
             </div>
