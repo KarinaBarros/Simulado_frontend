@@ -7,6 +7,7 @@ import '@/app/globals.css';
 import '@/styles/principal.css';
 import SaveTemas from "@/components/savetemas";
 import Link from "next/link";
+import Title from "@/components/title";
 
 export default function Editar() {
     useAuthentication();
@@ -99,6 +100,7 @@ export default function Editar() {
 
     return (
         <div className="simulado">
+            <Title/>
             <div className="container">
                 <Nav />
                 <div className="container-interger">

@@ -5,6 +5,7 @@ import useAuthentication from "@/components/useAuthentication";
 import { useEffect, useState } from "react";
 import getConfig from "next/config";
 import axios from "axios";
+import Title from "@/components/title";
 
 export default function Erro() {
     useAuthentication();
@@ -58,6 +59,7 @@ export default function Erro() {
 
     return (
         <div className="simulado">
+            <Title/>
             <div className="container">
                 <Nav />
                 <div className="container-interger">
