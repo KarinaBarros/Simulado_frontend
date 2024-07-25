@@ -2,6 +2,7 @@ import '@/app/globals.css';
 import '@/styles/home.css';
 import Title from "@/components/title";
 import Header from '@/components/header/header';
+import Main from '@/components/main/main';
 
 export default function Home(){
   
@@ -11,6 +12,7 @@ export default function Home(){
     <div className="home">
       <Title/>
       <Header/>
+      <Main/>
     </div>
     
   )
