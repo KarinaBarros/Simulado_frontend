@@ -88,7 +88,7 @@
 
 .expand{
     position: absolute;
-    top: 69vh;
+    margin-top: 30px;
     flex-direction: column;
     margin-left: 50px;
     background-color: white;
@@ -175,9 +175,6 @@
         left: 20px;
         z-index: 40;
     }
-    .expand{
-        top: 71vh;
-    }
 }
 
 @media (min-width:901px){
@@ -198,9 +195,5 @@
    .background{
     height: 100vh;
    }
-   .expand{
-    top: 65vh;
-   }
-  
 }
 
