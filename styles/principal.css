@@ -360,6 +360,7 @@
 
 @media (max-width:768px){
   .simulado{
+    min-height: 100vh;
     height: auto;
     padding-bottom: 20px;
   }
@@ -367,8 +368,10 @@
   .simulado .container{
   margin: 20px;
   flex-direction: column;
+  min-height: 90vh;
   height: auto;
   padding-bottom: 20px;
+  
   }
   .left{
     width: 100%;
@@ -381,6 +384,7 @@
 
   .container-interger{
     margin-top: 40px;
+    min-height: 80vh;
     height: auto;
   }
   .input_simulado{
@@ -393,6 +397,7 @@
     height: auto;
   }
   .interger-bottom{
+    min-height: 80%;
     height: auto;
     padding-bottom: 20px;
   }
