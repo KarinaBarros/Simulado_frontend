@@ -62,13 +62,14 @@ export default function Nav() {
                     <Link href='/resumo' className={`link-nav ${pathname === '/resumo' ? 'active' : ''}`}><FontAwesomeIcon className="icon-nav" icon={faBookOpen}/>Resumo</Link>
                     <Link href='/redacao' className={`link-nav ${pathname === '/redacao' ? 'active' : ''}`}><FontAwesomeIcon className="icon-nav" icon={faPencilAlt}/>Redação</Link>
                     <Link href='/traducao' className={`link-nav ${pathname === '/traducao' ? 'active' : ''}`}><FontAwesomeIcon className="icon-nav" icon={faLanguage}/>Tradução</Link>
-                    
+                    <div>
                     <button className={`button-nav ${pathname === '/editar' ? 'active' : ''}`} onClick={toggleExpand}>
                         <FontAwesomeIcon className="icon-nav" icon={expandVisible ? faChevronUp : faChevronDown}></FontAwesomeIcon>{userName}
                     </button>
                     <div className="expand" style={{ display: expandVisible ? 'flex' : 'none' }}>
                         <Link href='editar' className="link-expand"><FontAwesomeIcon className="icon-nav" icon={faCog}></FontAwesomeIcon> Editar</Link>
                         <button className='button-expand' onClick={logout} title="Sair">&nbsp;<FontAwesomeIcon className="icon-nav" icon={faTimes}/> Sair</button>
+                    </div>
                     </div>
                     <br/><br/><br/>
                     <Link className="link-politica" href='/erro'>Reporte um erro</Link>
