@@ -120,7 +120,7 @@ export default function Editar() {
                             </label>
                             <br /><br />
                             <p>Nível de escolaridade: {nivel}</p>
-                            <label>Novo nível:
+                            <label>Novo nível: 
                                 <select
                                     value={novoNivel}
                                     onChange={(e) => {

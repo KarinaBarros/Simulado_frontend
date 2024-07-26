@@ -106,7 +106,16 @@
     border-radius: 5px;
 }
 
-@media(max-width:720px){
+@media(max-width:640px){
+    .input-login{
+        width: 280px;
+    }
+    .container-login{
+        width: 95%;
+    }
+}
+
+@media(min-width:641px) and (max-width:720px){
     .container-login{
         width: 95%;
     }

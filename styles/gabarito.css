@@ -126,19 +126,22 @@
 .errado{
     color: var(--rosa);
     height: 30px;
-    margin-bottom: -5px;
+    margin-right: 0;
+    margin-left: auto;
 }
 
 .certo{
     color: var(--verde);
     height: 30px;
-    margin-bottom: -5px;
+    margin-right: 0;
+    margin-left: auto;
 }
 
 .meio-certo{
     color: rgb(247, 247, 110);
     height: 30px;
-    margin-bottom: -5px;
+    margin-right: 0;
+    margin-left: auto;
 }
 
 .botoes{
@@ -223,8 +226,54 @@ pre{
     background: var(--azul);
   }
 
+  @media (max-width:720px) {
+    .questoes{
+        margin: 20px;
+        padding: 10px;
+        font-size: 14px;
+    }
+    .header-gabarito{
+        margin-left: 20px;
+        margin-right: 20px;
+        padding-bottom: 10px;
+        padding-right: 5px;
+    }
+    .text-gabarito{
+        margin-left: -10px;
+    }
+    .text-gabarito p{
+        font-size: 16px;
+    }
+    .img-ia{
+        width: 100px;
+        margin: -50px 0 0 -10px;
+    }
+    .quadrados-gabarito{
+        
+        top: 0;
+        right: 70px;
+    }
+    .quadrado-gabarito{
+        width: 15px;
+        height: 15px;
+    }
+    .botoes-centro{
+        padding-left: 0;
+    }
+    .botao{
+        font-size: 16px;
+        padding: 0 20px;
+    }
+    .container-copiar{
+        margin: -10px -10px 10px -10px;
+    }
+    .simulado .loading{
+        width: 100px;
+        height: 100px;
+      }
+  }
 
-@media (max-width:900px){
+@media (min-width:721px) and (max-width:900px){
    
     .questoes{
         margin: 20px;
@@ -233,6 +282,8 @@ pre{
     }
     .header-gabarito{
         margin-left: 20px;
+        padding-bottom: 10px;
+        padding-right: 5px;
     }
     .text-gabarito p{
         font-size: 20px;
@@ -243,6 +294,7 @@ pre{
     }
     .quadrados-gabarito{
         right: 10px;
+        top: 80px;
     }
     .quadrado-gabarito{
         width: 15px;

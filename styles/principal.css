@@ -160,8 +160,6 @@
   justify-content: center;
 }
 
-
-
 .cores {
   font-family: var(--destaque);
   font-size: 38px;
@@ -363,16 +361,19 @@
 @media (max-width:768px){
   .simulado{
     height: auto;
+    padding-bottom: 20px;
   }
 
   .simulado .container{
   margin: 20px;
   flex-direction: column;
   height: auto;
+  padding-bottom: 20px;
   }
   .left{
     width: 100%;
     margin-top: 40px;
+    
   }
   .right{
     width: calc(100% - 40px);
@@ -380,7 +381,20 @@
 
   .container-interger{
     margin-top: 40px;
-    height: 90vh;
+    height: auto;
+  }
+  .input_simulado{
+    padding-right: 95px;
+  }
+  .button_simulado{
+    padding: 0 0 5px 10px;
+  }
+  .interger-top{
+    height: auto;
+  }
+  .interger-bottom{
+    height: auto;
+    padding-bottom: 20px;
   }
 } 
 

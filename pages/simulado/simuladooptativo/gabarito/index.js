@@ -132,12 +132,12 @@ export default function Gabarito() {
                 <div id='gabarito'>
                 {gabarito.map((pergunta, index) => (
                     <div key={index} className='questoes' >
-                        {pergunta.numero}- {pergunta.pergunta}
                         {pergunta.correcao === 'certo' ? (
                             <FontAwesomeIcon icon={faCheck} className='certo'/>
                         ) : (
                             <FontAwesomeIcon icon={faTimes} className='errado'/>
                         )}
+                        {pergunta.numero}- {pergunta.pergunta}
                         <br/><br/>
                         {pergunta.opcoes.map((opcao, opcaoIndex) => (
                             <p key={opcaoIndex} className={pergunta.resposta === String.fromCharCode(97 + opcaoIndex) ? 'correct-answer' : (pergunta.usuario === String.fromCharCode(97 + opcaoIndex) ? 'wrong-answer' : '')}>{opcao}</p>

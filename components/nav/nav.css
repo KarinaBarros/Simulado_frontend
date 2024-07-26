@@ -186,3 +186,21 @@
     }
 }
 
+@media(max-height:565px){
+   .container-logo{
+    padding-bottom: 10px;
+   }
+   .nav .link-nav{
+    font-size: 16px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+   }
+   .background{
+    height: 100vh;
+   }
+   .expand{
+    top: 65vh;
+   }
+  
+}
+
