@@ -74,6 +74,20 @@
     margin-bottom: 10px;
 }
 
+.login textarea{
+    resize: none;
+    font-size: 14px;
+    font-family: var(--fonte);
+    margin-top: -7px;
+    border-radius: 7px;
+    box-sizing: border-box;
+    border: 2px solid var(--azul);
+    background-color: white;
+    outline: none;
+    padding: 10px;
+    width:400px;
+}
+
 .form-login button{
     background: var(--azul);
     border: none;
@@ -113,6 +127,9 @@
     .container-login{
         width: 95%;
     }
+    .login textarea{
+        width: 280px;
+    }
 }
 
 @media(min-width:641px) and (max-width:720px){
@@ -120,6 +137,9 @@
         width: 95%;
     }
     .input-login{
+        width: 300px;
+    }
+    .login textarea{
         width: 300px;
     }
 }

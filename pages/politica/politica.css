@@ -22,3 +22,10 @@
     list-style-type: disc;
     margin-left: 20px;
 }
+
+
+@media(max-width:720px){
+    .container-politica{
+        margin: 20px;
+    }
+}
