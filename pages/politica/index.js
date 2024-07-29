@@ -1,6 +1,6 @@
-import Nav from "@/components/nav/nav";
 import './politica.css';
 import Title from "@/components/title";
+import Link from 'next/link';
 
 export default function Politica() {
     return (
@@ -58,12 +58,7 @@ export default function Politica() {
         <p>Esta política pode ser atualizada periodicamente. Recomendamos que você revise esta página regularmente para se manter informado sobre quaisquer alterações. Ao continuar a utilizar o aplicativo após as alterações nesta política, você estará concordando com as mesmas.</p>
   
         <div className="footer">
-          <h2>Contato</h2>
-          <ul>
-            <li>Endereço de e-mail de suporte: [seu endereço de e-mail]</li>
-            <li>Número de telefone de suporte: [seu número de telefone]</li>
-            <li>Endereço físico, se aplicável: [seu endereço físico]</li>
-          </ul>
+        <p>Para mais informações, entre em contato através do link: <Link href="/contato">Contato</Link>.</p>
         </div>
       </div>
       </div>
