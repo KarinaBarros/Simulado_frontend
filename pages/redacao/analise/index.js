@@ -12,7 +12,7 @@ import Nav from "@/components/nav/nav";
 export default function Analise() {
     useAuthentication();
     const { publicRuntimeConfig } = getConfig();
-    const [texto, setTexto] = useState(""); // Estado para armazenar o texto corrigido
+    const [texto, setTexto] = useState("");
     const [nota, setNota] = useState();
     const [copySuccess, setCopySuccess] = useState('');
 
@@ -21,11 +21,10 @@ export default function Analise() {
             try {
                 const response = await axios.get(`${publicRuntimeConfig.serverUrl}/analise`);
                 console.log(response.data);
-                setTexto(response.data.comentario); // Define o texto corrigido no estado
+                setTexto(response.data.comentario);
                 setNota(response.data.nota);
             } catch (error) {
                 console.error('Erro os dados:', error);
-                // Trate os erros conforme necessário
             }
         }
         fetchCorrecao();
@@ -38,7 +37,6 @@ export default function Analise() {
 
         document.addEventListener('click', handleClick);
 
-        // Cleanup event listener on component unmount
         return () => {
             document.removeEventListener('click', handleClick);
         };
@@ -46,29 +44,29 @@ export default function Analise() {
 
     const copyToClipboard = async () => {
         try {
-          const textToCopy = document.getElementById('targetId').innerText;
-          await navigator.clipboard.writeText(textToCopy);
-          setCopySuccess('Copiado para a área de transferência!');
+            const textToCopy = document.getElementById('targetId').innerText;
+            await navigator.clipboard.writeText(textToCopy);
+            setCopySuccess('Copiado para a área de transferência!');
         } catch (err) {
-          setCopySuccess('Falha ao copiar!');
+            setCopySuccess('Falha ao copiar!');
         }
-      };
+    };
 
-    
+
 
     return (
         <div className="gabarito">
-            <Title/>
-            <Nav/>
+            <Title />
+            <Nav />
             <div className='header-gabarito'>
-                    <img className='img-ia' src={nota < 6 ? '/negativo.png' : '/positivo.png'} alt='imagem de inteligência artificial'/>
-                    <div className='text-gabarito' id='nota'>
-                        <h2>Análise da redação:</h2>
-                        <p className={nota < 6 ? 'wrong-answer' : 'correct-answer'}>Nota: {nota} de 10</p>
-                    </div>
+                <img className='img-ia' src={nota < 6 ? '/negativo.png' : '/positivo.png'} alt='imagem de inteligência artificial' />
+                <div className='text-gabarito' id='nota'>
+                    <h2>Análise da redação:</h2>
+                    <p className={nota < 6 ? 'wrong-answer' : 'correct-answer'}>Nota: {nota} de 10</p>
                 </div>
+            </div>
             <div className="questoes">
-            <div className="container-copiar">
+                <div className="container-copiar">
                     <button onClick={copyToClipboard} className="copiar"><FontAwesomeIcon className="icon-copiar" icon={faCopy} /> Copiar</button>
                     {copySuccess && <span className="mensagem">{copySuccess}</span>}
                 </div>

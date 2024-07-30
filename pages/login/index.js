@@ -48,7 +48,7 @@ const Login = () => {
         <div className='login-itens'>
           <Title />
           <h2>Login</h2>
-          {error && <p>{error}</p>} {/* Exibir mensagem de erro se existir */}
+          {error && <p>{error}</p>}
           <form onSubmit={handleSubmit} className='form-login'>
             <h3>Email</h3>
             <input
@@ -64,7 +64,7 @@ const Login = () => {
               value={senha}
               onChange={(e) => setSenha(e.target.value)}
             />
-              <button type="submit" disabled={loading}>Login</button>
+            <button type="submit" disabled={loading}>Login</button>
           </form>
           <Link className='link-login' href='/register'>Não tem uma conta? Cadastre-se:</Link>
           <Link className='link-login' href='/trocarsenha'>Esqueci minha Senha.</Link>

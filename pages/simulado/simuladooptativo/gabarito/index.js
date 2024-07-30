@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faCheck } from '@fortawesome/free-solid-svg-icons';
 import useAuthentication from "@/components/useAuthentication";
 import getConfig from 'next/config';
-import jsPDF from 'jspdf'; 
+import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 import Title from '@/components/title';
 import Nav from '@/components/nav/nav';
@@ -48,7 +48,7 @@ export default function Gabarito() {
                 setGabarito(response.data.respostas);
             } catch (error) {
                 console.error('Erro ao buscar o gabarito:', error);
-                // Trate os erros conforme necessário
+
                 localStorage.removeItem('tema');
             }
         }
@@ -63,7 +63,7 @@ export default function Gabarito() {
         const notaElement = document.getElementById('nota');
         const gabaritoElement = document.getElementById('gabarito');
         const notaOriginalStyle = notaElement.style.marginLeft;
-        notaElement.style.marginLeft = '350px'; 
+        notaElement.style.marginLeft = '350px';
         const tempElement = document.createElement('div');
         tempElement.appendChild(notaElement.cloneNode(true));
         tempElement.appendChild(gabaritoElement.cloneNode(true));
@@ -76,26 +76,26 @@ export default function Gabarito() {
             .answer { display: block; }
         `;
         tempElement.appendChild(style);
-    
+
         const doc = new jsPDF('p', 'pt', 'a4');
 
         let margin;
         const screenWidth = window.innerWidth;
         let windowWidth;
 
-        if (screenWidth <= 900){
-            margin = [10, 10 ,10, 10];
+        if (screenWidth <= 900) {
+            margin = [10, 10, 10, 10];
             windowWidth = 1000;
-        } else{
+        } else {
             margin = [10, 10, 10, -120];
             windowWidth = 1400;
         }
-    
+
         await doc.html(tempElement, {
             callback: function (doc) {
                 doc.save('gabarito.pdf');
             },
-            margin: margin, 
+            margin: margin,
             x: 10,
             y: 10,
             width: 600,
@@ -109,14 +109,14 @@ export default function Gabarito() {
         notaElement.style.marginLeft = notaOriginalStyle;
         notaElement.style.marginBottom = '';
     }
-    
+
     return (
         <div className='gabarito'>
-            <Title/>
-            <Nav/>
+            <Title />
+            <Nav />
             <div>
                 <div className='header-gabarito'>
-                    <img className='img-ia' src={nota < 6 ? '/negativo.png' : '/positivo.png'} alt='imagem de inteligência artificial'/>
+                    <img className='img-ia' src={nota < 6 ? '/negativo.png' : '/positivo.png'} alt='imagem de inteligência artificial' />
                     <div className='text-gabarito' id='nota'>
                         <h2>Gabarito:</h2>
                         <p> {tema}</p>
@@ -124,32 +124,32 @@ export default function Gabarito() {
                     </div>
                     <div className='quadrados-gabarito'>
                         {gabarito.map((pergunta, index) => (
-                            <div key={index} className={`quadrado-gabarito ${pergunta.correcao === 'certo' ? 'quadrado-certo' : 'quadrado-errado' }`}></div>
-                        ))}    
-                    </div> 
-                </div>
-                
-                <div id='gabarito'>
-                {gabarito.map((pergunta, index) => (
-                    <div key={index} className='questoes' >
-                        {pergunta.correcao === 'certo' ? (
-                            <FontAwesomeIcon icon={faCheck} className='certo'/>
-                        ) : (
-                            <FontAwesomeIcon icon={faTimes} className='errado'/>
-                        )}
-                        {pergunta.numero}- {pergunta.pergunta}
-                        <br/><br/>
-                        {pergunta.opcoes.map((opcao, opcaoIndex) => (
-                            <p key={opcaoIndex} className={pergunta.resposta === String.fromCharCode(97 + opcaoIndex) ? 'correct-answer' : (pergunta.usuario === String.fromCharCode(97 + opcaoIndex) ? 'wrong-answer' : '')}>{opcao}</p>
+                            <div key={index} className={`quadrado-gabarito ${pergunta.correcao === 'certo' ? 'quadrado-certo' : 'quadrado-errado'}`}></div>
                         ))}
-                        <br/><br/>
-                        <pre>Explicação: {pergunta.explicacao}</pre>
-                        <br/>
                     </div>
-                ))}
+                </div>
+
+                <div id='gabarito'>
+                    {gabarito.map((pergunta, index) => (
+                        <div key={index} className='questoes' >
+                            {pergunta.correcao === 'certo' ? (
+                                <FontAwesomeIcon icon={faCheck} className='certo' />
+                            ) : (
+                                <FontAwesomeIcon icon={faTimes} className='errado' />
+                            )}
+                            {pergunta.numero}- {pergunta.pergunta}
+                            <br /><br />
+                            {pergunta.opcoes.map((opcao, opcaoIndex) => (
+                                <p key={opcaoIndex} className={pergunta.resposta === String.fromCharCode(97 + opcaoIndex) ? 'correct-answer' : (pergunta.usuario === String.fromCharCode(97 + opcaoIndex) ? 'wrong-answer' : '')}>{opcao}</p>
+                            ))}
+                            <br /><br />
+                            <pre>Explicação: {pergunta.explicacao}</pre>
+                            <br />
+                        </div>
+                    ))}
                 </div>
             </div>
-            
+
             <div className='botoes'>
                 <div className='botoes-centro'>
                     <button className='botao' onClick={Voltar}>Novo Simulado</button>

@@ -7,19 +7,16 @@ const ConfirmPage = () => {
   const { publicRuntimeConfig } = getConfig();
 
   useEffect(() => {
-    // Função para confirmar o registro
     const confirmRegistration = async (token) => {
       try {
-        // Configurações da requisição
         const requestOptions = {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify({ token }) // Passando o token no corpo da requisição
+          body: JSON.stringify({ token })
         };
-
-        // Fazendo a requisição para a rota "/confirm"
+        
         const response = await fetch(`${publicRuntimeConfig.serverUrl}/confirm`, requestOptions);
         if (!response.ok) {
           throw new Error('Erro ao confirmar registro');
@@ -34,7 +31,6 @@ const ConfirmPage = () => {
       }
     };
 
-    // Captura o token da URL ao carregar a página
     const { token } = router.query;
     if (token) {
       confirmRegistration(token);

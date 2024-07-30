@@ -9,7 +9,6 @@
     gap: 5px;
     background-color: var(--container);
     border-radius: 5px;
-    
 }
 
 .nav p{
@@ -72,7 +71,6 @@
     background-color: var(--azul) !important;
     color: white;
 }
-
 
 .nav .link-nav{
     font-family: var(--destaque);
@@ -142,9 +140,6 @@
     background-color: var(--azul);
     color: white;
 }
-
-
-
 
 @media (max-width:900px){
     #nav{

@@ -12,7 +12,7 @@ import Nav from "@/components/nav/nav";
 export default function TextoCorrigido() {
     useAuthentication();
     const { publicRuntimeConfig } = getConfig();
-    const [texto, setTexto] = useState(""); // Estado para armazenar o texto corrigido
+    const [texto, setTexto] = useState("");
     const [copySuccess, setCopySuccess] = useState('');
 
     useEffect(() => {
@@ -20,10 +20,9 @@ export default function TextoCorrigido() {
             try {
                 const response = await axios.get(`${publicRuntimeConfig.serverUrl}/correcao`);
                 console.log(response.data);
-                setTexto(response.data); // Define o texto corrigido no estado
+                setTexto(response.data);
             } catch (error) {
                 console.error('Erro ao buscar o texto corrigido:', error);
-                // Trate os erros conforme necessário
             }
         }
         fetchCorrecao();
@@ -32,17 +31,16 @@ export default function TextoCorrigido() {
     const processText = (text) => {
         const regex = /\*\*(.*?)\*\*/g;
         const parts = text.split(regex);
-        let hasRedText = false; // Variável para verificar se há texto em vermelho
+        let hasRedText = false;
 
         const processedText = parts.map((part, index) => {
-            if (index % 2 === 1) { // índice ímpar, significa que está entre **
-                hasRedText = true; // Há texto em vermelho
+            if (index % 2 === 1) {
+                hasRedText = true;
                 return <span key={index} style={{ color: 'red' }}>{part}</span>;
             }
-            return part; // índice par, texto normal
+            return part;
         });
 
-        // Se não houver texto em vermelho, mostra a mensagem
         if (!hasRedText) {
             return <p>Este texto não possui erros ortográficos.</p>;
         }
@@ -57,7 +55,6 @@ export default function TextoCorrigido() {
 
         document.addEventListener('click', handleClick);
 
-        // Cleanup event listener on component unmount
         return () => {
             document.removeEventListener('click', handleClick);
         };
@@ -65,24 +62,24 @@ export default function TextoCorrigido() {
 
     const copyToClipboard = async () => {
         try {
-          const textToCopy = document.getElementById('targetId').innerText;
-          await navigator.clipboard.writeText(textToCopy);
-          setCopySuccess('Copiado para a área de transferência!');
+            const textToCopy = document.getElementById('targetId').innerText;
+            await navigator.clipboard.writeText(textToCopy);
+            setCopySuccess('Copiado para a área de transferência!');
         } catch (err) {
-          setCopySuccess('Falha ao copiar!');
+            setCopySuccess('Falha ao copiar!');
         }
-      };
+    };
 
     return (
         <div className="gabarito">
-            <Title/>
-            <Nav/>
+            <Title />
+            <Nav />
             <div className='header-gabarito'>
-            <img className='img-ia' src='/IAgabarito.png' alt='imagem de inteligência artificial'/>
-            <div className='text-gabarito' id='nota'>
+                <img className='img-ia' src='/IAgabarito.png' alt='imagem de inteligência artificial' />
+                <div className='text-gabarito' id='nota'>
                     <h2>Correção:</h2>
                 </div>
-                
+
             </div>
             <div className="questoes">
                 <div className="container-copiar">

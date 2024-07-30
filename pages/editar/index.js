@@ -49,15 +49,15 @@ export default function Editar() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setTemas(false);
-        
-        if ((novoNome && novoNome !== nome) || 
-            (novoNivel && novoNivel !== nivel) || 
-            (novoCurso && novoCurso !== curso)){
-                setLoading(true);
+
+        if ((novoNome && novoNome !== nome) ||
+            (novoNivel && novoNivel !== nivel) ||
+            (novoCurso && novoCurso !== curso)) {
+            setLoading(true);
             try {
                 const response = await axios.post(`${publicRuntimeConfig.serverUrl}/editar`, { email, novoNome, novoNivel, novoCurso });
                 const resposta = response.data;
-                
+
                 if ((novoNome && novoNome !== nome)) {
                     localStorage.setItem('nome', novoNome);
                     setNome(novoNome);
@@ -73,10 +73,10 @@ export default function Editar() {
                     setCurso(novoCurso);
                     setNovoCurso('');
                 }
-                if ((novoNivel === 'Ensino fundamental') || (novoNivel === 'Ensino médio') || (novoNivel === 'Pré-vestibular')){
+                if ((novoNivel === 'Ensino fundamental') || (novoNivel === 'Ensino médio') || (novoNivel === 'Pré-vestibular')) {
                     localStorage.removeItem('curso');
                 }
-                if((novoNivel && novoNivel !== nivel) || (novoCurso && novoCurso !== curso)){
+                if ((novoNivel && novoNivel !== nivel) || (novoCurso && novoCurso !== curso)) {
                     localStorage.removeItem('temas');
                     setTemas(true);
                 }
@@ -85,28 +85,25 @@ export default function Editar() {
                 alert('Dados atualizados com suscesso!');
                 setLoading(false);
                 console.log(resposta);
-                
+
             } catch (err) {
                 console.error('Falha ao enviar o email!', err);
             }
         } else {
             alert('Insira algum dado para editar!')
         }
-        
+
     }
-
-   
-
 
     return (
         <div className="simulado">
-            <Title/>
+            <Title />
             <div className="container">
                 <Nav />
                 <div className="container-interger">
                     <div className='editar'>
                         <h2>Preencha somente os campos que deseja editar.</h2>
-                        <br/>
+                        <br />
                         <form onSubmit={handleSubmit}>
                             <p className="email-editar">Email: {email}</p>
                             <br />
@@ -120,14 +117,14 @@ export default function Editar() {
                             </label>
                             <br /><br />
                             <p>Nível de escolaridade: {nivel}</p>
-                            <label>Novo nível: 
+                            <label>Novo nível:
                                 <select
                                     value={novoNivel}
                                     onChange={(e) => {
                                         setNovoNivel(e.target.value);
                                         if ((e.target.value === "Ensino técnico") || (e.target.value === "Ensino superior")) {
                                             setShowCurso(true); setRequired(true);
-                                        } else if(e.target.value === ''){
+                                        } else if (e.target.value === '') {
                                             setRequired(false);
                                         } else { setShowCurso(false); setRequired(false); setNovoCurso(''); }
                                     }}>
@@ -153,13 +150,13 @@ export default function Editar() {
                             </div>
                             }
                             <button type="submit" disabled={loading} >{loading ? 'Editando...' : 'Editar'}</button>
-                        </form><br/><br/>
+                        </form><br /><br />
                         <Link href='/trocarsenha'>Alterar Senha</Link>
-                        {(temas) &&<div><SaveTemas/> </div>}
+                        {(temas) && <div><SaveTemas /> </div>}
                     </div>
                 </div>
             </div>
-            
+
         </div>
     )
 }

@@ -1,7 +1,6 @@
 import Head from "next/head";
 
 export default function Title(){
-    //alteração do nome do projeto
     return(
         <Head>
             <title>EstudAI</title>

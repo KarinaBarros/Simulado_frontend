@@ -37,7 +37,7 @@ const useAuthentication = () => {
     checkToken();
   }, [router]);
 
-  return null; // O hook não renderiza nada
+  return null; 
 };
 
 export default useAuthentication;

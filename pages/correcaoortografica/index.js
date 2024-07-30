@@ -43,7 +43,6 @@ export default function Ortografia() {
 
     document.addEventListener('click', handleClick);
 
-    // Cleanup event listener on component unmount
     return () => {
       document.removeEventListener('click', handleClick);
     };
@@ -51,13 +50,10 @@ export default function Ortografia() {
 
   const paste = async () => {
     try {
-      // Solicita permissão para acessar a área de transferência
       await navigator.permissions.query({ name: 'clipboard-read' });
 
-      // Lê o texto da área de transferência
       const text = await navigator.clipboard.readText();
 
-      // Cola o texto no textarea
       document.getElementById('targetId').value += text;
       setOrtografia(prevOrtografia => prevOrtografia + text);
 
@@ -81,7 +77,7 @@ export default function Ortografia() {
             <div className='container-interger'>
               <div className='interger-top'>
                 <div>
-                <h1 className="cores orientacao">Correção Ortográfica</h1>
+                  <h1 className="cores orientacao">Correção Ortográfica</h1>
                 </div>
                 <p className="descricao">Escreva ou cole seu texto aqui. A inteligência artificial vai corrigir a ortografia.</p>
               </div>

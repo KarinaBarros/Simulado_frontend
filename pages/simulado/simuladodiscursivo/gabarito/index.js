@@ -30,7 +30,7 @@ export default function GabaritoDiscursivo() {
     useEffect(() => {
         async function fetchSimulado() {
             try {
-                setIsLoading(true);  // Inicia o carregamento
+                setIsLoading(true);
                 const response = await axios.get(`${publicRuntimeConfig.serverUrl}/gabaritoDiscursivo`);
                 console.log(response.data);
                 setGabarito(response.data);
@@ -39,7 +39,7 @@ export default function GabaritoDiscursivo() {
             } catch (error) {
                 console.error('Erro ao buscar o gabarito:', error);
             } finally {
-                setIsLoading(false);  // Termina o carregamento
+                setIsLoading(false);
             }
         }
         fetchSimulado();
@@ -65,7 +65,7 @@ export default function GabaritoDiscursivo() {
         const notaElement = document.getElementById('nota');
         const gabaritoElement = document.getElementById('gabarito');
         const notaOriginalStyle = notaElement.style.marginLeft;
-        notaElement.style.marginLeft = '350px'; 
+        notaElement.style.marginLeft = '350px';
         const tempElement = document.createElement('div');
         tempElement.appendChild(notaElement.cloneNode(true));
         tempElement.appendChild(gabaritoElement.cloneNode(true));
@@ -78,26 +78,26 @@ export default function GabaritoDiscursivo() {
             .answer { display: block; }
         `;
         tempElement.appendChild(style);
-    
+
         const doc = new jsPDF('p', 'pt', 'a4');
 
         let margin;
         const screenWidth = window.innerWidth;
         let windowWidth;
 
-        if (screenWidth <= 900){
-            margin = [10, 10 ,10, 10];
+        if (screenWidth <= 900) {
+            margin = [10, 10, 10, 10];
             windowWidth = 1000;
-        } else{
+        } else {
             margin = [10, 10, 10, -120];
             windowWidth = 1400;
         }
-    
+
         await doc.html(tempElement, {
             callback: function (doc) {
                 doc.save('gabarito.pdf');
             },
-            margin: margin, 
+            margin: margin,
             x: 10,
             y: 10,
             width: 600,
@@ -115,7 +115,6 @@ export default function GabaritoDiscursivo() {
     return (
         <>
             <Title />
-            
             <div className={`loading-gabarito ${isLoading ? 'loading' : ''}`}>
                 {isLoading ? (
                     <div className='container_loading'>
@@ -124,7 +123,7 @@ export default function GabaritoDiscursivo() {
                     </div>
                 ) : (
                     <div className="gabarito">
-                        <Nav/>
+                        <Nav />
                         <div className='header-gabarito'>
                             <img className='img-ia' src={nota < 6 ? '/negativo.png' : '/positivo.png'} alt='imagem de inteligência artificial' />
                             <div className='text-gabarito' id='nota'>
@@ -133,10 +132,10 @@ export default function GabaritoDiscursivo() {
                                 <p className={nota < 6 ? 'wrong-answer' : 'correct-answer'}>Nota: {nota} de 10</p>
                             </div>
                             <div className='quadrados-gabarito'>
-                        {gabarito.slice(0, -1).map((pergunta, index) => (
-                            <div key={index} className={`quadrado-gabarito ${pergunta.correcao.toLowerCase() === 'certo' ? 'quadrado-certo' : pergunta.correcao.toLowerCase() === 'errado' ? 'quadrado-errado' : 'quadrado-meio' }`}></div>
-                        ))}    
-                    </div>
+                                {gabarito.slice(0, -1).map((pergunta, index) => (
+                                    <div key={index} className={`quadrado-gabarito ${pergunta.correcao.toLowerCase() === 'certo' ? 'quadrado-certo' : pergunta.correcao.toLowerCase() === 'errado' ? 'quadrado-errado' : 'quadrado-meio'}`}></div>
+                                ))}
+                            </div>
                         </div>
                         <div id='gabarito'>
                             {gabarito.slice(0, -1).map((item) => (

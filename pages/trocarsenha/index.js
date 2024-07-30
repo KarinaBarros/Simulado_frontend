@@ -19,7 +19,7 @@ export default function ForgotPassword() {
     } catch (error) {
       alert('Email não encontrado!');
     } finally {
-      setLoading(false); // Desativar o estado de carregamento, independentemente do resultado
+      setLoading(false);
     }
   };
 

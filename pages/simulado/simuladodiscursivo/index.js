@@ -65,26 +65,26 @@ export default function SimuladoDiscursivo() {
 
   return (
     <div className="container-simulado">
-      <Title/>
-      <Nav/>
+      <Title />
+      <Nav />
       <div className="header">
-        <img src="/IA.png" className="img-IA" alt="robozinho de inteligência artificial"/>
+        <img src="/IA.png" className="img-IA" alt="robozinho de inteligência artificial" />
         <div className="text-header">
           <h2>Simulado</h2>
           <p>{tema}</p>
         </div>
         <div className="quadrados">
-        {simulado.map((pergunta, index) => (
-          <div key={index} className={`quadrado ${respostas[pergunta.numero] ? 'quadrado-ativo' : ''}`}></div>
-        ))}
+          {simulado.map((pergunta, index) => (
+            <div key={index} className={`quadrado ${respostas[pergunta.numero] ? 'quadrado-ativo' : ''}`}></div>
+          ))}
+        </div>
       </div>
-      </div>
-      
+
       <form onSubmit={handleSubmit}>
         {simulado.map((pergunta, index) => (
           <div key={index} className="questions">
             <p>{pergunta.numero} - {pergunta.pergunta}</p>
-            <br/>
+            <br />
             <div className="options">
               <label className='option-label'>
                 <textarea
@@ -98,7 +98,7 @@ export default function SimuladoDiscursivo() {
                 />
               </label>
             </div>
-            <br/>
+            <br />
           </div>
         ))}
         <div className="button">

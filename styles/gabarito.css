@@ -52,8 +52,6 @@
     color: var(--rosa);
 }
 
-
-
 .quadrados-gabarito{
     position: fixed;
     right: 40px;
@@ -146,7 +144,6 @@
 
 .botoes{
     display: flex;
-   
 }
 
 .botoes-centro{
@@ -154,7 +151,6 @@
     display: flex;
     gap: 20px;
     padding-left: 285px;
-    
 }
 
 .botao{
@@ -169,7 +165,6 @@
     margin: auto;
     cursor: pointer;
     padding: 0 30px;
-    
 }
 
 pre{
@@ -194,7 +189,6 @@ pre{
     font-size: 20px;
     font-family: var(--fonte);
     cursor: pointer;
-    
 }
 
 .icon-copiar{
@@ -249,7 +243,6 @@ pre{
         margin: -50px 0 0 -10px;
     }
     .quadrados-gabarito{
-        
         top: 0;
         right: 70px;
     }
@@ -274,7 +267,6 @@ pre{
   }
 
 @media (min-width:721px) and (max-width:900px){
-   
     .questoes{
         margin: 20px;
         padding: 10px;

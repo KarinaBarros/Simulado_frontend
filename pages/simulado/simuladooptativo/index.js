@@ -18,24 +18,23 @@ export default function SimuladoOptativo() {
   const [quadradosAtivos, setQuadradosAtivos] = useState(Array(10).fill(false));
 
   useEffect(() => {
-      const tema = localStorage.getItem('tema');
-      setTema(tema ? tema : '');
+    const tema = localStorage.getItem('tema');
+    setTema(tema ? tema : '');
   }, []);
 
-    useEffect(() => {
-        async function fetchSimulado() {
-          setLoading(true);
-            try {
-                const response = await axios.get(`${publicRuntimeConfig.serverUrl}/simulado`);
-                console.log('Simulado:', response.data);
-                setSimulado(response.data);
-            } catch (error) {
-                console.error('Erro ao buscar o gabarito:', error);
-                // Trate os erros conforme necessário
-            }
-        }
-        fetchSimulado();
-    }, []);
+  useEffect(() => {
+    async function fetchSimulado() {
+      setLoading(true);
+      try {
+        const response = await axios.get(`${publicRuntimeConfig.serverUrl}/simulado`);
+        console.log('Simulado:', response.data);
+        setSimulado(response.data);
+      } catch (error) {
+        console.error('Erro ao buscar o gabarito:', error);
+      }
+    }
+    fetchSimulado();
+  }, []);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -50,7 +49,7 @@ export default function SimuladoOptativo() {
       });
     } catch (error) {
       console.error('Erro ao enviar os dados:', error);
-      localStorage.removeItem('tema');   
+      localStorage.removeItem('tema');
     } finally {
       setLoading(false);
     }
@@ -63,39 +62,39 @@ export default function SimuladoOptativo() {
       return newState;
     });
   };
-  
-  
+
+
 
   return (
     <div className="container-simulado">
-      <Title/>
-      <Nav/>
+      <Title />
+      <Nav />
       <div className="header">
-        <img src="/IA.png" className="img-IA" alt="robozinho de inteligência artificial"/>
+        <img src="/IA.png" className="img-IA" alt="robozinho de inteligência artificial" />
         <div className="text-header">
           <h2>Simulado:</h2>
           <p>{tema}</p>
         </div>
         <div className="quadrados">
-        {simulado.map((_, index) => (
-          <div key={index} className={`quadrado ${quadradosAtivos[index] ? 'quadrado-ativo' : ''}`}></div>
-        ))}
+          {simulado.map((_, index) => (
+            <div key={index} className={`quadrado ${quadradosAtivos[index] ? 'quadrado-ativo' : ''}`}></div>
+          ))}
         </div>
       </div>
       <form onSubmit={handleSubmit}>
-        
+
         {simulado.map((pergunta, index) => (
           <div key={index} className="questions">
             <p> {pergunta.numero}- {pergunta.pergunta}</p>
-            <br/>
+            <br />
             <div className="options">
               {pergunta.opcoes.map((opcao, opcaoIndex) => (
                 <label key={opcaoIndex} className='option-label' >
-                  <input type="radio"  className="option-radio" value={opcao} name={pergunta.numero} onChange={() => quadradoAtivo(index)} required/> {opcao}
+                  <input type="radio" className="option-radio" value={opcao} name={pergunta.numero} onChange={() => quadradoAtivo(index)} required /> {opcao}
                 </label>
               ))}
             </div>
-            <br/>
+            <br />
           </div>
         ))}
         <div className="button">

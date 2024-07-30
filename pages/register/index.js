@@ -17,7 +17,7 @@ const Register = () => {
   const [curso, setCurso] = useState('');
   const { publicRuntimeConfig } = getConfig();
   const [loading, setLoading] = useState(false);
-  const [validacao, setValidacao] =useState('none');
+  const [validacao, setValidacao] = useState('none');
   const [validations, setValidations] = useState({
     length: false,
     uppercase: false,
@@ -26,12 +26,10 @@ const Register = () => {
     number: false
   });
 
-  // Atualiza o estado de curso com base no preenchimento de nivel
   const handleNivelChange = (event) => {
     const newNivel = event.target.value;
     setNivel(newNivel);
 
-    // Verifica se nivel é "Ensino fundamental", "Ensino médio" ou vazio
     if (newNivel.trim().toLowerCase() === 'ensino fundamental' ||
       newNivel.trim().toLowerCase() === 'ensino médio' ||
       newNivel.trim().toLowerCase() === 'pré-vestibular' ||
@@ -153,7 +151,7 @@ const Register = () => {
               onFocus={() => setValidacao('flex')}
               onBlur={() => setValidacao('none')}
             />
-            <div className='validacao' style={{display: validacao}}>
+            <div className='validacao' style={{ display: validacao }}>
               <span style={{ backgroundColor: validations.length ? 'var(--verde)' : 'var(--rosa)' }}>Pelo menos 8 caracteres</span>
               <span style={{ backgroundColor: validations.uppercase ? 'var(--verde)' : 'var(--rosa)' }}>Pelo menos uma letra maiúscula</span>
               <span style={{ backgroundColor: validations.lowercase ? 'var(--verde)' : 'var(--rosa)' }}>Pelo menos uma letra minúscula</span>
@@ -167,12 +165,12 @@ const Register = () => {
               value={confirmSenha}
               onChange={handleConfirmSenhaChange}
               maxLength={20}
-            />            
+            />
             <label>
               <input type='checkbox' required />
               Concordo com a <Link href='/politica'>política de uso.</Link>
             </label>
-            
+
             <button type="submit" disabled={!isValid || senha !== confirmSenha}>{loading ? 'Register' : 'Register'}</button>
           </form>
         </div>

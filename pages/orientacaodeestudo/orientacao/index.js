@@ -13,7 +13,7 @@ import Nav from "@/components/nav/nav";
 export default function Orientacao() {
     useAuthentication();
     const { publicRuntimeConfig } = getConfig();
-    const [texto, setTexto] = useState(""); // Estado para armazenar o texto corrigido
+    const [texto, setTexto] = useState("");
     const [copySuccess, setCopySuccess] = useState('');
 
     useEffect(() => {
@@ -21,10 +21,9 @@ export default function Orientacao() {
             try {
                 const response = await axios.get(`${publicRuntimeConfig.serverUrl}/orientacao`);
                 console.log(response.data);
-                setTexto(response.data); // Define o texto corrigido no estado
+                setTexto(response.data);
             } catch (error) {
                 console.error('Erro ao buscar a orientação de estudos:', error);
-                // Trate os erros conforme necessário
             }
         }
         fetchCorrecao();
@@ -37,7 +36,6 @@ export default function Orientacao() {
 
         document.addEventListener('click', handleClick);
 
-        // Cleanup event listener on component unmount
         return () => {
             document.removeEventListener('click', handleClick);
         };
@@ -66,10 +64,10 @@ export default function Orientacao() {
 
     return (
         <div className="gabarito">
-            <Title/>
-            <Nav/>
+            <Title />
+            <Nav />
             <div className='header-gabarito'>
-            <img className='img-ia' src='/IAgabarito.png' alt='imagem de inteligência artificial'/>
+                <img className='img-ia' src='/IAgabarito.png' alt='imagem de inteligência artificial' />
                 <div className='text-gabarito' id='nota'>
                     <h2>Orientação de estudo:</h2>
                 </div>
