@@ -1,2 +1,5 @@
 # Simulado_front
- Front end do site simulado em next.js
+ Front end do site estudAI em next.js
+
+ [link para o backend](https://github.com/KarinaBarros/Simulado_backend)
+ [link para o app](https://estudai-beta.vercel.app/)
