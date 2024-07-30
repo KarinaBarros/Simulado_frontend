@@ -75,7 +75,6 @@ const Register = () => {
 
     try {
       const response = await axios.post(`${publicRuntimeConfig.serverUrl}/register`, { nome, email, senha, nivel, curso });
-      console.log(response.data);
       alert('Enviamos um email com um link para a confirmação do cadastro, se não encontrar verifique a caixa de span!')
     } catch (error) {
       console.error('Erro:', error.response.data.error);

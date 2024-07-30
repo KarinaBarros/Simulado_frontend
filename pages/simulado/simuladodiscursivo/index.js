@@ -27,7 +27,6 @@ export default function SimuladoDiscursivo() {
       setLoading(true);
       try {
         const response = await axios.get(`${publicRuntimeConfig.serverUrl}/simuladoDiscursivo`);
-        console.log('Simulado:', response.data);
         setSimulado(response.data);
       } catch (error) {
         console.error('Erro ao buscar o gabarito:', error);

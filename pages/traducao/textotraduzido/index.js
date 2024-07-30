@@ -20,7 +20,6 @@ export default function TextoTraduzido() {
         async function fetchCorrecao() {
             try {
                 const response = await axios.get(`${publicRuntimeConfig.serverUrl}/textotraduzido`);
-                console.log(response.data);
                 setTexto(response.data);
             } catch (error) {
                 console.error('Erro ao buscar o texto corrigido:', error);

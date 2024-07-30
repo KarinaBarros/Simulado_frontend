@@ -42,8 +42,6 @@ export default function Gabarito() {
         async function fetchGabarito() {
             try {
                 const response = await axios.get(`${publicRuntimeConfig.serverUrl}/gabarito`);
-                console.log('Gabarito:', response.data.respostas);
-                console.log('Nota:', response.data.nota);
                 setNota(response.data.nota);
                 setGabarito(response.data.respostas);
             } catch (error) {

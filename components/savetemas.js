@@ -35,7 +35,6 @@ export default function SaveTemas() {
           
           const response = await axios.post(`${publicRuntimeConfig.serverUrl}/temas`, { curso, nivel });
           const temas = response.data;
-          console.log(temas);
           localStorage.setItem('temas', JSON.stringify(temas));
         } catch (error) {
           console.error('Erro ao enviar os dados:', error);

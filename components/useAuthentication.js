@@ -21,7 +21,6 @@ const useAuthentication = () => {
 
       try {
         await axios.get(`${publicRuntimeConfig.serverUrl}/protected`);
-        console.log('Autenticação bem-sucedida');
       } catch (error) {
         console.error('Erro na autenticação', error);
         localStorage.removeItem('token');

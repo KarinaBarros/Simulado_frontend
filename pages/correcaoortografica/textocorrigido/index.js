@@ -19,7 +19,6 @@ export default function TextoCorrigido() {
         async function fetchCorrecao() {
             try {
                 const response = await axios.get(`${publicRuntimeConfig.serverUrl}/correcao`);
-                console.log(response.data);
                 setTexto(response.data);
             } catch (error) {
                 console.error('Erro ao buscar o texto corrigido:', error);

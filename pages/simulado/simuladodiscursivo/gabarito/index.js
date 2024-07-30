@@ -32,7 +32,6 @@ export default function GabaritoDiscursivo() {
             try {
                 setIsLoading(true);
                 const response = await axios.get(`${publicRuntimeConfig.serverUrl}/gabaritoDiscursivo`);
-                console.log(response.data);
                 setGabarito(response.data);
                 const totalNota = response.data[response.data.length - 1].notaTotal;
                 setNota(totalNota);

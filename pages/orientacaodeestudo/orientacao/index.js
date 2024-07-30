@@ -20,7 +20,7 @@ export default function Orientacao() {
         async function fetchCorrecao() {
             try {
                 const response = await axios.get(`${publicRuntimeConfig.serverUrl}/orientacao`);
-                console.log(response.data);
+                
                 setTexto(response.data);
             } catch (error) {
                 console.error('Erro ao buscar a orientação de estudos:', error);

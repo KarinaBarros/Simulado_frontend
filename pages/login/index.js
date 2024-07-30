@@ -21,7 +21,6 @@ const Login = () => {
     try {
       const response = await axios.post(`${publicRuntimeConfig.serverUrl}/login`, { email, senha });
       const { token, nome, nivel, curso } = response.data;
-      console.log('login efetuado');
       localStorage.setItem('token', token);
       localStorage.setItem('email', email);
       localStorage.setItem('nome', nome);

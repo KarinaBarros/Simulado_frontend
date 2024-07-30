@@ -27,7 +27,6 @@ export default function SimuladoOptativo() {
       setLoading(true);
       try {
         const response = await axios.get(`${publicRuntimeConfig.serverUrl}/simulado`);
-        console.log('Simulado:', response.data);
         setSimulado(response.data);
       } catch (error) {
         console.error('Erro ao buscar o gabarito:', error);

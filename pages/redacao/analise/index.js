@@ -20,7 +20,7 @@ export default function Analise() {
         async function fetchCorrecao() {
             try {
                 const response = await axios.get(`${publicRuntimeConfig.serverUrl}/analise`);
-                console.log(response.data);
+               
                 setTexto(response.data.comentario);
                 setNota(response.data.nota);
             } catch (error) {

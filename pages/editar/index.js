@@ -84,7 +84,6 @@ export default function Editar() {
 
                 alert('Dados atualizados com suscesso!');
                 setLoading(false);
-                console.log(resposta);
 
             } catch (err) {
                 console.error('Falha ao enviar o email!', err);
