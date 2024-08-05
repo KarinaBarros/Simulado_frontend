@@ -66,7 +66,7 @@ export default function Nav() {
                             <FontAwesomeIcon className="icon-nav" icon={expandVisible ? faChevronUp : faChevronDown}></FontAwesomeIcon>{userName}
                         </button>
                         <div className="expand" style={{ display: expandVisible ? 'flex' : 'none' }}>
-                            <Link href='editar' className="link-expand"><FontAwesomeIcon className="icon-nav" icon={faCog}></FontAwesomeIcon> Editar</Link>
+                            <Link href='/editar' className="link-expand"><FontAwesomeIcon className="icon-nav" icon={faCog}></FontAwesomeIcon> Editar</Link>
                             <button className='button-expand' onClick={logout} title="Sair">&nbsp;<FontAwesomeIcon className="icon-nav" icon={faTimes} /> Sair</button>
                         </div>
                     </div>
